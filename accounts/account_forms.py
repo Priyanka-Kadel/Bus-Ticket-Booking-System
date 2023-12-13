@@ -1,4 +1,5 @@
 from django import forms
+from django.shortcuts import redirect,render
 from django.contrib.auth.models import User
 
 class RegisterForm(forms.Form):
@@ -10,7 +11,8 @@ class RegisterForm(forms.Form):
     
     def clean_username(self):
         if User.objects.filter(username=self.cleaned_data.get("username")).exists():
-            raise forms.ValidationError("Username already exists")
+            # messages.error(request,"The username you entered is already taken, try another username")
+            return redirect ()
         return self.cleaned_data.get("username").strip()
     
     # def clean_contact_number(self):
@@ -32,7 +34,4 @@ class LoginForm(forms.Form):
     def clean_username(self):
         return self.cleaned_data.get("username").strip()
         
-    def clean(self):
-        if User.objects.filter(username=self.cleaned_data.get("username"),password=self.cleaned_data.get("password")):
-            raise forms.ValidationError("Invalid username or password")
-        return super().clean()
+    

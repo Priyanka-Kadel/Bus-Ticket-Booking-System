@@ -18,6 +18,8 @@ def register_view(request):
             print(register_form.errors)
         print (form_data.errors)
 
+        # messages.error(request,"The username you entered is already taken, try another username")
+
     return render(request,"account/register.html")
 
 def login_view(request):
@@ -26,7 +28,7 @@ def login_view(request):
         data = request.POST
         form_data = register_form(data)
         if form_data.is_valid():
-            return redirect("home")
+            return redirect("admin")
         else:
             print(register_form.errors)
         print (form_data.errors)
@@ -35,3 +37,20 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return render(request, 'account/login.html')
+
+def home(request):
+    return render(request, 'home.html')
+
+def admin_pannel_view(request):
+    return render(request, 'admin_pannel.html')
+
+# def your_view(request):
+#     # Your view logic here
+
+#     # Example for displaying an error message
+#     messages.error(request, 'An error occurred.')
+
+#     # Example for displaying a success message
+#     messages.success(request, 'Registration successful.')
+
+#     return render(request, 'registration.html')

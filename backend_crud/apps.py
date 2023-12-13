@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class HomeviewConfig(AppConfig):
+class BackendCrudConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'homeview'
+    name = 'backend_crud'

@@ -20,9 +20,11 @@ color: white;
 size: 15px;
 }
 
-h2{
-text-align: center;
+.registration-container h2 {
+    text-align: center;
+    color: white ;
 }
+
 
 .login-container {
 background-color: none;
@@ -58,7 +60,7 @@ border-block: bold;
 
 button {
 padding: 10px;
-background-color: #007bff;
+background-color: #3d91ff;
 color: #fff;
 border: none;
 border-radius: 17px;
