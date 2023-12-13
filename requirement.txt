@@ -1,4 +1,12 @@
 asgiref==3.7.2
+distlib==0.3.7
 Django==5.0
+django-adminlte-3==0.1.6
+filelock==3.13.1
+Pillow==10.1.0
+platformdirs==4.1.0
+setuptools==69.0.2
 sqlparse==0.4.4
 tzdata==2023.3
+virtualenv==20.25.0
+wheel==0.42.0
