@@ -1,0 +1,184 @@
+/* Reset styles for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+/* Apply styles to the entire body */
+body {
+    overflow: hidden;
+}
+
+/* Main section containing background image and slogan */
+.main {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.40)), url('/media/logo.jpg');
+    height: 100vh;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.logo-container {
+    position: absolute;
+    top: -55px;
+    left: 10px;
+    z-index: 1000;
+}
+
+.logo {
+    max-width: 400px;
+    height: auto;
+}
+
+
+/* Navigation bar styles */
+.navbar {
+    width: 85%;
+    margin: auto;
+    padding: 38px 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-left: 140px;
+}
+/* Navigation links in the navigation bar */
+.navbar ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 10px 20px;
+    position: relative;
+    font-size: 20.3px;
+    text-shadow: 0 4px 8px rgb(29, 29, 29);
+}
+
+
+/* Styling for navigation links */
+.navbar ul li a {
+    text-decoration: none;
+    color: #f2f2f2;
+    transition: color 0.5s;
+}
+/* Styling for the "Admin?" link */
+.navbar ul li:nth-child(5) a {
+    color: #20c98b;
+    transition: none; 
+}
+
+/* Styling for the line beneath the navigation link on hover */
+.navbar ul li::after {
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #14b97c;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+/* Increase width of line beneath navigation link on hover */
+.navbar ul li:hover::after {
+    width: 100%;
+}
+/* Remove hover effect for the "Admin?" link */
+.navbar ul li:nth-child(5):hover::after {
+    width: 0;
+}
+/* Change color of navigation link on hover */
+.navbar ul li a:hover {
+    color: #04AA6D;
+}
+/* Slogan section styling */
+.slogan {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #fff;
+    padding: 0 20px;
+    font-size: 5em;
+}
+
+/* Styling for the heading in the slogan section */
+.slogan h2 {
+    font-size: 75px;
+    margin-top: 50px;
+    color: #d5f5fc;
+    text-shadow: 2px 2px 4px rgba(125, 120, 120, 1.2);
+}
+
+/* Styling for the paragraph in the slogan section */
+.slogan p {
+    margin: 20px auto;
+    font-weight: 100;
+    line-height: 25px;
+    font-size: 16.5px;
+    color: #d5f5fc;
+    text-shadow: 2px 2px 4px rgb(179, 178, 178,1.2);
+}
+
+/* Styling for the button */
+button {
+    width: 200px;
+    height: 50px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: medium;
+    border: 2px solid #04AA6D;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Styling for the footer panel */
+.footer-panel {
+    width: 100%;
+    text-align: center;
+    padding: 7px;
+    position: fixed;
+    bottom: -20px;
+    left: 0;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Styling for text inside the footer panel */
+.footer-panel p {
+    color: #b4b4b4;
+    margin: 5px 0;
+}
+
+/* Styling for the animated span inside the button on hover */
+span {
+    background: #04AA6D;
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+/* Increase width of the animated span inside the button on hover */
+button:hover span {
+    width: 100%;
+}
+
+/* Change styles of button on hover */
+button:hover {
+    border: none;
+    color: rgb(35, 34, 34);
+}
