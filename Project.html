@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-{% load static %}
 <html>
     <head>
         <!-- Document title -->
         <title>Bus Ticket Booking</title>
         
         <!-- Link to external stylesheet -->
-        <link rel="stylesheet" href="{% static 'css/home.css' %}">
+        <link rel="stylesheet" href="Design.css">
     </head>
     <body>
         <!-- Main container -->
         <div class="main"></div>
         <div class="logo-container">
-            <img src='/media/logo.png' alt="Logo" class="logo">
+            <img src="logo.png" alt="Logo" class="logo">
         </div>
         
         <!-- Navigation bar -->
@@ -23,6 +22,8 @@
                 <li><a href="#">About</a></li>
                 <li><a href="#">How to book ticket?</a></li>
                 <li><a href="#">Services</a></li>
+                <li><a href="#">Admin?</a></li>
+                
             </ul>
         </div>
         <!-- Footer panel -->
@@ -40,9 +41,7 @@
             
             <!-- Button for booking tickets -->
             <div>
-                <form action="{% url 'booking' %}" method="get">
-                    <button type="submit" class="Book Ticket button"><span></span>Book Tickets</button>
-                </form>
+                <button class="Book Ticket button"><span></span>Book Tickets</button>
             </div>
         </div>
     </body>
