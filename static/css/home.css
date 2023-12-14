@@ -1,16 +1,15 @@
-/* Reset styles for all elements */
+/* Common styles for all screen sizes */
 * {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
 }
 
-/* Apply styles to the entire body */
 body {
     overflow: hidden;
 }
 
-/* Main section containing background image and slogan */
+/* Main section */
 .main {
     background-image: linear-gradient(rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30)), url('/media/bg.jpg');
     height: 100vh;
@@ -32,8 +31,7 @@ body {
     height: auto;
 }
 
-
-/* Navigation bar styles */
+/* Navigation bar */
 .navbar {
     width: 85%;
     margin: auto;
@@ -47,7 +45,7 @@ body {
     right: 0;
     padding-left: 140px;
 }
-/* Navigation links in the navigation bar */
+
 .navbar ul li {
     list-style: none;
     display: inline-block;
@@ -57,15 +55,12 @@ body {
     text-shadow: 0 4px 8px rgb(29, 29, 29);
 }
 
-
-/* Styling for navigation links */
 .navbar ul li a {
     text-decoration: none;
     color: #f2f2f2;
     transition: color 0.5s;
 }
 
-/* Styling for the line beneath the navigation link on hover */
 .navbar ul li::after {
     content: '';
     height: 3px;
@@ -76,15 +71,16 @@ body {
     bottom: -10px;
     transition: 0.5s;
 }
-/* Increase width of line beneath navigation link on hover */
+
 .navbar ul li:hover::after {
     width: 100%;
 }
-/* Change color of navigation link on hover */
+
 .navbar ul li a:hover {
     color: #04AA6D;
 }
-/* Slogan section styling */
+
+/* Slogan section */
 .slogan {
     width: 100%;
     position: absolute;
@@ -96,7 +92,6 @@ body {
     font-size: 5em;
 }
 
-/* Styling for the heading in the slogan section */
 .slogan h2 {
     font-size: 75px;
     margin-top: 50px;
@@ -104,17 +99,15 @@ body {
     text-shadow: 2px 2px 4px rgba(125, 120, 120, 1.2);
 }
 
-/* Styling for the paragraph in the slogan section */
 .slogan p {
     margin: 20px auto;
     font-weight: 100;
     line-height: 25px;
     font-size: 16.5px;
     color: #d5f5fc;
-    text-shadow: 2px 2px 4px rgb(179, 178, 178,1.2);
+    text-shadow: 2px 2px 4px rgb(179, 178, 178, 1.2);
 }
 
-/* Styling for the button */
 button {
     width: 200px;
     height: 50px;
@@ -132,25 +125,54 @@ button {
     overflow: hidden;
 }
 
-/* Styling for the footer panel */
+/* Responsive styles for all screen sizes */
+@media screen and (max-width: 768px) {
+    .navbar {
+        padding-left: 20px;
+    }
+
+    .navbar ul li {
+        font-size: 16px;
+        margin: 10px 10px;
+    }
+
+    .logo {
+        max-width: 150px;
+    }
+
+    .slogan h2 {
+        font-size: 40px;
+    }
+
+    .slogan p {
+        font-size: 14px;
+    }
+
+    button {
+        width: 150px;
+        height: 40px;
+        font-size: small;
+    }
+}
+
+/* Footer panel */
 .footer-panel {
     width: 100%;
     text-align: center;
     padding: 7px;
     position: fixed;
-    bottom: -20px;
+    bottom: 0;
     left: 0;
     height: 40px;
     background-color: rgba(0, 0, 0, 0.4);
+    margin-bottom: 20px;
 }
 
-/* Styling for text inside the footer panel */
 .footer-panel p {
     color: #b4b4b4;
     margin: 5px 0;
 }
 
-/* Styling for the animated span inside the button on hover */
 span {
     background: #04AA6D;
     height: 100%;
