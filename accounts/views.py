@@ -28,29 +28,19 @@ def login_view(request):
         data = request.POST
         form_data = register_form(data)
         if form_data.is_valid():
-            return redirect("admin")
+            return redirect("home")
         else:
             print(register_form.errors)
         print (form_data.errors)
     return render(request, "account/login.html")
 
-def logout_view(request):
-    logout(request)
-    return render(request, 'account/login.html')
+# def logout_view(request):
+#     logout(request)
+#     return render(request, 'account/login.html')
 
-def home(request):
+def home_view(request):
     return render(request, 'home.html')
 
-def admin_pannel_view(request):
-    return render(request, 'admin_pannel.html')
+def booking_view(request):
+    return render(request,"booking.html")
 
-# def your_view(request):
-#     # Your view logic here
-
-#     # Example for displaying an error message
-#     messages.error(request, 'An error occurred.')
-
-#     # Example for displaying a success message
-#     messages.success(request, 'Registration successful.')
-
-#     return render(request, 'registration.html')

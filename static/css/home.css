@@ -12,7 +12,7 @@ body {
 
 /* Main section containing background image and slogan */
 .main {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.40)), url('/media/logo.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30)), url('/media/bg.jpg');
     height: 100vh;
     width: 100%;
     background-position: center;
@@ -22,13 +22,13 @@ body {
 
 .logo-container {
     position: absolute;
-    top: -55px;
-    left: 10px;
+    top: 40px;
+    left: 50px;
     z-index: 1000;
 }
 
 .logo {
-    max-width: 400px;
+    max-width: 219px;
     height: auto;
 }
 
@@ -64,11 +64,6 @@ body {
     color: #f2f2f2;
     transition: color 0.5s;
 }
-/* Styling for the "Admin?" link */
-.navbar ul li:nth-child(5) a {
-    color: #20c98b;
-    transition: none; 
-}
 
 /* Styling for the line beneath the navigation link on hover */
 .navbar ul li::after {
@@ -84,10 +79,6 @@ body {
 /* Increase width of line beneath navigation link on hover */
 .navbar ul li:hover::after {
     width: 100%;
-}
-/* Remove hover effect for the "Admin?" link */
-.navbar ul li:nth-child(5):hover::after {
-    width: 0;
 }
 /* Change color of navigation link on hover */
 .navbar ul li a:hover {
@@ -182,3 +173,4 @@ button:hover {
     border: none;
     color: rgb(35, 34, 34);
 }
+

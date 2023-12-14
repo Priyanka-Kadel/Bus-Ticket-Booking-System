@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <!-- Document title -->
+        <title>Bus Ticket Booking</title>
+        
+        <!-- Link to external stylesheet -->
+        <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    </head>
+    <body>
+        <!-- Main container -->
+        <div class="main"></div>
+        <div class="logo-container">
+            <img src='/media/logo.png' alt="Logo" class="logo">
+        </div>
+        
+        <!-- Navigation bar -->
+        <div class="navbar">
+            <!-- Navigation links -->
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">How to book ticket?</a></li>
+                <li><a href="#">Services</a></li>
+            </ul>
+        </div>
+        <!-- Footer panel -->
+        <div class="footer-panel">
+            <p>&copy; 2023 SuvaYatra. All rights reserved.</p>
+        </div>
+        
+        <!-- Slogan section -->
+        <div class="slogan">
+            <!-- Heading for the slogan -->
+            <h2>Travel with Ease</h2>
+            
+            <!-- Description of the service -->
+            <p>Let's book your tickets, relaxing from your couch<br>using Suva Yatra.</p>
+            
+            <!-- Button for booking tickets -->
+            <div>
+                <form action="{% url 'booking' %}" method="get">
+                    <button type="submit" class="Book Ticket button"><span></span>Book Tickets</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
