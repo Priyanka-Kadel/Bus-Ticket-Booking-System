@@ -1,30 +1,46 @@
 from django.db import models
 
-# Create your models here.
-
 class BusStop(models.Model):
     stop_name = models.CharField(max_length=50)
     location = models.CharField(max_length=50)
+    def __str__(self):
+        return f"{self.stop_name} - {self.location}"
 
 class Route(models.Model):
     from_location = models.CharField(max_length=50)
     to_location = models.CharField(max_length=50)
     route_name = models.CharField(max_length=50)
     price = models.CharField(max_length=50)
-    stop = models.ForeignKey(BusStop, on_delete=models.CASCADE , null=True, blank=True)
+    def __str__(self):
+        return f"{self.from_location} - {self.to_location}"
 
 class Driver(models.Model):
     driver_name = models.CharField(max_length=50)
     driver_number = models.CharField(max_length=50)
     lisence_number = models.CharField(max_length=50)
+    def __str__(self):
+        return f"{self.driver_name}"
     
 class Bus(models.Model):
     bus_number = models.CharField(max_length=50)
     bus_picture = models.ImageField()
+    total_seat = models.IntegerField(default=0)
     driver = models.ForeignKey(Driver, on_delete=models.CASCADE)
+    def __str__(self):
+        return f"{self.bus_number}"
 
-class Shedule(models.Model):
+
+class Schedule(models.Model):
     bus = models.ForeignKey(Bus, on_delete=models.CASCADE)
     route = models.ForeignKey(Route, on_delete=models.CASCADE)
-    departure_time = models.TimeField()
-    arrival_time = models.TimeField()
+    departure_time = models.DateTimeField()
+    def __str__(self):
+        return f"{self.bus.bus_number} - {self.departure_time}"
+    
+class BusSeatStatus(models.Model):
+    seat_number = models.CharField(max_length=50)
+    available = models.BooleanField(default=True)
+    booked = models.BooleanField(default=False)
+    schedule = models.ForeignKey(Schedule, on_delete=models.CASCADE)
+    def __str__(self):
+        return f"{self.schedule.bus.bus_number} - {self.seat_number}"
