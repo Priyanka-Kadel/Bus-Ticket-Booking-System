@@ -33,30 +33,33 @@
         <div class="grey-panel">
             <!-- Selection container -->
             <div class="select-container">
-                <!-- Select box for 'From' -->
-                <select class="custom-select" style="width: 200px; height: 47px; margin-left: 20px;  margin-top: 10px;" name="from" required>
+                <form action ="{% url 'route' %}", method='POST' >
+                    {% csrf_token %}
+
+                    <!-- Select box for 'From' -->
+                <select class="custom-select" style="width: 200px; height: 47px; margin-left: 20px;  margin-top: 10px;" name="from_location" required>
                     <option value="" disabled selected hidden>From</option>
-                    <option value="Kathmandu">Kathmandu</option>
-                    <option value="Chitwan">Chitwan</option>
-                    <option value="Pokhara">Pokhara</option>
-                    <option value="Butwal">Butwal</option>
-                    <option value="Janakpur">Gorkha</option>
+                    {%for route in locations%}
+                    <option value="{{route}}">{{route}}</option>
+                    {%endfor%}
                 </select>
 
                 <!-- Select box for 'To' -->
-                <select class="custom-select" style="width: 200px; height: 47px; margin-left: 100px;" name="to" required>
+                <select class="custom-select" style="width: 200px; height: 47px; margin-left: 100px;" name="to_location" required>
                     <option value="" disabled selected hidden>To</option>
-                    <option value="Kathmandu">Kathmandu</option>
-                    <option value="Pokhara">Pokhara</option>
-                    <option value="Chitwan">Chitwan</option>
-                    <option value="Butwal">Butwal</option>
-                    <option value="Gorkha">Gorkha</option>
+                    {%for route in locations%}
+                    <option value="{{route}}">{{route}}</option>
+                    {%endfor%}
                 </select>
 
                 <!-- Date input -->
-                <input type="date" class="custom-date" style="width: 200px; height: 47px; margin-left: 100px;" name="departureDate" required>
-                <button class="search-button" type="button">Search</button>
+                <input type="date" class="custom-date" style="width: 200px; height: 47px; margin-left: 100px;" name="departure_time" required>
+                <button class="search-button" type="submit">Search</button>
+                </form>
+                
             </div>
+
+          
 
             <!-- Footer panel -->
             <div class="footer-panel">
