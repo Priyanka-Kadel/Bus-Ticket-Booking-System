@@ -3,6 +3,7 @@ from accounts.account_forms import RegisterForm, LoginForm
 # from django.contrib import messages
 from accounts.service.account_write import  create_user
 from django.contrib.auth import login, logout
+from backend_crud.models import Route
 
 # Create your views here.
 def register_view(request):
@@ -42,5 +43,12 @@ def home_view(request):
     return render(request, 'home.html')
 
 def booking_view(request):
-    return render(request,"booking.html")
+    route = Route.objects.values('from_location', 'to_location')
+    final_res = []
+    for data in route:
+        if data.get('from_location') not in final_res:
+            final_res.append(data.get('from_location'))
+        if  data.get('to_location') not in final_res:
+            final_res.append(data.get('to_location'))
+    return render(request,"booking.html", context={"locations":final_res})
 
