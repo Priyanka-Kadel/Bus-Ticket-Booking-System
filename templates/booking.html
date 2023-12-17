@@ -33,39 +33,79 @@
         <div class="grey-panel">
             <!-- Selection container -->
             <div class="select-container">
-                <form action ="{% url 'route' %}", method='POST' >
+                <form action="{% url 'route' %}" method='POST'>
                     {% csrf_token %}
 
                     <!-- Select box for 'From' -->
-                <select class="custom-select" style="width: 200px; height: 47px; margin-left: 20px;  margin-top: 10px;" name="from_location" required>
-                    <option value="" disabled selected hidden>From</option>
-                    {%for route in locations%}
-                    <option value="{{route}}">{{route}}</option>
-                    {%endfor%}
-                </select>
+                    <select class="custom-select" style="width: 200px; height: 47px; margin-left: 20px;  margin-top: 10px;"
+                        name="from_location" required>
+                        <option value="" disabled selected hidden>From</option>
+                        {% for route in locations %}
+                        <option value="{{route}}">{{route}}</option>
+                        {% endfor %}
+                    </select>
 
-                <!-- Select box for 'To' -->
-                <select class="custom-select" style="width: 200px; height: 47px; margin-left: 100px;" name="to_location" required>
-                    <option value="" disabled selected hidden>To</option>
-                    {%for route in locations%}
-                    <option value="{{route}}">{{route}}</option>
-                    {%endfor%}
-                </select>
+                    <!-- Select box for 'To' -->
+                    <select class="custom-select" style="width: 200px; height: 47px; margin-left: 100px;"
+                        name="to_location" required>
+                        <option value="" disabled selected hidden>To</option>
+                        {% for route in locations %}
+                        <option value="{{route}}">{{route}}</option>
+                        {% endfor %}
+                    </select>
 
-                <!-- Date input -->
-                <input type="date" class="custom-date" style="width: 200px; height: 47px; margin-left: 100px;" name="departure_time" required>
-                <button class="search-button" type="submit">Search</button>
+                    <!-- Date input -->
+                    <input type="date" class="custom-date" style="width: 200px; height: 47px; margin-left: 100px;"
+                        name="departure_time" required>
+                    <button class="search-button" type="submit">Search</button>
                 </form>
-                
             </div>
+        </div>
 
-          
+<!-- Black panel below grey panel -->
+<div class="black-panel1">
+    <p class="panel-text p1">SuvaYatra Travels</p>
+    <p class="panel-text p2">KTM-PKR</p>
+    <p class="panel-text p3">PREMIUM SEATS</p>
+    <p class="panel-text p4">Time: 7:00 AM</p>
+    <p class="panel-text p5">Total Seats: 30</p>
+    <p class="panel-text p6">Ava. Seats: 15</p>
+    <p class="panel-text p7">Fare: Rs1500/</p>
+</div>
 
-            <!-- Footer panel -->
-            <div class="footer-panel">
-                <!-- Footer text -->
-                <p>&copy; 2023 SuvaYatra. All rights reserved.</p>
-            </div>
+<div class="black-panel2">
+    <p class="panel-text p1">SuvaYatra Travels</p>
+    <p class="panel-text p2">GRK-CTWN</p>
+    <p class="panel-text p3">PREMIUM SEATS</p>
+    <p class="panel-text p4">Time: 8:00 AM</p>
+    <p class="panel-text p5">Total Seats: 40</p>
+    <p class="panel-text p6">Ava. Seats: 20</p>
+    <p class="panel-text p7">Fare: Rs1800/</p>
+</div>
+
+<div class="black-panel3">
+    <p class="panel-text p1">SuvaYatra Travels</p>
+    <p class="panel-text p2">BTWL-GNKPR</p>
+    <p class="panel-text p3">PREMIUM SEATS</p>
+    <p class="panel-text p4">Time: 9:00 AM</p>
+    <p class="panel-text p5">Total Seats: 50</p>
+    <p class="panel-text p6">Ava. Seats: 25</p>
+    <p class="panel-text p7">Fare: Rs2000/</p>
+</div>
+
+<div class="black-panel4">
+    <p class="panel-text p1">SuvaYatra Travels</p>
+    <p class="panel-text p2">LMBN-KTM</p>
+    <p class="panel-text p3">PREMIUM SEATS</p>
+    <p class="panel-text p4">Time: 10:00 AM</p>
+    <p class="panel-text p5">Total Seats: 60</p>
+    <p class="panel-text p6">Ava. Seats: 30</p>
+    <p class="panel-text p7">Fare: Rs2500/</p>
+</div>
+        <!-- Footer panel -->
+        <div class="footer-panel">
+            <!-- Footer text -->
+            <p>&copy; 2023 SuvaYatra. All rights reserved.</p>
         </div>
     </div>
 </body>

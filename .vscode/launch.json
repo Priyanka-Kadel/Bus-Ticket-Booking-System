@@ -16,7 +16,7 @@
             ],
             "django": true,
             "justMyCode": true,
-            "pythonPath": "${workspaceFolder}\\venv\\Scripts\\python.exe",
+            "python": "${workspaceFolder}\\venv\\Scripts\\python.exe",
 
         }
     ]
