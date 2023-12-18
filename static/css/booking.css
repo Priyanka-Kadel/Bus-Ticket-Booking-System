@@ -12,7 +12,7 @@ body {
 
 /* Main container styles */
 .main {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)), url('/media/image.webp');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)), url('/media/bus.png');
     height: 100vh;
     width: 100%;
     background-position: center;
@@ -188,7 +188,6 @@ body {
     left: 158px;
     width: 50%;
     height: 11%;
-    background-color: rgba(0, 0, 0, 0.5);
     border-radius: 12px;
 }
 /* Text styles for black panel */
@@ -434,3 +433,26 @@ body {
     color: #04AA6D;
 }
 
+#customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #customers tr:nth-child(even){background-color: #f2f2f2;}
+  #customers tr:nth-child(odd){background-color: #f2f2f2;}
+
+  #customers tr:hover {background-color: #ddd;}
+  
+  #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+  }
