@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Document title -->
+        <title>Bus Ticket Booking</title>
+        
+        <!-- Link to external stylesheet -->
+        <!-- <link rel="stylesheet" href="{% static 'css/seats.css' %}"> -->
+
+    </head>
+    <body>
+        <!-- Main container -->
+        <div class="main"></div>
+        <div class="logo-container">
+            <!-- Logo image -->
+            <img src='/media/logo.png' alt="Logo" class="logo">
+        </div>
+        <div class="navbar">
+            <!-- Navigation links -->
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'home' %}">About</a></li>
+                <li><a href="{% url 'home' %}">How to book ticket?</a></li>
+                <li><a href="{% url 'home' %}">Services</a></li>
+            </ul>
+        </div>
+        <div class="black-panel1">
+            <p class="panel-text p1">SuvaYatra Travels</p>
+            <p class="panel-text p2">KTM-PKR</p>
+            <p class="panel-text p3">PREMIUM SEATS</p>
+            <p class="panel-text p4">Time: 7:00 AM</p>
+            <p class="panel-text p5">Total Seats: 30</p>
+            <p class="panel-text p6">Ava. Seats: 15</p>
+            <p class="panel-text p7">Fare: Rs1500/</p>
+        </div>
+        <div class="black-panel2">
+            <ol>
+                <li>
+                    <ol class="seats">
+                        <li class="seat">
+                        <input type="checkbox" id="1A">
+                        <label for="1A">1A</label>
+                    </li>
+                    <li class="seat">
+                        <input type="checkbox" id="2A">
+                        <label for="2A">2A</label>
+                    </li>
+                    <li class="seat">
+                        <input type="checkbox" id="3A">
+                        <label for="3A">3A</label>
+                    </li>
+                    <li class="seat">
+                        <input type="checkbox" id="4A">
+                        <label for="4A">4A</label>
+                    </li>
+                    <li class="seat">
+                        <input type="checkbox" id="5A">
+                        <label for="5A">5A</label>
+                    </li>
+                    </ol>
+                </li>
+                <li>
+                    <ol class="seats">
+                        <li class="seat">
+                        <input type="checkbox" id="1B">
+                        <label for="1B">1B</label>
+                    </li>
+                    <li class="seat">
+                        <input type="checkbox" id="2B">
+                        <label for="2B">2B</label>
+                    </li>
+                    <li class="seat">
+                        <input type="checkbox" id="3B">
+                        <label for="3B">3B</label>
+                    </li>
+                    <li class="seat">
+                        <input type="checkbox" id="4B">
+                        <label for="4B">4B</label>
+                    </li>
+                    <li class="seat">
+                        <input type="checkbox" id="5B">
+                        <label for="5B">5B</label>
+                    </li>
+                    </ol>
+                </li>
+                <li>
+                    <ol class="seats">
+                        <li class="seat">
+                        <input type="checkbox" id="1C">
+                        <label for="1C">1C</label>
+                    </li>
+                    <li class="seat">
+                        <input type="checkbox" id="2B">
+                        <label for="2C">2C</label>
+                    </li>
+                    <li class="seat">
+                        <input type="checkbox" id="3C">
+                        <label for="3C">3C</label>
+                    </li>
+                    <li class="seat">
+                        <input type="checkbox" id="4C">
+                        <label for="4C">4C</label>
+                    </li>
+                    <li class="seat">
+                        <input type="checkbox" id="5C">
+                        <label for="5C">5C</label>
+                    </li>
+                    
+                    
+            </ol>
+            
+        </div>
+        <style>
+   /* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+/* Body styles */
+body {
+    overflow: auto;
+}
+
+
+/* Main container styles */
+.main {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)), url('/media/p.png');
+    height: 200vh;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    margin: 0;
+}
+/* Logo container styles */
+.logo-container {
+    position: absolute;
+    top: 40px;
+    left: 50px;
+    z-index: 1000;
+}
+
+/* Logo styles */
+.logo {
+    max-width: 219px;
+    height: auto;
+}
+
+/* Navigation bar styles */
+.navbar {
+    width: 85%;
+    margin: auto;
+    padding: 38px 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-left: 140px;
+}
+
+/* Navigation link styles */
+.navbar ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 10px 20px;
+    position: relative;
+    font-size: 20.3px;
+    text-shadow: 0 4px 8px rgb(29, 29, 29);
+}
+
+/* Navigation link hover styles */
+.navbar ul li a:hover {
+    color: #04AA6D;
+}
+/* Styling for navigation links */
+.navbar ul li a {
+    text-decoration: none;
+    color: #f2f2f2;
+    transition: color 0.5s;
+}
+
+/* Navigation link underline styles */
+.navbar ul li::after {
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #14b97c;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+/* Navigation link underline on hover styles */
+.navbar ul li:hover::after {
+    width: 100%;
+}
+
+.black-panel1 {
+    position: absolute;
+    top: 200px;
+    left: 108px;
+    width: 50%;
+    height: 11%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    border: 1.3px solid white;
+}
+/* Text styles for black panel */
+.black-panel1 .panel-text {
+    color: #ffffff; /* Text color */
+    font-size: 18px;
+    margin: 10px;
+}
+
+/* Adjust positions of each panel text */
+.black-panel1 .p1 {
+    margin-top: 14px;
+    font-size: 17px;
+}
+
+.black-panel1 .p2 {
+    font-size: 17px;
+}
+
+.black-panel1 .p3 {
+    position: relative;
+    top: -40px;
+    margin-left: 300px;
+    font-size: 18px;
+}
+
+.black-panel1 .p4 {
+    margin-left: 610px;
+    position: relative;
+    top: -100px;
+    font-size: 16px;
+}
+.black-panel1 .p5 {
+    margin-left: 610px;
+    position: relative;
+    top: -110px;
+    font-size: 16px;
+}
+.black-panel1 .p6{
+    margin-left: 610px;
+    position: relative;
+    top: -120px;
+    font-size: 16px;
+}
+.black-panel1 .p7 {
+    margin-left: 610px;
+    position: relative;
+    top: -130px;
+    font-size: 16px;
+    color: #04AA6D;
+}
+.black-panel2 {
+    position: absolute;
+    top: 300px;
+    left: 108px;
+    width: 50%;
+    height: 80%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    border: 1.3px solid white;
+}
+ol {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.seats{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+.seat{
+    display: flex;
+    flex: 0 0 14.28%;
+    padding: 5px;
+    position: relative;
+}
+.seat label{
+    display: block;
+    position: relative;
+    width: 60%;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bolder;
+    line-height: 2.5rem;
+    padding: 9px 0;
+    background: #5bfc60;
+    border-radius: 5px;
+    color: black;
+}
+.seat label:hover{
+    cursor: pointer;
+    box-shadow: 0 0 0px 2px green;
+}
+.seat input[type=checkbox]{
+    position: absolute;
+}
+.seat input[type=checkbox]:checked + label{
+     background: #b8c343;
+}
+.seat:nth-child(3){
+    margin-right: 14%;
+}
+        </style>
+    </body>
+</html>

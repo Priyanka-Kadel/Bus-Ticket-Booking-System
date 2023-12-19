@@ -52,3 +52,6 @@ def booking_view(request):
             final_res.append(data.get('to_location'))
     return render(request,"booking.html", context={"locations":final_res})
 
+def seats_view(request):
+    return render(request, "seats.html")
+    

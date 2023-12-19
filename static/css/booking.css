@@ -89,13 +89,14 @@ body {
 
 /* Grey panel styles */
 .grey-panel {
-    background-color: rgba(106, 106, 106, 0.6);
+    background-color: rgba(10, 9, 9, 0.7);
     position: absolute;
     top: 180px;
-    left: 158px;
-    width: 77%;
+    left: 160px;
+    width: 74%;
     height: 9%;
     padding: 10px;
+    border-radius: 12px;
 }
 
 /* City dropdown styles */
@@ -130,15 +131,8 @@ body {
     color: #b4b4b4;
     margin: 5px 0;
 }
-/* Select box styles for 'From' */
-.custom-select[name="from"] {
-    background-color:rgba(0, 0, 0, 0.5); /* Transparent black background */
-    color: #ffffff; /* Set the text color to make it visible on the dark background */
-    font-size: 18px;
-    border-color: #ffffff;
-}
-
-/* Select box styles for 'To' */
+/* Select box styles for 'From' and 'To' */
+.custom-select[name="from"],
 .custom-select[name="to"] {
     background-color: rgba(0, 0, 0, 0.5); /* Transparent black background */
     color: #ffffff; /* Set the text color to make it visible on the dark background */
@@ -146,26 +140,23 @@ body {
     border-color: #ffffff;
 }
 
-/* Date input styles */
+/* Select box styles for 'From' and 'To' - change background color on focus */
+.custom-select[name="from"]:focus,
+.custom-select[name="to"]:focus {
+    border: 2px solid #04AA6D; /* Set the border color when the box is clicked */
+    background-color: rgba(0, 0, 0, 0.8); /* Adjust the background color on focus */
+}
 .custom-date {
     background-color: rgba(0, 0, 0, 0.5); /* Transparent black background */
     color: #ffffff; /* Set the text color to make it visible on the dark background */
     font-size: 18px;
     border-color: #ffffff;
-}
-/* Select box styles for 'From' */
-.custom-select[name="from"]:focus {
-    border: 2px solid #04AA6D; /* Set the border color when the box is clicked */
-}
+    
 
-/* Select box styles for 'To' */
-.custom-select[name="to"]:focus {
-    border: 2px solid #04AA6D; /* Set the border color when the box is clicked */
 }
-
 /* Date input styles */
 .custom-date:focus {
-    border: 2px solid #04AA6D; /* Set the border color when the box is clicked */
+    border: 1px solid #04AA6D; /* Set the border color when the box is clicked */
 }
 /* Search button styles */
 .search-button {
@@ -181,6 +172,11 @@ body {
     border: #ffffff;
     border-radius: 5px;
 }
+/* Search button hover effect */
+.search-button:hover {
+    background-color:  #028f5c;
+}
+
 /* Black panel styles */
 .black-panel1 {
     position: absolute;
@@ -433,4 +429,18 @@ body {
     font-size: 16px;
     color: #04AA6D;
 }
+/* Black panel hover effect */
+.black-panel1:hover,
+.black-panel2:hover,
+.black-panel3:hover,
+.black-panel4:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+}
+/* Change date picker icon color to white */
+.custom-date::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    
+}
+
 
