@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 {% load static %}
 <html>
@@ -29,16 +26,16 @@
                 <li><a href="{% url 'home' %}">Services</a></li>
             </ul>
         </div>
-
+        
         <div class="black-panel1">
-            <p class="panel-text p1">SuvaYatra Travels</p>
-            <p class="panel-text p2">{{from_location }}-{{to_location }}</p>
-            <p class="panel-text p3">Bus Number : {{ bus_number }}</</p>
-            <p class="panel-text p4">Date / Time : {{ departure_time }}</p>
-            <p class="panel-text p5">Total Seats : {{ total_seat }}</p>
-            <p class="panel-text p6">Ava. Seats : {{ available_seats }}</p>
-            <p class="panel-text p7">Fare: Rs {{ price }}/</p>
-        </div>
+          <p class="panel-text p1">SuvaYatra Travels</p>
+          <p class="panel-text p2">{{schedule.route.from_location }}-{{schedule.route.to_location }}</p>
+          <p class="panel-text p3">Bus Number : {{ schedule.bus.bus_number }}</</p>
+          <p class="panel-text p4">Date / Time : {{ schedule.departure_time }}</p>
+          <p class="panel-text p5">Total Seats : {{ schedule.bus.total_seat }}</p>
+          <p class="panel-text p6">Ava. Seats : {{ schedule.available_seats }}</p>
+          <p class="panel-text p7">Fare: Rs {{ schedule.route.price }}/</p>
+      </div>
 
         <div class="black-panel2">
             <p class="book-seats-text">Select Seats</p>
@@ -46,34 +43,20 @@
             <ol>
                 <li>
                   <ol class="seats">
+                    {% for side_a in side_a  %}
                     <li class="seat">
-                      <input type="checkbox" id="1A" />
-                      <label for="1A">1A</label>
-                    </li>
-                    <li class="seat">
-                      <input type="checkbox" id="1B" />
-                      <label for="1B">1B</label>
-                    </li>
-                    <li class="seat">
-                      <input type="checkbox" id="1C" />
-                      <label for="1C">1C</label>
-                    </li>
-                    <li class="seat">
-                      <input type="checkbox" id="1D" />
-                      <label for="1D">1D</label>
-                    </li>
-                    <li class="seat">
-                      <input type="checkbox" id="1E" />
-                      <label for="1E">1E</label>
-                    </li>
-                  
+                      <input type="checkbox" id="{{side_a.id}}-a" />
+                      <label for="{{side_a.id}}-a">{{side_a.seat_side}}{{side_a.seat_number}}</label>
+                    </li>                   
+                    {% endfor %}
+                   
                   </ol>
                 </li>
                 <li>
                   <ol class="seats">
                     <li class="seat">
                       <input type="checkbox" id="2A" />
-                      <label for="2A">2A</label>
+                      <label for="2A">3A</label>
                     </li>
                     <li class="seat">
                       <input type="checkbox" id="2B" />
@@ -174,39 +157,41 @@
               <p class="back-text">Back</p>
               <p id="price" class="price-text">Price: </p>
               <p id="selectedSeat" class="seat-text">Seat: </p>
-              <button class="next-button" type="submit">Next</button>
-
+              <form action="{% url 'details' %}" method="get">
+                <button type="submit" class="next-button"><span></span>Next</button>
+            </form>
             
         </div>
         <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                var seatElements = document.querySelectorAll('.seat input[type=checkbox]');
-                var selectedSeatsElement = document.getElementById('selectedSeat');
-                var priceElement = document.getElementById('price');
-        
-                var basePrice = 1500; // Base price for one seat
-                var priceIncrement = 1500; // Incremental price for each additional seat
-        
-                seatElements.forEach(function (seat) {
-                    seat.addEventListener('change', function () {
-                        var selectedSeats = Array.from(seatElements)
-                            .filter(function (s) { return s.checked; })
-                            .map(function (s) { return s.id; })
-                            .join(', ');
-                            selectedSeatsElement.style.color = '#c9d60e';
-                        selectedSeatsElement.textContent = 'Seats: ' + selectedSeats;
-        
-                        // Calculate total price based on the number of selected seats
-                        var numSelectedSeats = selectedSeats.split(',').length;
-        
-                        // Update the total price or set to 0 if no seats are selected
-                        var totalPrice = numSelectedSeats > 0 ? basePrice + (numSelectedSeats - 1) * priceIncrement : 0;
-                        priceElement.style.color = '#c9d60e';
-        
-                        priceElement.textContent = numSelectedSeats > 0 ? 'Price: Rs' + totalPrice + '/' : '';
-                    });
-                });
-            });
-        </script>
+          document.addEventListener('DOMContentLoaded', function () {
+              var seatElements = document.querySelectorAll('.seat input[type=checkbox]');
+              var selectedSeatsElement = document.getElementById('selectedSeat');
+              var priceElement = document.getElementById('price');
+      
+              var basePrice = 1500; // Base price for one seat
+              var priceIncrement = 1500; // Incremental price for each additional seat
+      
+              seatElements.forEach(function (seat) {
+                  seat.addEventListener('change', function () {
+                      var selectedSeats = Array.from(seatElements)
+                          .filter(function (s) { return s.checked; })
+                          .map(function (s) { return s.id; })
+                          .join(', ');
+      
+                      selectedSeatsElement.style.color = '#c9d60e';
+                      selectedSeatsElement.textContent = 'Seats: ' + selectedSeats;
+      
+                      // Calculate total price based on the number of selected seats
+                      var numSelectedSeats = selectedSeats.split(',').length;
+      
+                      // Update the total price or set to 0 if no seats are selected
+                      var totalPrice = numSelectedSeats > -1 ? basePrice + ((numSelectedSeats - 1) * priceIncrement) : 0;
+                      priceElement.style.color = '#c9d60e';
+      
+                      priceElement.textContent = 'Price: Rs' + totalPrice + '/';
+                  });
+              });
+          });
+      </script>
     </body>
 </html>

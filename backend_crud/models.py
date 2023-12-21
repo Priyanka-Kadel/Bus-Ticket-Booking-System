@@ -1,10 +1,5 @@
 from django.db import models
 
-class BusStop(models.Model):
-    stop_name = models.CharField(max_length=50)
-    location = models.CharField(max_length=50)
-    def __str__(self):
-        return f"{self.stop_name} - {self.location}"
 
 class Route(models.Model):
     from_location = models.CharField(max_length=50)
@@ -13,6 +8,14 @@ class Route(models.Model):
     price = models.CharField(max_length=50)
     def __str__(self):
         return f"{self.from_location} - {self.to_location}"
+    
+# class BusStop(models.Model):
+#     route=models.ForeignKey(Route , on_delete=models.CASCADE)
+#     stop_name = models.CharField(max_length=50)
+#     location = models.CharField(max_length=50)
+#     def __str__(self):
+#         return f"{self.stop_name} - {self.location}"
+
 
 class Driver(models.Model):
     driver_name = models.CharField(max_length=50)
@@ -38,6 +41,12 @@ class Schedule(models.Model):
         return f"{self.bus.bus_number} - {self.departure_time}"
     
 class BusSeatStatus(models.Model):
+    CHOICES = [
+        ('A', 'Side A'),
+        ('B', 'Side B'),
+    ]
+    seat_side = models.CharField(max_length=1, choices=CHOICES, default='A')
+
     seat_number = models.CharField(max_length=50)
     available = models.BooleanField(default=True)
     booked = models.BooleanField(default=False)

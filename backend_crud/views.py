@@ -55,7 +55,37 @@ def filter_route(request):
         return render(request, 'booking.html', context={'routes':schedules_with_buses_and_routes, 'locations':final_res})
     return render(request, 'booking.html', context={'routes':[]})
 
+def booking_view(request):
+    route = Route.objects.values('from_location', 'to_location')
+    final_res = []
+    for data in route:
+        if data.get('from_location') not in final_res:
+            final_res.append(data.get('from_location'))
+        if  data.get('to_location') not in final_res:
+            final_res.append(data.get('to_location'))
+    return render(request,"booking.html", context={"locations":final_res})
 
+
+def seats_view(request, route_id):
+    schedule = Schedule.objects.select_related('bus', 'route').prefetch_related('busseatstatus_set').filter(id=route_id).annotate(
+                available_seats=Count(
+                    Case(
+                    When(busseatstatus__available=True, then=1),
+                    output_field=IntegerField()
+                    
+                    )
+                )
+    )  
+    schedule=schedule.first()
+    busseat =  schedule.busseatstatus_set.all()
+
+    side_a = busseat.filter(seat_side = 'A')
+    side_b = busseat.filter(seat_side = 'B')
+
+    return render(request, 'seats.html', context={'schedule':schedule,'side_a':side_a, 'side_b': side_b })
+
+def details_views(request):
+    return render(request, 'details.html')
 
 
 

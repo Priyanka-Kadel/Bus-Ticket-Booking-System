@@ -78,8 +78,8 @@
                 </tr>
 
                 {% for route in routes %}
-                <tr class="route-row" data-url="{% url 'seats' route.route.route_name route.bus.bus_number route.route.from_location route.route.to_location route.departure_time route.bus.total_seat route.available_seats route.route.price %}">
-                    <td>{{ route.route.route_name }}</td>
+                <tr class="route-row" >
+                    <td><a href= "{% url 'seats' route.id %}">{{ route.route.route_name }}</a></td>
                     <td>{{ route.bus.bus_number }}</td>
                     <td>{{ route.route.from_location }}-{{ route.route.to_location }}</td>
                     <td>{{ route.departure_time }}</td>
