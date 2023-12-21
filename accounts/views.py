@@ -42,28 +42,7 @@ def login_view(request):
 def home_view(request):
     return render(request, 'home.html')
 
-def booking_view(request):
-    route = Route.objects.values('from_location', 'to_location')
-    final_res = []
-    for data in route:
-        if data.get('from_location') not in final_res:
-            final_res.append(data.get('from_location'))
-        if  data.get('to_location') not in final_res:
-            final_res.append(data.get('to_location'))
-    return render(request,"booking.html", context={"locations":final_res})
 
 
 
-def seats_view(request, route_name, bus_number, from_location, to_location, departure_time, total_seat, available_seats, price):
-    # You can use these parameters to display information in the seats.html template
-    return render(request, 'seats.html', {
-        'route_name': route_name,
-        'bus_number': bus_number,
-        'from_location': from_location,
-        'to_location': to_location,
-        'departure_time': departure_time,
-        'total_seat': total_seat,
-        'available_seats': available_seats,
-        'price': price,
-    })
 

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passenger Details</title>
+    <link rel="stylesheet" href="{% static 'css/details.css' %}">
+</head>
+
+<body>
+    <!-- Main container -->
+    <div class="main">
+        <!-- Logo container -->
+        <div class="logo-container">
+            <!-- Logo image -->
+            <img src='/media/logo.png' alt="Logo" class="logo">
+        </div>
+
+        <!-- Navigation bar -->
+        <div class="navbar">
+            <!-- Navigation links -->
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'home' %}">About</a></li>
+                <li><a href="{% url 'home' %}">How to book ticket?</a></li>
+                <li><a href="{% url 'home' %}">Services</a></li>
+            </ul>
+        </div>
+        <div class="black-panel2">
+            <h1 class="panel-heading">Passenger Details</h1>
+            <!-- Label and input for Name -->
+<label for="name" class="input-label" style="margin-right: 470px;">Name</label>
+<input type="text" id="name" class="entry-box" required>
+
+<!-- Label and input for Contact -->
+<label for="contact" class="input-label" style="margin-right: 468px;">Contact</label>
+<input type="text" id="contact" class="entry-box">
+
+<!-- Label and input for Email -->
+<label for="email" class="input-label" style="margin-right: 473px;">Email</label>
+<input type="text" id="email" class="entry-box">
+
+
+            <!-- Label and input for Boarding Point (Departure) -->
+            <label for="boarding-point" class="input-label">Boarding Point (Departure)</label>
+            <input type="text" id="boarding-point" class="entry-box">
+
+            <!-- Label and input for Dropping Point (Departure) -->
+            <label for="dropping-point" class="input-label">Dropping Point (Departure)</label>
+            <input type="text" id="dropping-point" class="entry-box">
+            <button class="next-button" type="submit">Next</button>
+        </div>
+</body>
+
+</html>
