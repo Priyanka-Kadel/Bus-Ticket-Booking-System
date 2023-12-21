@@ -54,4 +54,7 @@ def booking_view(request):
 
 def seats_view(request):
     return render(request, "seats.html")
+def details_view(request):
+    return render(request, "details.html")
+
     

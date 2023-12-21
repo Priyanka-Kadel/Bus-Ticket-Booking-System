@@ -1,0 +1,89 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+/* Body styles */
+body {
+    overflow: hidden;
+}
+
+/* Main container styles */
+.main {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)), url('/media/bus.png');
+    height: 100vh;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+/* Logo container styles */
+.logo-container {
+    position: absolute;
+    top: 40px;
+    left: 50px;
+    z-index: 1000;
+}
+
+/* Logo styles */
+.logo {
+    max-width: 219px;
+    height: auto;
+}
+
+/* Navigation bar styles */
+.navbar {
+    width: 85%;
+    margin: auto;
+    padding: 38px 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-left: 140px;
+}
+
+/* Navigation link styles */
+.navbar ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 10px 20px;
+    position: relative;
+    font-size: 20.3px;
+    text-shadow: 0 4px 8px rgb(29, 29, 29);
+}
+
+/* Navigation link hover styles */
+.navbar ul li a:hover {
+    color: #04AA6D;
+}
+/* Styling for navigation links */
+.navbar ul li a {
+    text-decoration: none;
+    color: #f2f2f2;
+    transition: color 0.5s;
+}
+
+/* Navigation link underline styles */
+.navbar ul li::after {
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #14b97c;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+/* Navigation link underline on hover styles */
+.navbar ul li:hover::after {
+    width: 100%;
+}
+
