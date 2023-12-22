@@ -42,15 +42,9 @@ def login_view(request):
 def home_view(request):
     return render(request, 'home.html')
 
-def booking_view(request):
-    route = Route.objects.values('from_location', 'to_location')
-    final_res = []
-    for data in route:
-        if data.get('from_location') not in final_res:
-            final_res.append(data.get('from_location'))
-        if  data.get('to_location') not in final_res:
-            final_res.append(data.get('to_location'))
-    return render(request,"booking.html", context={"locations":final_res})
+
+
+
 
 def seats_view(request):
     return render(request, "seats.html")

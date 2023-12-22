@@ -36,8 +36,8 @@
                 <form action="{% url 'route' %}" method='POST'>
                     {% csrf_token %}
 
-                    <!-- Select box for 'From' -->
-                    <select class="custom-select" style="width: 200px; height: 47px; margin-left: 20px;  margin-top: 10px;"
+                    <!-- Select box for 'From' --> 
+                    <select class="custom-select" style="width: 200px; height: 47px; margin-left: 20px;  margin-top: 10px;" required
                         name="from_location">
                         <option value="" disabled selected hidden>From</option>
                         {% for route in locations %}
@@ -46,7 +46,7 @@
                     </select>
 
                     <!-- Select box for 'To' -->
-                    <select class="custom-select" style="width: 200px; height: 47px; margin-left: 100px;"
+                    <select class="custom-select" style="width: 200px; height: 47px; margin-left: 100px;" required
                         name="to_location" >
                         <option value="" disabled selected hidden>To</option>
                         {% for route in locations %}
@@ -55,50 +55,44 @@
                     </select>
 
                     <!-- Date input -->
-                    {% comment %} <input type="date" class="custom-date" style="width: 200px; height: 47px; margin-left: 100px;" {% endcomment %}
-                        {% comment %} name="departure_time" required> {% endcomment %}
-                        <input type="datetime-local" id="departure_time" name="departure_time" class="custom-date" style="width: 200px; height: 47px; margin-left: 100px;" required>
+                    <input type="datetime-local" id="departure_time" name="departure_time" class="custom-date" style="width: 200px; height: 47px; margin-left: 100px;" required>
                     <button class="search-button" type="submit">Search</button>
                 </form>
             </div>
         </div>
 
-<!-- Black panel below grey panel -->
+        <!-- Black panel below grey panel -->
 
-<div class="black-panel1">
+        <div class="black-panel1">
 
-{% if routes %}
-    <table id="customers" >
-        <tr>
+            {% if routes %}
+            <table id="customers">
+                <tr>
+                    <th>Route Name</th>
+                    <th>Bus Number</th>
+                    <th>Location</th>
+                    <th>Time</th>
+                    <th>Total Seats</th>
+                    <th>Available Seats</th>
+                    <th>Fare</th>
+                </tr>
 
-          <th>Route Name</th>
-          <th>Bus Number</th>
-          <th>Location</th>
-          <th>Time</th>
-          <th>Total Seats</th>
-          <th>Available Seats</th>
-          <th>Fare</th>
-        </tr>
-
-        {% for route in routes %}
-        <tr>
-            <td> {{route.route.route_name}}</td>
-            <td> {{route.bus.bus_number}}</td>
-            <td> {{route.route.from_location}}-{{route.route.to_location}}</td>
-            <td> {{route.departure_time}}</td>
-            <td> {{route.bus.total_seat}}</td>
-            <td> {{route.available_seats}}</td>
-            <td> {{route.route.price}}</td>
-
-          </tr>
-        {% endfor %}
-      </table>
-{%else%}
-    <p>Search Bus</p>
-{% endif %}
-</div>
-
-
+                {% for route in routes %}
+                <tr class="route-row" >
+                    <td><a href= "{% url 'seats' route.id %}">{{ route.route.route_name }}</a></td>
+                    <td>{{ route.bus.bus_number }}</td>
+                    <td>{{ route.route.from_location }}-{{ route.route.to_location }}</td>
+                    <td>{{ route.departure_time }}</td>
+                    <td>{{ route.bus.total_seat }}</td>
+                    <td>{{ route.available_seats }}</td>
+                    <td>{{ route.route.price }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            {% else %}
+            <p>Search Bus</p>
+            {% endif %}
+        </div>
 
         <!-- Footer panel -->
         <div class="footer-panel">
@@ -106,6 +100,20 @@
             <p>&copy; 2023 SuvaYatra. All rights reserved.</p>
         </div>
     </div>
+
+    <!-- JavaScript for making table rows clickable -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var routeRows = document.querySelectorAll('.route-row');
+
+            routeRows.forEach(function (row) {
+                row.addEventListener('click', function () {
+                    var url = row.getAttribute('data-url');
+                    window.location.href = url;
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
