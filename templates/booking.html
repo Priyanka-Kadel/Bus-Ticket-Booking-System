@@ -55,7 +55,7 @@
                     </select>
 
                     <!-- Date input -->
-                    <input type="datetime-local" id="departure_time" name="departure_time" class="custom-date" style="width: 200px; height: 47px; margin-left: 100px;" required>
+                    <input type="date" id="departure_time" name="departure_time" class="custom-date" style="width: 200px; height: 47px; margin-left: 100px;" required>
                     <button class="search-button" type="submit">Search</button>
                 </form>
             </div>
@@ -67,7 +67,7 @@
 
             {% if routes %}
             <table id="customers">
-                <tr>
+                <tr class="heading-row">
                     <th>Route Name</th>
                     <th>Bus Number</th>
                     <th>Location</th>
@@ -100,20 +100,6 @@
             <p>&copy; 2023 SuvaYatra. All rights reserved.</p>
         </div>
     </div>
-
-    <!-- JavaScript for making table rows clickable -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var routeRows = document.querySelectorAll('.route-row');
-
-            routeRows.forEach(function (row) {
-                row.addEventListener('click', function () {
-                    var url = row.getAttribute('data-url');
-                    window.location.href = url;
-                });
-            });
-        });
-    </script>
 </body>
 
 </html>

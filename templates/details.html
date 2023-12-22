@@ -24,34 +24,55 @@
             <ul>
                 <li><a href="{% url 'home' %}">Home</a></li>
                 <li><a href="{% url 'home' %}">About</a></li>
-                <li><a href="{% url 'home' %}">How to book ticket?</a></li>
+                <li><a href="{% url 'home' %}">How to book a ticket?</a></li>
                 <li><a href="{% url 'home' %}">Services</a></li>
             </ul>
         </div>
         <div class="black-panel2">
             <h1 class="panel-heading">Passenger Details</h1>
+
             <!-- Label and input for Name -->
-<label for="name" class="input-label" style="margin-right: 470px;">Name</label>
-<input type="text" id="name" class="entry-box" required>
+            <!-- (Add any other validation attributes you need, e.g., pattern for email) -->
+            <label for="name" class="input-label" style="margin-right: 470px;">Name</label>
+            <input type="text" id="name" class="entry-box" required>
 
-<!-- Label and input for Contact -->
-<label for="contact" class="input-label" style="margin-right: 468px;">Contact</label>
-<input type="text" id="contact" class="entry-box">
+            <!-- Label and input for Contact -->
+            <label for="contact" class="input-label" style="margin-right: 468px;">Contact</label>
+            <input type="text" id="contact" class="entry-box">
 
-<!-- Label and input for Email -->
-<label for="email" class="input-label" style="margin-right: 473px;">Email</label>
-<input type="text" id="email" class="entry-box">
-
+            <!-- Label and input for Email -->
+            <label for="email" class="input-label" style="margin-right: 473px;">Email</label>
+            <input type="text" id="email" class="entry-box">
 
             <!-- Label and input for Boarding Point (Departure) -->
             <label for="boarding-point" class="input-label">Boarding Point (Departure)</label>
-            <input type="text" id="boarding-point" class="entry-box">
+            <select id="boarding-point" class="entry-box" required>
+                {% for location in from_locations %}
+                    <option value="{{ location }}">{{ location }}</option>
+                {% endfor %}
+            </select>
 
-            <!-- Label and input for Dropping Point (Departure) -->
             <label for="dropping-point" class="input-label">Dropping Point (Departure)</label>
-            <input type="text" id="dropping-point" class="entry-box">
-            <button class="next-button" type="submit">Next</button>
+            <select id="dropping-point" class="entry-box" required>
+                {% for location in to_locations %}
+                    <option value="{{ location }}">{{ location }}</option>
+                {% endfor %}
+            </select>
+            <!-- Add default values for from_location and to_location -->
+            <script>
+                document.getElementById("boarding-point").value = "{{ schedule.route.from_location }}";
+                document.getElementById("dropping-point").value = "{{ schedule.route.to_location }}";
+            </script>
+
+            <!-- Add buspark default -->
+            <input type="hidden" id="buspark" name="buspark" value="Default Buspark">
+
+            <!-- Button for form submission -->
+            <button class="next-button" type="submit" onclick="validateForm()">Next</button>
+
+            
         </div>
+    </div>
 </body>
 
 </html>
