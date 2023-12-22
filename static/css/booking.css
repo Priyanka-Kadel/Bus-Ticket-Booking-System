@@ -265,8 +265,6 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 12px;
 }
-
-
 /* Adjust spacing between date input and search button */
 .custom-date {
     margin-right: 100px;

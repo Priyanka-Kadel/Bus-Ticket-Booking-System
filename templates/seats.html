@@ -7,7 +7,7 @@
         <title>Bus Ticket Booking</title>
         
         <!-- Link to external stylesheet -->
-        <link rel="stylesheet" href="{% static 'css/seats.css' %}"> -->
+        <link rel="stylesheet" href="{% static 'css/seats.css' %}"> 
 
     </head>
     <body>
@@ -40,7 +40,7 @@
         <div class="black-panel2">
             <p class="book-seats-text">Select Seats</p>
             <p class="front-text">Front</p>
-            <ol>
+            <!-- <ol>
                 <li>
                   <ol class="seats">
                     {% for side_a in side_a  %}
@@ -159,8 +159,66 @@
               <p id="selectedSeat" class="seat-text">Seat: </p>
               <form action="{% url 'details' %}" method="get">
                 <button type="submit" class="next-button"><span></span>Next</button>
-            </form>
-            
+            </form> -->
+            <ol>
+              <!-- Add seats in two columns here -->
+              <li>
+                  <ol class="seats">
+                      <!-- Column 1 -->
+                      <li class="seat">
+                          <input type="checkbox" id="1A" />
+                          <label for="1A">1A</label>
+                      </li>
+                      <li class="seat">
+                          <input type="checkbox" id="2A" />
+                          <label for="2A">2A</label>
+                      </li>
+                      <li class="seat">
+                          <input type="checkbox" id="3A" />
+                          <label for="3A">3A</label>
+                      </li>
+                      <li class="seat">
+                          <input type="checkbox" id="4A" />
+                          <label for="4A">4A</label>
+                      </li>
+                      <li class="seat">
+                          <input type="checkbox" id="5A" />
+                          <label for="5A">5A</label>
+                      </li>
+                  </ol>
+              </li>
+              <li>
+                  <ol class="seats">
+                      <!-- Column 2 -->
+                      <li class="seat">
+                          <input type="checkbox" id="1B" />
+                          <label for="1B">1B</label>
+                      </li>
+                      <li class="seat">
+                          <input type="checkbox" id="2B" />
+                          <label for="2B">2B</label>
+                      </li>
+                      <li class="seat">
+                          <input type="checkbox" id="3B" />
+                          <label for="3B">3B</label>
+                      </li>
+                      <li class="seat">
+                          <input type="checkbox" id="4B" />
+                          <label for="4B">4B</label>
+                      </li>
+                      <li class="seat">
+                          <input type="checkbox" id="5B" />
+                          <label for="5B">5B</label>
+                      </li>
+                  </ol>
+              </li>
+          </ol>
+          <p class="back-text">Back</p>
+          <p id="price" class="price-text">Price: </p>
+          <p id="selectedSeat" class="seat-text">Seat: </p>
+          <form action="{% url 'details' %}" method="get">
+              <button type="submit" class="next-button"><span></span>Next</button>
+          </form>
         </div>
         <script>
           document.addEventListener('DOMContentLoaded', function () {
