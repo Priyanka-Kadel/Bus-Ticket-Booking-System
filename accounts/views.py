@@ -3,7 +3,7 @@ from accounts.account_forms import RegisterForm, LoginForm
 # from django.contrib import messages
 from accounts.service.account_write import  create_user
 from django.contrib.auth import login, logout
-from backend_crud.models import Route
+
 
 # Create your views here.
 def register_view(request):
@@ -35,9 +35,9 @@ def login_view(request):
         print (form_data.errors)
     return render(request, "account/login.html")
 
-# def logout_view(request):
-#     logout(request)
-#     return render(request, 'account/login.html')
+def logout_view(request):
+    logout(request)
+    return render(request, 'account/login.html')
 
 def home_view(request):
     return render(request, 'home.html')
