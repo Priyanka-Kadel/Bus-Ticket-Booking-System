@@ -346,3 +346,41 @@ body {
 .next-button:hover {
   background-color: #00e18f;
 }
+
+.bus-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.column-bus-seat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 20px;
+}
+
+.column-bus-seat .seat {
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  border: 2px solid #333;
+  border-radius: 5px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+}
+
+.column-bus-seat .row {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  max-width: 150px; /* Adjust the max-width as needed */
+  margin-bottom: 5px;
+}
+
+.column-bus-seat h2 {
+  margin-bottom: 10px;
+  color:white
+}

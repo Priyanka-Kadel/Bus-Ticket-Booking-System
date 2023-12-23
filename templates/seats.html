@@ -54,57 +54,83 @@
                   <small>Sold</small>
                 </li>
               </ul>
-              <div class="container">
-                <p class="groupA">A</p>
-              <p class="groupB">B</p>
-          
-                <div class="row">
-                  <div class="seat"><div class="seat-text1">1A</div></div>
-                  <div class="seat"><div class="seat-text1">2A</div></div>
-                  <div class="seat"><div class="seat-text1">1B</div></div>
-                  <div class="seat"><div class="seat-text1">2B</div></div>
+
+              <div class="bus-container">
+                <div class="column-bus-seat" id="columnA">
+                  <h2> A</h2>
+                  <div class="row">
+                    <div class="seat" >A1</div>
+                    <div class="seat">A2</div>
+                    <div class="seat">A2</div>
+                     <div class="seat">A1</div>
+                    <div class="seat">A2</div>
+                    <div class="seat">A2</div>
+            
+                    <!-- Add more seats as needed -->
+                  </div>
                 </div>
-          
-                <div class="row">
-                  <div class="seat"><div class="seat-text1">3A</div></div>
-                  <div class="seat"><div class="seat-text1">4A</div></div>
-                  <div class="seat"><div class="seat-text1">3B</div></div>
-                  <div class="seat"><div class="seat-text1">4B</div></div>
-                 
-                </div>
-                <div class="row">
-                  <div class="seat"><div class="seat-text1">5A</div></div>
-                  <div class="seat"><div class="seat-text1">6A</div></div>
-                  <div class="seat"><div class="seat-text1">5B</div></div>
-                  <div class="seat"><div class="seat-text1">6B</div></div>
-                  
-                </div>
-                <div class="row">
-                  <div class="seat"><div class="seat-text1">7A</div></div>
-                  <div class="seat"><div class="seat-text1">8A</div></div>
-                  <div class="seat"><div class="seat-text1">7B</div></div>
-                  <div class="seat"><div class="seat-text1">8B</div></div>
-                 
-                </div>
-                <div class="row">
-                  <div class="seat"><div class="seat-text1">9A</div></div>
-                  <div class="seat"><div class="seat-text1">10A</div></div>
-                  <div class="seat"><div class="seat-text1">9B</div></div>
-                  <div class="seat"><div class="seat-text1">10B</div></div>
-                </div>
-                <div class="row">
-                  <div class="seat"><div class="seat-text1">11A</div></div>
-                  <div class="seat"><div class="seat-text1">12A</div></div>
-                  <div class="seat"><div class="seat-text1">11B</div></div>
-                  <div class="seat"><div class="seat-text1">12B</div></div>
-                  
+                <div class="column-bus-seat" id="columnB">
+                  <h2> B</h2>
+                  <div class="row">
+                    <div class="seat">B1</div>
+                    <div class="seat">B1</div>
+                    <div class="seat">B2</div>
+                    <div class="seat">B1</div>
+                    <div class="seat">B2</div>
+                    <!-- Add more seats as needed -->
+                  </div>
                 </div>
               </div>
+              {% comment %} <div class="row">
+                <!-- Column A -->
+                <div class="column">
+                  <div class="seat"><div class="seat-text1">1A</div></div>
+                  <div class="seat"><div class="seat-text1">3A</div></div>
+                  <div class="seat"><div class="seat-text1">5A</div></div>
+                  <div class="seat"><div class="seat-text1">7A</div></div>
+                  <div class="seat"><div class="seat-text1">9A</div></div>
+                  <div class="seat"><div class="seat-text1">11A</div></div>
+                </div>
+                
+                <!-- Column B -->
+                <div class="column">
+                  <div class="seat"><div class="seat-text1">2A</div></div>
+                  <div class="seat"><div class="seat-text1">4A</div></div>
+                  <div class="seat"><div class="seat-text1">6A</div></div>
+                  <div class="seat"><div class="seat-text1">8A</div></div>
+                  <div class="seat"><div class="seat-text1">10A</div></div>
+                  <div class="seat"><div class="seat-text1">12A</div></div>
+                </div>
+              </div>
+              
+              <div class="row">
+                <!-- Column A -->
+                <div class="column">
+                  <div class="seat"><div class="seat-text1">1B</div></div>
+                  <div class="seat"><div class="seat-text1">3B</div></div>
+                  <div class="seat"><div class="seat-text1">5B</div></div>
+                  <div class="seat"><div class="seat-text1">7B</div></div>
+                  <div class="seat"><div class="seat-text1">9B</div></div>
+                  <div class="seat"><div class="seat-text1">11B</div></div>
+                </div>
+                
+                <!-- Column B -->
+                <div class="column">
+                  <div class="seat"><div class="seat-text1">2B</div></div>
+                  <div class="seat"><div class="seat-text1">4B</div></div>
+                  <div class="seat"><div class="seat-text1">6B</div></div>
+                  <div class="seat"><div class="seat-text1">8B</div></div>
+                  <div class="seat"><div class="seat-text1">10B</div></div>
+                  <div class="seat"><div class="seat-text1">12B</div></div>
+                </div>
+              </div>
+              
+              </div> {% endcomment %}
               </p>
               <p class="back-text">Back</p>
               <p id="price" class="price-text">Price: </p>
               <p id="selectedSeat" class="seat-text">Seat: </p>
-              <form action="{% url 'details' %}" method="get">
+              <form  method="get">
                 <button type="submit" class="next-button"><span></span>Next</button>
             </form>
             <!-- Add this script for seat selection -->

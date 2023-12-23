@@ -1,9 +1,10 @@
 from datetime import datetime
 from django.shortcuts import render
-from backend_crud.forms import search_route
-from backend_crud.models import Route, BusSeatStatus, Schedule
+from backend_crud.forms import search_route,passenger_form
+from backend_crud.models import Route, BusSeatStatus, Schedule, PassengerDetails
 from django.db.models import Q, Prefetch
 from django.db.models import Count, Case, When, IntegerField
+
 
 
 # Create your views here.
@@ -67,12 +68,20 @@ def seats_view(request, route_id):
     side_a = busseat.filter(seat_side = 'A')
     side_b = busseat.filter(seat_side = 'B')
 
-    print(busseat)
+    
     return render(request, 'seats.html', context={'schedule':schedule,'side_a':side_a, 'side_b': side_b })
 
-def details_views(request):   
-    return render(request, 'details.html')
+def details_views(request, route_id):   
+    route = Route.objects.filter(id=route_id).values('from_location','to_location').first()
+    return render(request, 'details.html', context={'route':route})
 
+def save_passenger_info(request):
+    passengerform = passenger_form.PassengerForm(data=request.POST)
+    if passengerform.is_valid():
+        PassengerDetails.objects.create(** passengerform.cleaned_data)
+    else:
+        print(passengerform.errors)
 
+    return render(request, 'home.html')
 
 
