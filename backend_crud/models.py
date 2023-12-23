@@ -53,3 +53,11 @@ class BusSeatStatus(models.Model):
     schedule = models.ForeignKey(Schedule, on_delete=models.CASCADE)
     def __str__(self):
         return f"{self.schedule.bus.bus_number} - {self.seat_number}"
+    
+class PassengerDetails(models.Model):
+    name = models.CharField(max_length=25)
+    contact = models.CharField(max_length=10)
+    email = models.EmailField()
+    route = models.ForeignKey(Route, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.email
