@@ -7,7 +7,7 @@
         <title>Bus Ticket Booking</title>
         
         <!-- Link to external stylesheet -->
-        <link rel="stylesheet" href="{% static 'css/seats.css' %}"> -->
+        <link rel="stylesheet" href="{% static 'css/seats.css' %}"> 
 
     </head>
     <body>
@@ -30,7 +30,7 @@
         <div class="black-panel1">
           <p class="panel-text p1">SuvaYatra Travels</p>
           <p class="panel-text p2">{{schedule.route.from_location }}-{{schedule.route.to_location }}</p>
-          <p class="panel-text p3">Bus Number : {{ schedule.bus.bus_number }}</</p>
+          <p class="panel-text p3">Bus Number : {{ schedule.bus.bus_number }}</p>
           <p class="panel-text p4">Date / Time : {{ schedule.departure_time }}</p>
           <p class="panel-text p5">Total Seats : {{ schedule.bus.total_seat }}</p>
           <p class="panel-text p6">Ava. Seats : {{ schedule.available_seats }}</p>
@@ -40,158 +40,120 @@
         <div class="black-panel2">
             <p class="book-seats-text">Select Seats</p>
             <p class="front-text">Front</p>
-            <ol>
+              <ul class="showcase">
                 <li>
-                  <ol class="seats">
-                    {% for side_a in side_a  %}
-                    <li class="seat">
-                      <input type="checkbox" id="{{side_a.id}}-a" />
-                      <label for="{{side_a.id}}-a">{{side_a.seat_side}}{{side_a.seat_number}}</label>
-                    </li>                   
-                    {% endfor %}
-                   
-                  </ol>
+                  <div class="seat2"></div>
+                  <small>Available</small>
                 </li>
                 <li>
-                  <ol class="seats">
-                    <li class="seat">
-                      <input type="checkbox" id="2A" />
-                      <label for="2A">3A</label>
-                    </li>
-                    <li class="seat">
-                      <input type="checkbox" id="2B" />
-                      <label for="2B">2B</label>
-                    </li>
-                    <li class="seat">
-                      <input type="checkbox" id="2C" />
-                      <label for="2C">2C</label>
-                    </li>
-                    <li class="seat">
-                      <input type="checkbox" id="2D" />
-                      <label for="2D">2D</label>
-                    </li>
-                    <li class="seat">
-                      <input type="checkbox" id="2E" />
-                      <label for="2E">2E</label>
-                    </li>
-                
-                  </ol>
+                  <div class="seat2 selected"></div>
+                  <small>Selected</small>
                 </li>
                 <li>
-                  <ol class="seats">
-                    <li class="seat">
-                      <input type="checkbox" id="3A" />
-                      <label for="3A">3A</label>
-                    </li>
-                    <li class="seat">
-                      <input type="checkbox" id="3B" />
-                      <label for="3B">3B</label>
-                    </li>
-                    <li class="seat">
-                      <input type="checkbox" id="3C" />
-                      <label for="3C">3C</label>
-                    </li>
-                    <li class="seat">
-                      <input type="checkbox" id="3D" />
-                      <label for="3D">3D</label>
-                    </li>
-                    <li class="seat">
-                      <input type="checkbox" id="3E" />
-                      <label for="3E">3E</label>
-                    </li>
+                  <div class="seat2 sold"></div>
+                  <small>Sold</small>
+                </li>
+              </ul>
+              <div class="container">
+                <p class="groupA">A</p>
+              <p class="groupB">B</p>
+          
+                <div class="row">
+                  <div class="seat"><div class="seat-text1">1A</div></div>
+                  <div class="seat"><div class="seat-text1">2A</div></div>
+                  <div class="seat"><div class="seat-text1">1B</div></div>
+                  <div class="seat"><div class="seat-text1">2B</div></div>
+                </div>
+          
+                <div class="row">
+                  <div class="seat"><div class="seat-text1">3A</div></div>
+                  <div class="seat"><div class="seat-text1">4A</div></div>
+                  <div class="seat"><div class="seat-text1">3B</div></div>
+                  <div class="seat"><div class="seat-text1">4B</div></div>
                  
-                  </ol>
-                </li>
-                <li>
-                  <ol class="seats">
-                    <li class="seat">
-                      <input type="checkbox" id="4A" />
-                      <label for="4A">4A</label>
-                    </li>
-                    <li class="seat">
-                      <input type="checkbox" id="4B" />
-                      <label for="4B">4B</label>
-                    </li>
-                    <li class="seat">
-                      <input type="checkbox" id="4C" />
-                      <label for="4C">4C</label>
-                    </li>
-                    <li class="seat">
-                      <input type="checkbox" id="4D" />
-                      <label for="4D">4D</label>
-                    </li>
-                    <li class="seat">
-                      <input type="checkbox" id="4E" />
-                      <label for="4E">4E</label>
-                    </li>
-                   
-                  </ol>
-                </li>
-                <li>
-                  <ol class="seats">
-                    <li class="seat">
-                      <input type="checkbox" id="5A" />
-                      <label for="5A">5A</label>
-                    </li>
-                    <li class="seat">
-                      <input type="checkbox" id="5B" />
-                      <label for="5B">5B</label>
-                    </li>
-                    <li class="seat">
-                      <input type="checkbox" id="5C" />
-                      <label for="5C">5C</label>
-                    </li>
-                    <li class="seat">
-                      <input type="checkbox" id="5D" />
-                      <label for="5D">5D</label>
-                    </li>
-                    <li class="seat">
-                      <input type="checkbox" id="5E" />
-                      <label for="5E">5E</label>
-                    </li>
-                  </ol>
-                </li>
-                
-                
-              </ol>
+                </div>
+                <div class="row">
+                  <div class="seat"><div class="seat-text1">5A</div></div>
+                  <div class="seat"><div class="seat-text1">6A</div></div>
+                  <div class="seat"><div class="seat-text1">5B</div></div>
+                  <div class="seat"><div class="seat-text1">6B</div></div>
+                  
+                </div>
+                <div class="row">
+                  <div class="seat"><div class="seat-text1">7A</div></div>
+                  <div class="seat"><div class="seat-text1">8A</div></div>
+                  <div class="seat"><div class="seat-text1">7B</div></div>
+                  <div class="seat"><div class="seat-text1">8B</div></div>
+                 
+                </div>
+                <div class="row">
+                  <div class="seat"><div class="seat-text1">9A</div></div>
+                  <div class="seat"><div class="seat-text1">10A</div></div>
+                  <div class="seat"><div class="seat-text1">9B</div></div>
+                  <div class="seat"><div class="seat-text1">10B</div></div>
+                </div>
+                <div class="row">
+                  <div class="seat"><div class="seat-text1">11A</div></div>
+                  <div class="seat"><div class="seat-text1">12A</div></div>
+                  <div class="seat"><div class="seat-text1">11B</div></div>
+                  <div class="seat"><div class="seat-text1">12B</div></div>
+                  
+                </div>
+              </div>
+              </p>
               <p class="back-text">Back</p>
               <p id="price" class="price-text">Price: </p>
               <p id="selectedSeat" class="seat-text">Seat: </p>
               <form action="{% url 'details' %}" method="get">
                 <button type="submit" class="next-button"><span></span>Next</button>
             </form>
+            <!-- Add this script for seat selection -->
+            <script>
+              document.addEventListener('DOMContentLoaded', function () {
+                const seats = document.querySelectorAll('.seat');
+                const nextButton = document.querySelector('.next-button');
             
-        </div>
-        <script>
-          document.addEventListener('DOMContentLoaded', function () {
-              var seatElements = document.querySelectorAll('.seat input[type=checkbox]');
-              var selectedSeatsElement = document.getElementById('selectedSeat');
-              var priceElement = document.getElementById('price');
-      
-              var basePrice = 1500; // Base price for one seat
-              var priceIncrement = 1500; // Incremental price for each additional seat
-      
-              seatElements.forEach(function (seat) {
-                  seat.addEventListener('change', function () {
-                      var selectedSeats = Array.from(seatElements)
-                          .filter(function (s) { return s.checked; })
-                          .map(function (s) { return s.id; })
-                          .join(', ');
-      
-                      selectedSeatsElement.style.color = '#c9d60e';
-                      selectedSeatsElement.textContent = 'Seats: ' + selectedSeats;
-      
-                      // Calculate total price based on the number of selected seats
-                      var numSelectedSeats = selectedSeats.split(',').length;
-      
-                      // Update the total price or set to 0 if no seats are selected
-                      var totalPrice = numSelectedSeats > -1 ? basePrice + ((numSelectedSeats - 1) * priceIncrement) : 0;
-                      priceElement.style.color = '#c9d60e';
-      
-                      priceElement.textContent = 'Price: Rs' + totalPrice + '/';
+                seats.forEach(seat => {
+                  seat.addEventListener('click', function () {
+                    if (!seat.classList.contains('sold')) {
+                      seat.classList.toggle('selected');
+                      updateSelectedSeats();
+                    }
                   });
+                });
+            
+                nextButton.addEventListener('click', function (event) {
+                  const selectedSeats = document.querySelectorAll('.seat.selected');
+            
+                  // If no seats are selected, prevent form submission
+                  if (selectedSeats.length === 0) {
+                    event.preventDefault();
+                    alert('Please select at least one seat.');
+                  }
+                });
+            
+                function updateSelectedSeats() {
+                  const selectedSeats = document.querySelectorAll('.seat.selected');
+                  const selectedSeatsCount = selectedSeats.length;
+                  const pricePerSeat = 1500;
+                  const totalPrice = selectedSeatsCount * pricePerSeat;
+            
+                  // Create an array to store the selected seat numbers
+                  const selectedSeatNumbers = [];
+            
+                  // Iterate through selected seats and extract seat numbers
+                  selectedSeats.forEach(seat => {
+                    const seatNumber = seat.querySelector('.seat-text1').innerText;
+                    selectedSeatNumbers.push(seatNumber);
+                  });
+            
+                  // Update the display with selected seat numbers
+                  document.getElementById('selectedSeat').innerText = `Seat: ${selectedSeatsCount > 0 ? selectedSeatNumbers.join(', ') : 'None'}`;
+                  document.getElementById('price').innerText = `Price: Rs ${totalPrice}/`;
+                }
               });
-          });
-      </script>
+            </script>
+            
+
     </body>
 </html>
