@@ -106,3 +106,5 @@ def save_passenger_info(request):
     return render(request, 'home.html')
 
 
+def payment_view(request):
+   return render(request, 'payment.html')

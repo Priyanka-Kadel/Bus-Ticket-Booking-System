@@ -1,5 +1,5 @@
 from django.urls import path
-from backend_crud.views import filter_route,seats_view,details_views,booking_view,save_passenger_info
+from backend_crud.views import filter_route,seats_view,details_views,booking_view,save_passenger_info,payment_view
 
 
 urlpatterns = [  
@@ -8,5 +8,6 @@ urlpatterns = [
     path('seats/<int:route_id>/', seats_view, name='seats'),
     path('details/', details_views, name='details'),
     path('create-passenger/', save_passenger_info, name='create-passenger'),
+    path('payment/', payment_view, name='payment'),
 
 ]
