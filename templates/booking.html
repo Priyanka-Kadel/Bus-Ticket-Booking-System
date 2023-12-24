@@ -60,39 +60,26 @@
                 </form>
             </div>
         </div>
-
-        <!-- Black panel below grey panel -->
-
-        <div class="black-panel1">
-
-            {% if routes %}
-            <table id="customers">
-                <tr class="heading-row">
-                    <th>Route Name</th>
-                    <th>Bus Number</th>
-                    <th>Location</th>
-                    <th>Time</th>
-                    <th>Total Seats</th>
-                    <th>Available Seats</th>
-                    <th>Fare</th>
-                </tr>
-
-                {% for route in routes %}
-                <tr class="route-row" >
-                    <td><a href= "{% url 'seats' route.id %}">{{ route.route.route_name }}</a></td>
-                    <td>{{ route.bus.bus_number }}</td>
-                    <td>{{ route.route.from_location }}-{{ route.route.to_location }}</td>
-                    <td>{{ route.departure_time }}</td>
-                    <td>{{ route.bus.total_seat }}</td>
-                    <td>{{ route.available_seats }}</td>
-                    <td>{{ route.route.price }}</td>
-                </tr>
-                {% endfor %}
-            </table>
-            {% else %}
-            <p>Search Bus</p>
-            {% endif %}
-        </div>
+<!-- Black panel below grey panel -->
+<div class="black-panel1" id="search-results-panel">
+    {% if routes %}
+        {% for route in routes %}
+            <div class="route-info">
+                <p class="panel-text p1">
+                    <strong style="color: white;">Route Name:</strong> <a href="{% url 'seats' route.id %}" style="color: white;">{{ route.route.route_name }}</a>
+                </p>
+                <p class="panel-text p3"><strong>Bus Number:</strong> {{ route.bus.bus_number }}</p>
+                <p class="panel-text p2"><strong>Location:</strong> {{ route.route.from_location }}-{{ route.route.to_location }}</p>
+                <p class="panel-text p4"><strong>Time:</strong> {{ route.departure_time }}</p>
+                <p class="panel-text p5"><strong>Total Seats:</strong> {{ route.bus.total_seat }}</p>
+                <p class="panel-text p6"><strong>Available Seats:</strong> {{ route.available_seats }}</p>
+                <p class="panel-text p7"><strong>Fare:</strong> {{ route.route.price }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No routes found.</p>
+    {% endif %}
+</div>
 
         <!-- Footer panel -->
         <div class="footer-panel">
@@ -100,6 +87,14 @@
             <p>&copy; 2023 SuvaYatra. All rights reserved.</p>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var searchResultsPanel = document.getElementById('search-results-panel');
+            {% if routes %}
+                searchResultsPanel.style.display = 'block';
+            {% endif %}
+        });
+    </script>
 </body>
 
 </html>

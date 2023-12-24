@@ -12,7 +12,7 @@ body {
 
 /* Main container styles */
 .main {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)), url('/media/bgs.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)), url('/media/image.webp');
     height: 100vh;
     width: 100%;
     background-position: center;
@@ -89,13 +89,14 @@ body {
 
 /* Grey panel styles */
 .grey-panel {
-    background-color: rgba(106, 106, 106, 0.6);
+    background-color: rgba(13, 13, 13, 0.6);
     position: absolute;
     top: 180px;
     left: 158px;
     width: 77%;
     height: 9%;
     padding: 10px;
+    border-radius: 20px;
 }
 
 /* City dropdown styles */
@@ -131,16 +132,16 @@ body {
     margin: 5px 0;
 }
 /* Select box styles for 'From' */
-.custom-select[name="from"] {
-    background-color:rgba(0, 0, 0, 0.5); /* Transparent black background */
+.custom-select[name="from_location"] {
+    background-color:rgba(116, 116, 116, 0.5); /* Transparent black background */
     color: #ffffff; /* Set the text color to make it visible on the dark background */
     font-size: 18px;
     border-color: #ffffff;
 }
 
 /* Select box styles for 'To' */
-.custom-select[name="to"] {
-    background-color: rgba(0, 0, 0, 0.5); /* Transparent black background */
+.custom-select[name="to_location"] {
+    background-color:rgba(116, 116, 116, 0.5);
     color: #ffffff; /* Set the text color to make it visible on the dark background */
     font-size: 18px;
     border-color: #ffffff;
@@ -148,18 +149,18 @@ body {
 
 /* Date input styles */
 .custom-date {
-    background-color: rgba(0, 0, 0, 0.5); /* Transparent black background */
+    background-color:rgba(116, 116, 116, 0.5);
     color: #ffffff; /* Set the text color to make it visible on the dark background */
     font-size: 18px;
     border-color: #ffffff;
 }
 /* Select box styles for 'From' */
-.custom-select[name="from"]:focus {
+.custom-select[name="from_location"]:focus {
     border: 2px solid #04AA6D; /* Set the border color when the box is clicked */
 }
 
 /* Select box styles for 'To' */
-.custom-select[name="to"]:focus {
+.custom-select[name="to_location"]:focus {
     border: 2px solid #04AA6D; /* Set the border color when the box is clicked */
 }
 
@@ -188,59 +189,63 @@ body {
     left: 158px;
     width: 50%;
     height: 11%;
+    background-color: rgba(0, 0, 0, 0.5);
     border-radius: 12px;
-}
-/* Text styles for black panel */
-.black-panel1 .panel-text {
-    color: #ffffff; /* Text color */
+    border: 1.3px solid white;
+    display: none; 
+  }
+  
+  .black-panel1 .panel-text {
+    color: #ffffff;
     font-size: 18px;
     margin: 10px;
-}
-
-/* Adjust positions of each panel text */
-.black-panel1 .p1 {
+  }
+  .black-panel1 .p1 {
     margin-top: 14px;
     font-size: 17px;
-}
-
-.black-panel1 .p2 {
+    color: #ffffff;
+  }
+  
+  .black-panel1 .p2 {
     font-size: 17px;
-}
-
-.black-panel1 .p3 {
+    margin-top: -30px;
+  }
+  
+  .black-panel1 .p3 {
     position: relative;
-    top: -40px;
+    top: -10px;
     margin-left: 300px;
     font-size: 18px;
-}
-
-.black-panel1 .p4 {
+  }
+  
+  .black-panel1 .p4 {
     margin-left: 610px;
     position: relative;
-    top: -100px;
-    font-size: 16px;
-}
-.black-panel1 .p5 {
+    top: -75px;
+    font-size: 14.5px;
+  }
+  
+  .black-panel1 .p5 {
     margin-left: 610px;
     position: relative;
-    top: -110px;
-    font-size: 16px;
-}
-.black-panel1 .p6{
+    top: -85px;
+    font-size: 14.5px;
+  }
+  
+  .black-panel1 .p6 {
     margin-left: 610px;
     position: relative;
-    top: -120px;
-    font-size: 16px;
-}
-.black-panel1 .p7 {
+    top: -95px;
+    font-size: 14.5px;
+  }
+  
+  .black-panel1 .p7 {
     margin-left: 610px;
     position: relative;
-    top: -130px;
-    font-size: 16px;
+    top: -105px;
+    font-size: 14.5px;
     color: #04AA6D;
-}
-
-
+  }
 
 .black-panel2 {
     position: absolute;

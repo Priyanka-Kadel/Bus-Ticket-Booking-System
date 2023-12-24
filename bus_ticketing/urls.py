@@ -20,7 +20,7 @@ from django.conf import settings
 
 # from admin_register.views import 
 
-
+admin.site.site_header = "     SuvaYatra    "
 from django.conf.urls.static import static
 
 urlpatterns = [
