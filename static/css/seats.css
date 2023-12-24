@@ -298,6 +298,7 @@ body {
   background-color: green;
 }
 
+
 .seat.sold {
   background-color: #fff;
 }
@@ -378,6 +379,22 @@ body {
   flex-wrap: wrap; /* Allow items to wrap to the next line */
   max-width: 150px; /* Adjust the max-width as needed */
   margin-bottom: 5px;
+}
+
+.column-bus-seat .available {
+  background-color: #505050;
+}
+
+.column-bus-seat .selected {
+  background-color: #73cc81;
+}
+
+.column-bus-seat .sold {
+  background-color: #ffffff;
+}
+
+.column-bus-seat .not-available {
+  background-color: #e14c4c;
 }
 
 .column-bus-seat h2 {

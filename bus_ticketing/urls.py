@@ -26,7 +26,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('', include('accounts.urls')),
     path('admin/', admin.site.urls),
-    path('backend', include("backend_crud.urls")),
+    path('backend/', include("backend_crud.urls")),
     ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:

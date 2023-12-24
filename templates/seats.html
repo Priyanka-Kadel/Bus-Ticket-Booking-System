@@ -28,13 +28,14 @@
         </div>
         
         <div class="black-panel1">
+          <span id='scheduled' hidden> {{ schedule.id }}</span>
           <p class="panel-text p1">SuvaYatra Travels</p>
           <p class="panel-text p2">{{schedule.route.from_location }}-{{schedule.route.to_location }}</p>
           <p class="panel-text p3">Bus Number : {{ schedule.bus.bus_number }}</p>
           <p class="panel-text p4">Date / Time : {{ schedule.departure_time }}</p>
           <p class="panel-text p5">Total Seats : {{ schedule.bus.total_seat }}</p>
           <p class="panel-text p6">Ava. Seats : {{ schedule.available_seats }}</p>
-          <p class="panel-text p7">Fare: Rs {{ schedule.route.price }}/</p>
+          <p class="panel-text p7">Fare: Rs <span id='seat-price'>{{ schedule.route.price }}</span></p>
       </div>
 
         <div class="black-panel2">
@@ -57,91 +58,45 @@
 
               <div class="bus-container">
                 <div class="column-bus-seat" id="columnA">
-                  <h2> A</h2>
-                  <div class="row">
-                    <div class="seat" >A1</div>
-                    <div class="seat">A2</div>
-                    <div class="seat">A2</div>
-                     <div class="seat">A1</div>
-                    <div class="seat">A2</div>
-                    <div class="seat">A2</div>
-            
-                    <!-- Add more seats as needed -->
-                  </div>
+                    <h2> A</h2>
+                    <div class="row">
+                        {% for seat in side_a %}
+                            <div class="seat{% if seat.available %} available {%else%} not-available{% endif %}{% if seat.selected %} selected{% endif %}{% if seat.sold %} sold{% endif %}" data-seat={{seat.id}}>
+                                {{ seat.seat_number }}
+                            </div>
+                        {% endfor %}
+                    </div>
                 </div>
                 <div class="column-bus-seat" id="columnB">
-                  <h2> B</h2>
-                  <div class="row">
-                    <div class="seat">B1</div>
-                    <div class="seat">B1</div>
-                    <div class="seat">B2</div>
-                    <div class="seat">B1</div>
-                    <div class="seat">B2</div>
-                    <!-- Add more seats as needed -->
-                  </div>
+                    <h2> B</h2>
+                    <div class="row">
+                        {% for seat in side_b %}
+                            <div class="seat{% if seat.available %} available {%else%} not-available{% endif %}{% if seat.selected %} selected{% endif %}{% if seat.sold %} sold{% endif %}" data-seat={{seat.id}}">
+                                {{ seat.seat_number }}
+                            </div>
+                        {% endfor %}
+                    </div>
                 </div>
-              </div>
-              {% comment %} <div class="row">
-                <!-- Column A -->
-                <div class="column">
-                  <div class="seat"><div class="seat-text1">1A</div></div>
-                  <div class="seat"><div class="seat-text1">3A</div></div>
-                  <div class="seat"><div class="seat-text1">5A</div></div>
-                  <div class="seat"><div class="seat-text1">7A</div></div>
-                  <div class="seat"><div class="seat-text1">9A</div></div>
-                  <div class="seat"><div class="seat-text1">11A</div></div>
-                </div>
-                
-                <!-- Column B -->
-                <div class="column">
-                  <div class="seat"><div class="seat-text1">2A</div></div>
-                  <div class="seat"><div class="seat-text1">4A</div></div>
-                  <div class="seat"><div class="seat-text1">6A</div></div>
-                  <div class="seat"><div class="seat-text1">8A</div></div>
-                  <div class="seat"><div class="seat-text1">10A</div></div>
-                  <div class="seat"><div class="seat-text1">12A</div></div>
-                </div>
-              </div>
-              
-              <div class="row">
-                <!-- Column A -->
-                <div class="column">
-                  <div class="seat"><div class="seat-text1">1B</div></div>
-                  <div class="seat"><div class="seat-text1">3B</div></div>
-                  <div class="seat"><div class="seat-text1">5B</div></div>
-                  <div class="seat"><div class="seat-text1">7B</div></div>
-                  <div class="seat"><div class="seat-text1">9B</div></div>
-                  <div class="seat"><div class="seat-text1">11B</div></div>
-                </div>
-                
-                <!-- Column B -->
-                <div class="column">
-                  <div class="seat"><div class="seat-text1">2B</div></div>
-                  <div class="seat"><div class="seat-text1">4B</div></div>
-                  <div class="seat"><div class="seat-text1">6B</div></div>
-                  <div class="seat"><div class="seat-text1">8B</div></div>
-                  <div class="seat"><div class="seat-text1">10B</div></div>
-                  <div class="seat"><div class="seat-text1">12B</div></div>
-                </div>
-              </div>
-              
-              </div> {% endcomment %}
+            </div>
+
+            
               </p>
               <p class="back-text">Back</p>
               <p id="price" class="price-text">Price: </p>
               <p id="selectedSeat" class="seat-text">Seat: </p>
-              <form  method="get">
-                <button type="submit" class="next-button"><span></span>Next</button>
-            </form>
+              <button type="submit" class="next-button" id='save-selected-seat'><span></span>Next</button>
             <!-- Add this script for seat selection -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
             <script>
               document.addEventListener('DOMContentLoaded', function () {
                 const seats = document.querySelectorAll('.seat');
                 const nextButton = document.querySelector('.next-button');
             
                 seats.forEach(seat => {
-                  seat.addEventListener('click', function () {
-                    if (!seat.classList.contains('sold')) {
+                  seat.addEventListener('click', function (e) {
+                    if (seat.classList.contains('not-available')){
+                      alert("Seat is reserved or booked.")
+                    }else if(!seat.classList.contains('sold')) {
                       seat.classList.toggle('selected');
                       updateSelectedSeats();
                     }
@@ -161,7 +116,7 @@
                 function updateSelectedSeats() {
                   const selectedSeats = document.querySelectorAll('.seat.selected');
                   const selectedSeatsCount = selectedSeats.length;
-                  const pricePerSeat = 1500;
+                  const pricePerSeat = parseInt(document.getElementById('seat-price').innerText);
                   const totalPrice = selectedSeatsCount * pricePerSeat;
             
                   // Create an array to store the selected seat numbers
@@ -169,16 +124,54 @@
             
                   // Iterate through selected seats and extract seat numbers
                   selectedSeats.forEach(seat => {
-                    const seatNumber = seat.querySelector('.seat-text1').innerText;
+                    const seatNumber = seat.innerText.trim();
                     selectedSeatNumbers.push(seatNumber);
-                  });
-            
+                  });            
                   // Update the display with selected seat numbers
                   document.getElementById('selectedSeat').innerText = `Seat: ${selectedSeatsCount > 0 ? selectedSeatNumbers.join(', ') : 'None'}`;
                   document.getElementById('price').innerText = `Price: Rs ${totalPrice}/`;
                 }
+
+
+               // to save selected Seat
+               document.getElementById('save-selected-seat').addEventListener('click',()=>{
+                  const selectedSeats = document.querySelectorAll('.seat.selected');
+                  const selectedSeatNumbersBackend = {
+                    scheduled_id:parseInt(document.getElementById('scheduled').innerText),
+                    selected_seat:[]
+                  };
+            
+                  // Iterate through selected seats and extract seat numbers
+                  selectedSeats.forEach(seat => {
+                    selectedSeatNumbersBackend['selected_seat'].push(
+                      parseInt(seat.getAttribute('data-seat'))
+                    )
+                  });
+                  if (selectedSeatNumbersBackend['selected_seat'].length<=0){
+                    alert('select at least one seat.')
+                  }else{
+                    console.log('ajax requested.')
+                    console.log(selectedSeatNumbersBackend)
+
+                    $.ajax({
+                      type: 'POST',
+                      url: '/backend/details/',  // Replace with your actual URL
+                      data: JSON.stringify(selectedSeatNumbersBackend),
+                      contentType: 'application/json',
+                      success: function(response) {
+                          location.reload()
+                          // Handle the successful response
+                      },
+                      error: function(error) {
+                          console.error(error);
+                          // Handle the error
+                      }
+                  });
+                  }
+               })
               });
             </script>
+            
             
 
     </body>

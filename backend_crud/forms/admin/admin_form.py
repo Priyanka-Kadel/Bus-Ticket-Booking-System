@@ -20,9 +20,9 @@ class BusSeatStatusAdminForm(forms.ModelForm):
         seat_b = seat_side_counts.filter(seat_side = 'B')
 
 
-        if self.cleaned_data.get('seat_side')== 'A' and seat_a.count()>=9:
+        if self.cleaned_data.get('seat_side')== 'A' and seat_a.count()>=20:
             raise forms.ValidationError("Total seat in side A cannot be greater than 10")
-        if self.cleaned_data.get('seat_side')== 'B' and seat_b.count()>=9:
+        if self.cleaned_data.get('seat_side')== 'B' and seat_b.count()>=20:
             raise forms.ValidationError("Total seat in side B cannot be greater than 10")
 
         return super().clean()

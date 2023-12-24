@@ -71,9 +71,30 @@ def seats_view(request, route_id):
     
     return render(request, 'seats.html', context={'schedule':schedule,'side_a':side_a, 'side_b': side_b })
 
-def details_views(request, route_id):   
-    route = Route.objects.filter(id=route_id).values('from_location','to_location').first()
-    return render(request, 'details.html', context={'route':route})
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import json
+
+@csrf_exempt
+def details_views(request):   
+    if request.method == 'POST':
+        try:
+            # Parse the JSON data from the request
+            data = json.loads(request.body)
+
+            # Access the values from the JSON data
+            scheduled_id = data.get('scheduled_id')
+            selected_seats = data.get('selected_seat')
+            BusSeatStatus.objects.filter(schedule_id=scheduled_id,id__in=selected_seats).update(available=False)
+            # Return a JsonResponse with any response data
+            response_data = {'message': 'Request processed successfully'}
+            return JsonResponse(response_data)
+        except json.JSONDecodeError:
+            # Handle JSON decoding error
+            return JsonResponse({'error': 'Invalid JSON data'}, status=400)
+
+    # Handle other HTTP methods if needed
+    return JsonResponse({'error': 'Invalid request method'}, status=405)
 
 def save_passenger_info(request):
     passengerform = passenger_form.PassengerForm(data=request.POST)

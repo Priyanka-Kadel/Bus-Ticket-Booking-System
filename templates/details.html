@@ -46,30 +46,18 @@
 
             <!-- Label and input for Boarding Point (Departure) -->
             <label for="boarding-point" class="input-label">Boarding Point (Departure)</label>
-            <select id="boarding-point" class="entry-box" required>
-                {% for location in from_locations %}
-                    <option value="{{ location }}">{{ location }}</option>
-                {% endfor %}
-            </select>
+            <input type="text" id="boarding-point" class="entry-box" value="{{ route.from_location }}" required>
 
+
+            <!-- Label and input for Dropping Point (Departure) -->
             <label for="dropping-point" class="input-label">Dropping Point (Departure)</label>
-            <select id="dropping-point" class="entry-box" required>
-                {% for location in to_locations %}
-                    <option value="{{ location }}">{{ location }}</option>
-                {% endfor %}
-            </select>
+            <input type="text" id="dropping-point" class="entry-box" value="{{ route.to_location }}'Buspark'" required>
+
             <!-- Add default values for from_location and to_location -->
             <script>
-                document.getElementById("boarding-point").value = "{{ schedule.route.from_location }}";
-                document.getElementById("dropping-point").value = "{{ schedule.route.to_location }}";
+                document.getElementById("boarding-point").value = "{{ route.from_location }}";
+                document.getElementById("dropping-point").value = "{{ route.to_location }}";
             </script>
-
-            <!-- Add buspark default -->
-            <input type="hidden" id="buspark" name="buspark" value="Default Buspark">
-
-            <!-- Button for form submission -->
-            <button class="next-button" type="submit" onclick="validateForm()">Next</button>
-
             
         </div>
     </div>
