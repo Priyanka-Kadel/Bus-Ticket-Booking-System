@@ -6,7 +6,7 @@ urlpatterns = [
     path('filter-route/', filter_route, name='route'),
     path('booking/', booking_view, name='booking'),
     path('seats/<int:route_id>/', seats_view, name='seats'),
-    path('details/<int:route_id>/', details_views, name='details'),
+    path('details/', details_views, name='details'),
     path('create-passenger/', save_passenger_info, name='create-passenger'),
 
 ]
