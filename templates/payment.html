@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passenger Details</title>
+    <link rel="stylesheet" href="{% static 'css/payment.css' %}">
+    
+</head>
+
+<body>
+    <div class="scroll-container">
+    <!-- Main container -->
+    <div class="main">
+        <!-- Logo container -->
+        <div class="logo-container">
+            <!-- Logo image -->
+            <img src='/media/logo.png' alt="Logo" class="logo">
+        </div>
+
+        <!-- Navigation bar -->
+        <div class="navbar">
+            <!-- Navigation links -->
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'home' %}">About</a></li>
+                <li><a href="{% url 'home' %}">How to book ticket?</a></li>
+                <li><a href="{% url 'home' %}">Services</a></li>
+            </ul>
+        </div>
+
+    
+        <div class="passenger-details">
+            <h2>Passenger Details</h2>
+            <div class="details-section">
+                <p>Name: SUVAYATRA</p>
+                <p>Contact No: 9800000</p>
+            </div>
+            <div class="details-section">
+                <p>Seat No (Departure): A1</p>
+                <p>Departure Date: 2023-12-25</p>
+            </div>
+            <div class="details-section">
+                <p>Time: 07:00 PM</p>
+                <p>Pickup Point: Gangabu Buspark (07:00 PM)</p>
+            </div>
+            <div class="details-section">
+                <p>Dropping Point: Pokhara BusPark</p>
+            </div>
+            <div class="divider"></div>
+            <div class="details-section">
+                <p>Total Fare: 1700</p>
+                <p>Discount Fare: 0</p>
+                <p>Total Fare to be Paid: 1700</p>
+            </div>
+            <div class="note-section">
+                <p>**** Note if you get a pending message from Bank/Khalti or if your transaction is completed but if you don't get a ticket, then please contact our operator.</p>
+                <p>**** Please ensure that you will be redirected to our website after the payment is done.</p>
+                <p>**** Please note your ticket will be confirmed once payment is received at our end. If you are having a problem with payment, please contact our operator.</p>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

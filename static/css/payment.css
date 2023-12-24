@@ -1,0 +1,129 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow-y: auto;
+            font-family: Arial, sans-serif;
+            /* overflow: hidden; */
+        }
+
+        .main {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)),
+                url('/media/image.webp');
+            height: 100vh;
+            width: 100%;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+
+        .logo-container {
+            position: absolute;
+            top: 40px;
+            left: 50px;
+            z-index: 1000;
+        }
+
+        .logo {
+            max-width: 219px;
+            height: auto;
+        }
+
+        .navbar {
+            width: 85%;
+            margin: auto;
+            padding: 38px 0;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding-left: 140px;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin: 0 20px;
+            position: relative;
+            font-size: 20.3px;
+            text-shadow: 0 4px 8px rgb(29, 29, 29);
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: #f2f2f2;
+            transition: color 0.5s;
+        }
+
+        .navbar ul li a:hover {
+            color: #04AA6D;
+        }
+
+        .navbar ul li::after {
+            content: '';
+            height: 3px;
+            width: 0;
+            background: #14b97c;
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            transition: 0.5s;
+        }
+
+        .navbar ul li:hover::after {
+            width: 100%;
+        }
+
+        .scroll-container {
+            top: 300px;
+            max-height: 800px; /* Set a fixed height for the container */
+            overflow-y: auto; /* Add a vertical scrollbar when the content exceeds the container height */
+        }
+   
+
+        .passenger-details {
+            position: relative;
+            top: 300px; /* Adjust the top value */
+            border: 1px solid #ccc;
+            padding: 200px;
+            
+            text-align: center;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .details-section {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .divider {
+            border-top: 1px solid #ccc;
+            margin: 20px 0;
+        }
+
+        .note-section {
+            margin-top: 20px;
+            font-style: italic;
+            color: #555;
+        }
+
+        .passenger-details h2 {
+            margin-top: -20px; /* Adjust the value as needed */
+            font-size: 30px;
+        }
+
+
+        
