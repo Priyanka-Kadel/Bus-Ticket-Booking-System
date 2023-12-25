@@ -13,7 +13,7 @@
 
         .main {
             background-image: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)),
-                url('/media/image.webp');
+                url('/media/bs.jpg');
             height: 100vh;
             width: 100%;
             background-position: center;
@@ -93,7 +93,8 @@
 
         .passenger-details {
             position: relative;
-            top: 300px; /* Adjust the top value */
+            top: 430px; /* Adjust the top value */
+        
             border: 1px solid #ccc;
             padding: 200px;
             
@@ -115,15 +116,36 @@
         }
 
         .note-section {
-            margin-top: 20px;
+            margin-top: 30px;
             font-style: italic;
-            color: #555;
+            color:  #0a0909;
+            font-weight: bold;
+            
         }
 
         .passenger-details h2 {
-            margin-top: -20px; /* Adjust the value as needed */
+            margin-bottom: 30px;/* Adjust the value as needed */
             font-size: 30px;
+            
         }
+
+        .note-section p {
+            margin-bottom: 20px;
+            line-height: 1.5;
+            color: #0a0909;
+            text-align: left; /* Align text to the left */
+        }
+
+
+        .khaltilogo {
+            position: absolute;
+            bottom: 10px; /* Adjust the bottom value for the downward movement */
+            left: 80px; /* Adjust the left value for the leftward movement */
+            z-index: 1000;
+            max-width: 200px;
+            height:auto;
+        }
+        
 
 
         
