@@ -1,5 +1,7 @@
 from django import forms
 from backend_crud.models import PassengerDetails ,Route
+import re
+
 
 class PassengerForm(forms.Form):
     name=forms.CharField(max_length=100, required=True)
@@ -18,12 +20,19 @@ class PassengerForm(forms.Form):
         return self.cleaned_data.get('email').strip()
     
     def clean_contact(self):
-        # if PassengerDetails.objects.filter(contact=self.cleaned_data.get("contact").strip()).exists():
-        #     raise forms.ValidationError("This number already exists")
+        pattern = r'\d'  # \d matches any digit (0-9)
+        if not bool(re.search(pattern, self.cleaned_data.get('contact').strip())):
+            raise forms.ValidationError("Invalid Contact Number")
+
+        
         return self.cleaned_data.get("contact").strip()
         
+        
     def clean(self):
+        print(self.cleaned_data)
+
         route = Route.objects.filter(from_location= self.cleaned_data.get('from_location'), to_location= self.cleaned_data.get('to_location')).first()
+        
         self.cleaned_data.pop('from_location')
         self.cleaned_data.pop('to_location')
         self.cleaned_data.update({'route':route})

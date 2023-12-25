@@ -29,6 +29,8 @@
         
         <div class="black-panel1">
           <span id='scheduled' hidden> {{ schedule.id }}</span>
+          <span id='route-id' hidden> {{ schedule.route.id }}</span>
+
           <p class="panel-text p1">SuvaYatra Travels</p>
           <p class="panel-text p2">{{schedule.route.from_location }}-{{schedule.route.to_location }}</p>
           <p class="panel-text p3">Bus Number : {{ schedule.bus.bus_number }}</p>
@@ -49,6 +51,10 @@
                 <li>
                   <div class="seat2 selected"></div>
                   <small>Selected</small>
+                </li>
+                <li>
+                  <div class="seat2 reserved"></div>
+                  <small>Reserved</small>
                 </li>
                 <li>
                   <div class="seat2 sold"></div>
@@ -110,7 +116,12 @@
                   if (selectedSeats.length === 0) {
                     event.preventDefault();
                     alert('Please select at least one seat.');
+                  } else {
+                    // Redirect to the next page after selecting seats
+                    const route_id = parseInt(document.getElementById('route-id').innerText);
+                    window.location.href = `/backend/passenger-details/${route_id}/`;
                   }
+                
                 });
             
                 function updateSelectedSeats() {
