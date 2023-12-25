@@ -1,9 +1,13 @@
 from datetime import datetime
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from backend_crud.forms import search_route,passenger_form
 from backend_crud.models import Route, BusSeatStatus, Schedule, PassengerDetails
 from django.db.models import Q, Prefetch
 from django.db.models import Count, Case, When, IntegerField
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import json
+
 
 
 
@@ -71,10 +75,6 @@ def seats_view(request, route_id):
     
     return render(request, 'seats.html', context={'schedule':schedule,'side_a':side_a, 'side_b': side_b })
 
-from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
-import json
-
 @csrf_exempt
 def details_views(request):   
     if request.method == 'POST':
@@ -92,19 +92,28 @@ def details_views(request):
         except json.JSONDecodeError:
             # Handle JSON decoding error
             return JsonResponse({'error': 'Invalid JSON data'}, status=400)
-
+    
     # Handle other HTTP methods if needed
     return JsonResponse({'error': 'Invalid request method'}, status=405)
+    
 
-def save_passenger_info(request):
-    passengerform = passenger_form.PassengerForm(data=request.POST)
-    if passengerform.is_valid():
-        PassengerDetails.objects.create(** passengerform.cleaned_data)
-    else:
-        print(passengerform.errors)
+def passenger_details_view (request, id):
+    route = Route.objects.filter(id=id).first()
+    return render(request, 'passenger_details.html', context={'route':route})
 
-    return render(request, 'home.html')
+def save_passenger_info(request, id):
+    if request.method == 'POST':
+        passengerform = passenger_form.PassengerForm(data=request.POST)
+        if passengerform.is_valid():
+            PassengerDetails.objects.create(** passengerform.cleaned_data)
+            return render(request , 'payment.html')
+        else:
+            print(passengerform.errors)
+            route = Route.objects.filter(id=id).first()
+            return render(request, 'passenger_details.html', context={'route':route, 'error':passengerform.errors})
 
+    route = Route.objects.filter(id=id).first()
+    return render(request, 'passenger_details.html', context={'route':route})
 
 def payment_view(request):
    return render(request, 'payment.html')

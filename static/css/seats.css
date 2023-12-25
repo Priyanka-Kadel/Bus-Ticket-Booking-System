@@ -281,6 +281,10 @@ body {
   background-color: green;
 }
 
+.seat2.reserved{
+  background-color: red;
+}
+
 .seat2.sold {
   background-color: white;
 }
@@ -297,6 +301,7 @@ body {
 .seat.selected {
   background-color: green;
 }
+
 
 
 .seat.sold {
@@ -382,11 +387,11 @@ body {
 }
 
 .column-bus-seat .available {
-  background-color: #505050;
+  background-color: #444451;
 }
 
 .column-bus-seat .selected {
-  background-color: #73cc81;
+  background-color: green;
 }
 
 .column-bus-seat .sold {
@@ -394,7 +399,7 @@ body {
 }
 
 .column-bus-seat .not-available {
-  background-color: #e14c4c;
+  background-color: #e63131;
 }
 
 .column-bus-seat h2 {
