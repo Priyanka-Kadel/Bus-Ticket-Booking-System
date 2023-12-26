@@ -185,10 +185,10 @@ body {
 /* Black panel styles */
 .black-panel1 {
     position: absolute;
-    top: 300px;
+    top: 290px;
     left: 158px;
     width: 50%;
-    height: 11%;
+    height: 12%;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 12px;
     border: 1.3px solid white;
@@ -204,6 +204,7 @@ body {
     margin-top: 14px;
     font-size: 17px;
     color: #ffffff;
+    position: relative;
   }
   
   .black-panel1 .p2 {
@@ -221,28 +222,28 @@ body {
   .black-panel1 .p4 {
     margin-left: 610px;
     position: relative;
-    top: -75px;
+    top: -70px;
     font-size: 14.5px;
   }
   
   .black-panel1 .p5 {
     margin-left: 610px;
     position: relative;
-    top: -85px;
+    top: -80px;
     font-size: 14.5px;
   }
   
   .black-panel1 .p6 {
     margin-left: 610px;
     position: relative;
-    top: -95px;
+    top: -90px;
     font-size: 14.5px;
   }
   
   .black-panel1 .p7 {
     margin-left: 610px;
     position: relative;
-    top: -105px;
+    top: -100px;
     font-size: 14.5px;
     color: #04AA6D;
   }
