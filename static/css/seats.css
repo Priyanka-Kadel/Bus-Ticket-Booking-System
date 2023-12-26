@@ -262,21 +262,22 @@ body {
 
 .seat {
   background-color: #444451;
-  height: 63px;
-  width: 63px;
-  margin: 20px 20px;
+  height: 26px;
+  width: 32px;
+  margin: 3px;
   font-size: 50px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
 .seat2 {
-  background-color: #444451;
-  height: 30px;
-  width: 30px;
-  margin: 20px 20px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
+    background-color: #444451;
+    height: 26px;
+    width: 32px;
+    margin: 3px;
+    font-size: 50px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
 .seat2.selected {
   background-color: green;
 }
@@ -294,6 +295,7 @@ body {
   text-align: center;
   margin-top: 20px;
 }
+
 
 
 
@@ -381,8 +383,8 @@ body {
 
 .column-bus-seat .row {
   display: flex;
-  flex-wrap: wrap; /* Allow items to wrap to the next line */
-  max-width: 150px; /* Adjust the max-width as needed */
+  flex-wrap: wrap;
+  max-width: 150px;
   margin-bottom: 5px;
 }
 
