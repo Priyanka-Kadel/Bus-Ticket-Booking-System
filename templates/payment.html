@@ -35,23 +35,27 @@
             <div class="passenger-details">
                 <h2>Passenger Details</h2>
                 <div class="details-section">
-                    <p>Name: SUVAYATRA</p>
-                    <p>Contact No: 9800000</p>
+                    <p>Name: {{ passenger_details.name }}</p>
+                    <p>Contact No: {{ passenger_details.contact }}</p>
                 </div>
                 <div class="details-section">
-                    <p>Seat No (Departure): A1</p>
-                    <p>Departure Date: 2023-12-25</p>
+                    <p>Seat No (Departure): 
+                        {% for seat in seat_number %}
+                            {{ seat.seat_number }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </p>
+                    <p>Departure Date: {{ passenger_details.schedule.departure_time.date }}</p>                  
                 </div>
                 <div class="details-section">
-                    <p>Time: 07:00 PM</p>
-                    <p>Pickup Point: Gangabu Buspark (07:00 PM)</p>
+                    <p>Date/Time: {{ passenger_details.schedule.departure_time.time }}</p>              
+                    <p>Pickup Point: {{ passenger_details.schedule.from_location }} ({{ passenger_details.schedule.departure_time.time }})</p>
                 </div>
                 <div class="details-section">
-                    <p>Dropping Point: Pokhara BusPark</p>
+                    <p>Dropping Point: {{passenger_details.schedule.to_location }}</p>
                 </div>
                 <div class="divider"></div>
                 <div class="details-section">
-                    <p>Total Fare: 1700</p>
+                    <p>Total Fare: {{ passenger_details.total_fare }}</p>
                 </div>
                 <div class="note-section">
                     <p>**** Note if you get a pending message from Bank/Khalti or if your transaction is completed but if you don't get a ticket, then please contact our operator.</p>

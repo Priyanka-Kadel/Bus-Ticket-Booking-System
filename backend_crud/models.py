@@ -58,6 +58,11 @@ class PassengerDetails(models.Model):
     name = models.CharField(max_length=25)
     contact = models.CharField(max_length=10)
     email = models.EmailField()
-    route = models.ForeignKey(Route, on_delete=models.CASCADE)
+    schedule = models.ForeignKey(Schedule, on_delete=models.CASCADE, blank=True , null= True)
+
     def __str__(self):
         return self.email
+    
+class PassengerSeat(models.Model):
+    passenger = models.ForeignKey(PassengerDetails, on_delete=models.CASCADE)    
+    seat_number = models.ForeignKey(BusSeatStatus, on_delete=models.CASCADE)
