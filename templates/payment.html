@@ -40,7 +40,7 @@
                 </div>
                 <div class="details-section">
                     <p>Seat No (Departure): 
-                        {% for seat in seat_number %}
+                        {% for seat in seat_numbers %}
                             {{ seat.seat_number }}{% if not forloop.last %}, {% endif %}
                         {% endfor %}
                     </p>
@@ -48,11 +48,10 @@
                 </div>
                 <div class="details-section">
                     <p>Date/Time: {{ passenger_details.schedule.departure_time.time }}</p>              
-                    <p>Pickup Point: {{ passenger_details.schedule.from_location }} ({{ passenger_details.schedule.departure_time.time }})</p>
-
+                    <p>Pickup Point: {{ passenger_details.schedule.route.from_location }} ({{ passenger_details.schedule.departure_time.time }})</p>
                 </div>
                 <div class="details-section">
-                    <p>Dropping Point: {{passenger_details.schedule.to_location }}</p>
+                    <p>Dropping Point: {{passenger_details.schedule.route.to_location }}</p>
                 </div>
 
                 <div class="details-section1">
@@ -62,7 +61,7 @@
                 
                 <div class="divider"></div>
                 <div class="details-section">
-                    <p>Total Fare: {{ passenger_details.total_fare }}</p>
+                    <p>Total Fare: {{total_price }}</p>
                 </div>
                 <div class="note-section">
                     <p>**** Note if you get a pending message from Bank/Khalti or if your transaction is completed but if you don't get a ticket, then please contact our operator.</p>
