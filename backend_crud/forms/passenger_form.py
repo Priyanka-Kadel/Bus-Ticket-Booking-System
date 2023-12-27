@@ -1,6 +1,7 @@
 from django import forms
-from backend_crud.models import PassengerDetails ,Route
+from backend_crud.models import  Schedule
 import re
+from datetime import datetime
 
 
 class PassengerForm(forms.Form):
@@ -9,6 +10,8 @@ class PassengerForm(forms.Form):
     contact=forms.CharField(max_length=10, required=True)
     from_location=forms.CharField(required=True)
     to_location=forms.CharField(required=True)
+    reserved_seats=forms.CharField(required=True)
+
     
     def clean_name(self):
         return self.cleaned_data.get('name').strip()
@@ -26,16 +29,17 @@ class PassengerForm(forms.Form):
 
         
         return self.cleaned_data.get("contact").strip()
+
         
         
     def clean(self):
-        print(self.cleaned_data)
-
-        route = Route.objects.filter(from_location= self.cleaned_data.get('from_location'), to_location= self.cleaned_data.get('to_location')).first()
         
+
+        # route = Route.objects.filter(from_location= self.cleaned_data.get('from_location'), to_location= self.cleaned_data.get('to_location')).first()
+        schedule= Schedule.objects.filter(route__from_location= self.cleaned_data.get('from_location'), route__to_location= self.cleaned_data.get('to_location'), departure_time__date=datetime.now()).first()
+        print(schedule)
         self.cleaned_data.pop('from_location')
         self.cleaned_data.pop('to_location')
-        self.cleaned_data.update({'route':route})
-        print(self.cleaned_data)
+        self.cleaned_data.update({'schedule':schedule})
         return self.cleaned_data
     

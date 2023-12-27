@@ -116,11 +116,7 @@
                   if (selectedSeats.length === 0) {
                     event.preventDefault();
                     alert('Please select at least one seat.');
-                  } else {
-                    // Redirect to the next page after selecting seats
-                    const route_id = parseInt(document.getElementById('route-id').innerText);
-                    window.location.href = `/backend/passenger-details/${route_id}/`;
-                  }
+                  } 
                 
                 });
             
@@ -170,7 +166,13 @@
                       data: JSON.stringify(selectedSeatNumbersBackend),
                       contentType: 'application/json',
                       success: function(response) {
-                          location.reload()
+
+                        const reserved_seat = response.data
+                        
+                        // Redirect to the next page after selecting seats
+                      const route_id = parseInt(document.getElementById('route-id').innerText);
+                      window.location.href = `/backend/passenger-details/${route_id}/?seats=${reserved_seat}`;
+                  
                           // Handle the successful response
                       },
                       error: function(error) {

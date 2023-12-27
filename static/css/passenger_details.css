@@ -110,6 +110,10 @@ body {
     margin-top: -650px;
     position: absolute;
 }
+
+.ul{
+    color: #f2f2f2;
+}
 .entry-box {
             margin: 20px;
             padding: 15px;

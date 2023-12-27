@@ -56,7 +56,9 @@
             <label for="dropping-point" class="input-label">Dropping Point (Departure)</label>
             <input type="text" name="to_location"  class="entry-box" value='{{route.to_location}}' >
 
-
+            {% comment %} <label for="reserved_seat" class="input-label">Reserved Seats</label> {% endcomment %}
+            <input type="text" name="reserved_seats"  class="entry-box" value='{{reserved_seats}}'  hidden>
+        
             <!-- Button for form submission -->
             <button class="next-button" type="submit">Next</button>
 

@@ -9,6 +9,6 @@ urlpatterns = [
     path('details/', details_views, name='details'),
     path('passenger-details/<int:id>/', passenger_details_view, name='passenger-details'),
     path('create-passenger/<int:id>/', save_passenger_info, name='create-passenger'),
-    path('payment/', payment_view, name='payment'),
+    path('payment/<int:id>/', payment_view, name='payment'),
 
 ]
