@@ -49,10 +49,17 @@
                 <div class="details-section">
                     <p>Date/Time: {{ passenger_details.schedule.departure_time.time }}</p>              
                     <p>Pickup Point: {{ passenger_details.schedule.from_location }} ({{ passenger_details.schedule.departure_time.time }})</p>
+
                 </div>
                 <div class="details-section">
                     <p>Dropping Point: {{passenger_details.schedule.to_location }}</p>
                 </div>
+
+                <div class="details-section1">
+                    <!-- Add the total price per seat with green color -->
+                    <p>Total Price per Seat: {{ total_price_per_seat }}</p>
+                </div>
+                
                 <div class="divider"></div>
                 <div class="details-section">
                     <p>Total Fare: {{ passenger_details.total_fare }}</p>

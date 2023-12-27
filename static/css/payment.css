@@ -89,6 +89,14 @@
             max-height: 800px; /* Set a fixed height for the container */
             overflow-y: auto; /* Add a vertical scrollbar when the content exceeds the container height */
         }
+
+        .details-section1 {
+            text-align: center;
+        }
+        
+        .details-section1 p {
+            color: green;
+        }
    
 
         .passenger-details {
@@ -121,6 +129,10 @@
             font-style: italic;
             color:  #0a0909;
             font-weight: bold;
+            background-color: #04aa6d;
+            padding: 10px;
+            color: white;
+            border-radius: 30px;
             
         }
 
@@ -133,8 +145,10 @@
         .note-section p {
             margin-bottom: 20px;
             line-height: 1.5;
-            color: #0a0909;
+            color: #f0e9e9;
             text-align: left; /* Align text to the left */
+            margin: 0;
+            
         }
 
 
