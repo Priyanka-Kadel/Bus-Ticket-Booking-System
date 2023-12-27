@@ -107,7 +107,6 @@ def save_passenger_info(request, id):
         passengerform = passenger_form.PassengerForm(data=request.POST)
         if passengerform.is_valid():
             passenger_form_data = passengerform.cleaned_data
-            print(passenger_form_data)
             reserved_seats = passenger_form_data.pop('reserved_seats', '')
             passenger_detail = PassengerDetails.objects.create(** passenger_form_data)
 
@@ -119,21 +118,20 @@ def save_passenger_info(request, id):
 
             else:
                 PassengerSeat.objects.create(passenger=passenger_detail, seat_number_id = reserved_seats)
-            data = PassengerDetails.objects.select_related('schedule').filter(id=passenger_detail.id, schedule__departure_time__date=datetime.now()).prefetch_related('PassengerSeat_set')  
-            return redirect('payment', id=id)
+            return redirect('payment', id=id, p_id=passenger_detail.id)
         else:
-            print(passengerform.errors)
             route = Route.objects.filter(id=id).first()
             return render(request, 'passenger_details.html', context={'route':route, 'error':passengerform.errors})
 
     route = Route.objects.filter(id=id).first()
     return render(request, 'passenger_details.html', context={'route':route})
 
-def payment_view(request, id):
-    passenger_details = PassengerDetails.objects.filter(schedule__route_id=id, schedule__departure_time__date=datetime.now()).prefetch_related('passengerseat_set').first()
+def payment_view(request, id, p_id):
+    passenger_details = PassengerDetails.objects.filter(schedule__route_id=id, id=p_id, schedule__departure_time__date=datetime.now()).prefetch_related('passengerseat_set').first()
     seat_numbers = []
+    
     if passenger_details:
     # Accessing the passengerseat_set and getting seat numbers
         seat_numbers = [seat.seat_number for seat in passenger_details.passengerseat_set.all()]
-    
-    return render(request, 'payment.html', context={'passenger_details':passenger_details, 'seat_numbers':seat_numbers})
+    total_price= int(passenger_details.schedule.route.price) * len(seat_numbers)
+    return render(request, 'payment.html', context={'passenger_details':passenger_details, 'seat_numbers':seat_numbers, 'total_price':total_price})
