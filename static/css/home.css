@@ -197,6 +197,9 @@ img {
 
 .home__data {
     align-self: center;
+    justify-content: flex-start;
+    text-align: left; 
+    margin-right: 400px;
 }
 
 .home__title {
@@ -228,7 +231,8 @@ img {
     position: absolute;
     right: 0;
     bottom: 0;
-    width: 260px;
+    width: 800px;
+    object-fit: cover;
 }
 
 .home__blob {
@@ -236,7 +240,9 @@ img {
 }
 
 .home__blob-img {
-    width: 360px;
+    width: 500px;
+    height: auto;
+    object-fit: cover;
 }
 
 /*BUTTONS*/
@@ -352,6 +358,7 @@ img {
     box-shadow: 0px 4px 25px rgba(14, 36, 49, 0.792);
     border-radius: .5rem;
     overflow: hidden;
+    object-fit: cover;
 }
 
 .work__img img {
