@@ -38,11 +38,9 @@
         <section class="home bd-grid" id="home">
             <div class="home__data">
                 <h1 class="home__title">Welcome,<br>To<span class="home__title-color"> SuvaYatra</span><br>Let's book your tickets! </h1>
-                <div>
-                    <form action="{% url 'booking' %}" method="get">
-                        <button type="submit" class="button"><span></span>Book Ticket</button>
-                    </form>
-                </div>
+                    <div>
+                        <a href="{% url 'booking' %}" class="button">Book Ticket</a>
+                    </div>
             </div>
 
             <div class="home__social">
