@@ -8,14 +8,6 @@ class Route(models.Model):
     price = models.CharField(max_length=50)
     def __str__(self):
         return f"{self.from_location} - {self.to_location}"
-    
-# class BusStop(models.Model):
-#     route=models.ForeignKey(Route , on_delete=models.CASCADE)
-#     stop_name = models.CharField(max_length=50)
-#     location = models.CharField(max_length=50)
-#     def __str__(self):
-#         return f"{self.stop_name} - {self.location}"
-
 
 class Driver(models.Model):
     driver_name = models.CharField(max_length=50)
@@ -58,6 +50,11 @@ class PassengerDetails(models.Model):
     name = models.CharField(max_length=25)
     contact = models.CharField(max_length=10)
     email = models.EmailField()
-    route = models.ForeignKey(Route, on_delete=models.CASCADE)
+    schedule = models.ForeignKey(Schedule, on_delete=models.CASCADE, blank=True , null= True)
+
     def __str__(self):
         return self.email
+    
+class PassengerSeat(models.Model):
+    passenger = models.ForeignKey(PassengerDetails, on_delete=models.CASCADE)    
+    seat_number = models.ForeignKey(BusSeatStatus, on_delete=models.CASCADE)

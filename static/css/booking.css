@@ -12,7 +12,11 @@ body {
 
 /* Main container styles */
 .main {
+<<<<<<< HEAD
     background-image: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)), url('/media/bookbg.jpg');
+=======
+    background-image: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)), url('/static/images/bgs.jpg');
+>>>>>>> e54a9db752d165c653d0299271fd4f4548c0a83f
     height: 100vh;
     width: 100%;
     background-position: center;

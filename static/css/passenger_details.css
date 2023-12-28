@@ -13,7 +13,7 @@ body {
 
 /* Main container styles */
 .main {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)), url('/media/p.png');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)), url('/static/images/p.png');
     height: 240vh;
     width: 100%;
     background-position: center;
@@ -109,6 +109,10 @@ body {
     text-align: center;
     margin-top: -650px;
     position: absolute;
+}
+
+.ul{
+    color: #f2f2f2;
 }
 .entry-box {
             margin: 20px;

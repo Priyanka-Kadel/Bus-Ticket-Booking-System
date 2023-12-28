@@ -1,7 +1,7 @@
 from datetime import datetime
 from django.shortcuts import render, redirect
 from backend_crud.forms import search_route,passenger_form
-from backend_crud.models import Route, BusSeatStatus, Schedule, PassengerDetails
+from backend_crud.models import Route, BusSeatStatus, Schedule, PassengerDetails,PassengerSeat
 from django.db.models import Q, Prefetch
 from django.db.models import Count, Case, When, IntegerField
 from django.http import JsonResponse
@@ -87,7 +87,7 @@ def details_views(request):
             selected_seats = data.get('selected_seat')
             BusSeatStatus.objects.filter(schedule_id=scheduled_id,id__in=selected_seats).update(available=False)
             # Return a JsonResponse with any response data
-            response_data = {'message': 'Request processed successfully'}
+            response_data = {'data': selected_seats}
             return JsonResponse(response_data)
         except json.JSONDecodeError:
             # Handle JSON decoding error
@@ -98,22 +98,40 @@ def details_views(request):
     
 
 def passenger_details_view (request, id):
+    reserved_seats = request.GET.get('seats', None)
     route = Route.objects.filter(id=id).first()
-    return render(request, 'passenger_details.html', context={'route':route})
+    return render(request, 'passenger_details.html', context={'route':route, 'reserved_seats':reserved_seats})
 
 def save_passenger_info(request, id):
     if request.method == 'POST':
         passengerform = passenger_form.PassengerForm(data=request.POST)
         if passengerform.is_valid():
-            PassengerDetails.objects.create(** passengerform.cleaned_data)
-            return render(request , 'payment.html')
+            passenger_form_data = passengerform.cleaned_data
+            reserved_seats = passenger_form_data.pop('reserved_seats', '')
+            passenger_detail = PassengerDetails.objects.create(** passenger_form_data)
+
+            if isinstance(reserved_seats, str) and ',' in reserved_seats:
+                reserved_seats = reserved_seats.split(',')
+
+                for reserved_seat in reserved_seats:
+                    PassengerSeat.objects.create(passenger=passenger_detail, seat_number_id = reserved_seat)
+
+            else:
+                PassengerSeat.objects.create(passenger=passenger_detail, seat_number_id = reserved_seats)
+            return redirect('payment', id=id, p_id=passenger_detail.id)
         else:
-            print(passengerform.errors)
             route = Route.objects.filter(id=id).first()
             return render(request, 'passenger_details.html', context={'route':route, 'error':passengerform.errors})
 
     route = Route.objects.filter(id=id).first()
     return render(request, 'passenger_details.html', context={'route':route})
 
-def payment_view(request):
-   return render(request, 'payment.html')
+def payment_view(request, id, p_id):
+    passenger_details = PassengerDetails.objects.filter(schedule__route_id=id, id=p_id, schedule__departure_time__date=datetime.now()).prefetch_related('passengerseat_set').first()
+    seat_numbers = []
+    
+    if passenger_details:
+    # Accessing the passengerseat_set and getting seat numbers
+        seat_numbers = [seat.seat_number for seat in passenger_details.passengerseat_set.all()]
+    total_price= int(passenger_details.schedule.route.price) * len(seat_numbers)
+    return render(request, 'payment.html', context={'passenger_details':passenger_details, 'seat_numbers':seat_numbers, 'total_price':total_price})

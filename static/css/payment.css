@@ -13,7 +13,7 @@
 
         .main {
             background-image: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)),
-                url('/media/bs.jpg');
+                url('/static/images/bgs.jpg');
             height: 100vh;
             width: 100%;
             background-position: center;
@@ -89,19 +89,28 @@
             max-height: 800px; /* Set a fixed height for the container */
             overflow-y: auto; /* Add a vertical scrollbar when the content exceeds the container height */
         }
+
+        .details-section1 {
+            text-align: center;
+        }
+        
+        .details-section1 p {
+            color: green;
+        }
    
 
         .passenger-details {
             position: relative;
-            top: 430px; /* Adjust the top value */
+            top: 450px; /* Adjust the top value */
         
             border: 1px solid #ccc;
-            padding: 200px;
+            padding: 180px;
             
             text-align: center;
             background: #fff;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-size: 20px;
         }
         
         .details-section {
@@ -120,6 +129,10 @@
             font-style: italic;
             color:  #0a0909;
             font-weight: bold;
+            background-color: #04aa6d;
+            padding: 10px;
+            color: white;
+            border-radius: 30px;
             
         }
 
@@ -132,8 +145,10 @@
         .note-section p {
             margin-bottom: 20px;
             line-height: 1.5;
-            color: #0a0909;
+            color: #f0e9e9;
             text-align: left; /* Align text to the left */
+            margin: 0;
+            
         }
 
 
@@ -142,10 +157,25 @@
             bottom: 10px; /* Adjust the bottom value for the downward movement */
             left: 80px; /* Adjust the left value for the leftward movement */
             z-index: 1000;
-            max-width: 200px;
+            max-width: 220px;
             height:auto;
+            font-size: 16px;
         }
-        
 
 
-        
+        .edit-logo {
+            float: right; /* Align the logo to the right */
+            margin-right: 10px; /* Adjust the right margin for spacing */
+            margin-top: -150px; /* Adjust the top margin to move the logo upward */
+            width: 35px; /* Set the width of the image */
+            height: 35px; /* Set the height of the image */
+        }
+
+        .edit-text {
+            font-size: 14px; /* Adjust the font size of the text */
+            display: block; /* Ensure the text appears on a new line */
+            margin-top: -119px;
+            height: 35px;
+            width: 35px;
+            margin-right: 10px; 
+        }
