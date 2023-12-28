@@ -10,41 +10,198 @@
         <link rel="stylesheet" href="{% static 'css/home.css' %}">
     </head>
     <body>
-        <!-- Main container -->
-        <div class="main"></div>
-        <div class="logo-container">
-            <img src='/media/logo.png' alt="Logo" class="logo">
-        </div>
-        
-        <!-- Navigation bar -->
-        <div class="navbar">
-            <!-- Navigation links -->
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">How to book tickets?</a></li>
-                <li><a href="#">Services</a></li>
-            </ul>
-        </div>
-        <!-- Footer panel -->
-        <div class="footer-panel">
-            <p>&copy; 2023 SuvaYatra. All rights reserved.</p>
-        </div>
-        
-        <!-- Slogan section -->
-        <div class="slogan">
-            <!-- Heading for the slogan -->
-            <h2>Travel with Ease</h2>
-            
-            <!-- Description of the service -->
-            <p>Let's book your tickets, relaxing from your couch<br>using Suva Yatra.</p>
-            
-            <!-- Button for booking tickets -->
+          <!--===== HEADER =====-->
+    <header class="l-header">
+        <nav class="nav bd-grid">
             <div>
-                <form action="{% url 'booking' %}" method="get">
-                    <button type="submit" class="Book Ticket button"><span></span>Book Tickets</button>
+                <a href="#" class="nav__logo">SuvaYatra</a>
+            </div>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="#howtobooktickets" class="nav__link">How to book tickets?</a></li>
+                    <li class="nav__item"><a href="#Interior" class="nav__link">Services</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </nav>
+    </header>
+
+    <main class="l-main">
+        <!--===== HOME =====-->
+        <section class="home bd-grid" id="home">
+            <div class="home__data">
+                <h1 class="home__title">Welcome,<br>To<span class="home__title-color"> SuvaYatra</span><br>Let's book your tickets! </h1>
+                <div>
+                    <form action="{% url 'booking' %}" method="get">
+                        <button type="submit" class="button"><span></span>Book Ticket</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="home__social">
+                <a href="" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
+                <a href="" class="home__social-icon"><i class='bx bxl-behance' ></i></a>
+                <a href="" class="home__social-icon"><i class='bx bxl-github' ></i></a>
+            </div>
+
+            <div class="home__img">
+                <svg class="home__blob" viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g mask="url(#mask0)">
+        
+                        <image class="home__blob-img" x="50" y="60" href='/media/360.jpg'/>
+                    </g>
+                </svg>
+            </div>
+        </section>
+
+        <!--===== ABOUT =====-->
+        <section class="about section " id="about">
+            <h2 class="section-title">About</h2>
+
+            <div class="about__container bd-grid">
+                <div class="about__img">
+                    <img src='/media/bg.jpg' alt="">
+                </div>
+                    
+                <div>
+                    <h2 class="about__subtitle">SuvaYatra Travels</h2>
+                    <p class="about__text">Where we redefine your journey with a commitment to delivering the ultimate booking experience. At Suvayatra, we understand that the process of securing your travel tickets should be seamless, convenient, and tailored to your preferences. That's why we've dedicated ourselves to modernizing the ticket booking process, ensuring that every step is a breeze.
+                        
+                    </p>    
+                    <p class="about__text">Join us on a modernized journey where booking your tickets is as enjoyable as the trip itself. Suvayatra is more than a booking platform; it's a commitment to making your travel dreams a reality, one effortless reservation at a time. Welcome aboard the future of ticket booking .
+                    </p>       
+                </div>                                   
+            </div>
+        </section>
+
+        <!--===== SKILLS =====-->
+        <section class="skills section" id="skills">
+            <h2 class="section-title">How to book tickets?</h2>
+
+            <div class="skills__container bd-grid">          
+                <div>
+                    <h2 class="skills__subtitle">video</h2>
+                    <p class="skills__text">here will be video</p>
+
+                    
+                </div>
+        </section>
+
+        <!--===== WORK =====-->
+        <section class="work section" id="work">
+            <h2 class="section-title">Interior</h2>
+
+            <div class="work__container bd-grid">
+                <a href="" class="work__img">
+                    <img src='/media/bookbg.jpg' alt="">
+                </a>
+                <a href="" class="work__img">
+                    <img src='/media/2.jpg' alt="">
+                </a>
+                <a href="" class="work__img">
+                    <img src='/media/3.jpg' alt="">
+                </a>
+                <a href="" class="work__img">
+                    <img src='/media/4.jpeg' alt="">
+                </a>
+                <a href="" class="work__img">
+                    <img src='/media/5.jpeg' alt="">
+                </a>
+                <a href="" class="work__img">
+                    <img src='/media/6.jpg' alt="">
+                </a>
+            </div>
+        </section>
+
+        <!--===== CONTACT =====-->
+        <section class="contact section" id="contact">
+            <h2 class="section-title">Contact</h2>
+
+            <div class="contact__container bd-grid">
+                <form action="" class="contact__form">
+                    <input type="text" placeholder="Name" class="contact__input">
+                    <input type="mail" placeholder="Email" class="contact__input">
+                    <textarea name="" id="" cols="0" rows="10" class="contact__input"></textarea>
+                    <input type="button" value="Send" class="contact__button button">
                 </form>
             </div>
+        </section>
+    </main>
+
+    <!--===== FOOTER =====-->
+    <footer class="footer">
+        <p class="footer__title">SuvaYatra</p>
+        <div class="footer__social">
+            <a href="#" class="footer__icon"><i class='bx bxl-facebook' ></i></a>
+            <a href="#" class="footer__icon"><i class='bx bxl-instagram' ></i></a>
+            <a href="#" class="footer__icon"><i class='bx bxl-twitter' ></i></a>
         </div>
-    </body>
+        <p class="footer__copy">&#169; SuvaYatra Travels. All rights reserved</p>
+    </footer>
+<script>
+    /*===== MENU SHOW =====*/ 
+const showMenu = (toggleId, navId) =>{
+    const toggle = document.getElementById(toggleId),
+    nav = document.getElementById(navId)
+
+    if(toggle && nav){
+        toggle.addEventListener('click', ()=>{
+            nav.classList.toggle('show')
+        })
+    }
+}
+showMenu('nav-toggle','nav-menu')
+
+/*==================== REMOVE MENU MOBILE ====================*/
+const navLink = document.querySelectorAll('.nav__link')
+
+function linkAction(){
+    const navMenu = document.getElementById('nav-menu')
+    // When we click on each nav__link, we remove the show-menu class
+    navMenu.classList.remove('show')
+}
+navLink.forEach(n => n.addEventListener('click', linkAction))
+
+/*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
+const sections = document.querySelectorAll('section[id]')
+
+function scrollActive(){
+    const scrollY = window.pageYOffset
+
+    sections.forEach(current =>{
+        const sectionHeight = current.offsetHeight
+        const sectionTop = current.offsetTop - 50;
+        sectionId = current.getAttribute('id')
+
+        if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active')
+        }else{
+            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active')
+        }
+    })
+}
+window.addEventListener('scroll', scrollActive)
+
+/*===== SCROLL REVEAL ANIMATION =====*/
+const sr = ScrollReveal({
+    origin: 'top',
+    distance: '60px',
+    duration: 2000,
+    delay: 200,
+//     reset: true
+});
+
+sr.reveal('.home__data, .about__img, .skills__subtitle, .skills__text',{}); 
+sr.reveal('.home__img, .about__subtitle, .about__text, .skills__img',{delay: 400}); 
+sr.reveal('.home__social-icon',{ interval: 200}); 
+sr.reveal('.skills__data, .work__img, .contact__input',{interval: 200}); 
+</script>
+</body>
 </html>

@@ -12,7 +12,7 @@ body {
 
 /* Main container styles */
 .main {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)), url('/media/image.webp');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)), url('/media/bookbg.jpg');
     height: 100vh;
     width: 100%;
     background-position: center;
@@ -162,6 +162,11 @@ body {
 /* Select box styles for 'To' */
 .custom-select[name="to_location"]:focus {
     border: 2px solid #04AA6D; /* Set the border color when the box is clicked */
+}
+.custom-date::-webkit-calendar-picker-indicator {
+    color: #ffffff;
+    font-size: 18px;
+    border-color: #ffffff;
 }
 
 /* Date input styles */

@@ -35,35 +35,42 @@
             <form method="post" action="{% url 'create-passenger' route.id%}">
                 {% csrf_token %}
 
-            <!-- Label and input for Name -->
-            <!-- (Add any other validation attributes you need, e.g., pattern for email) -->
-            <label for="name" class="input-label" style="margin-right: 470px;">Name</label>
-            <input type="text" name="name" id="name" class="entry-box" required>
+                <!-- Label and input for Name -->
+                <div class="form-group">
+                    <label for="name" class="input-label">Name</label>
+                    <input type="text" name="name" id="name" class="entry-box" required>
+                </div>
 
-            <!-- Label and input for Contact -->
-            <label for="contact" class="input-label" style="margin-right: 468px;">Contact</label>
-            <input type="text" name="contact" id="contact" class="entry-box" required>
+                <!-- Label and input for Contact -->
+                <div class="form-group">
+                    <label for="contact" class="input-label">Contact</label>
+                    <input type="text" name="contact" id="contact" class="entry-box" required>
+                </div>
 
-            <!-- Label and input for Email -->
-            <label for="email" class="input-label" style="margin-right: 473px;">Email</label>
-            <input type="email" name="email" id="email" class="entry-box" required>
+                <!-- Label and input for Email -->
+                <div class="form-group">
+                    <label for="email" class="input-label">Email</label>
+                    <input type="email" name="email" id="email" class="entry-box" required>
+                </div>
 
-            <!-- Label and input for Boarding Point (Departure) -->
-            <label for="boarding-point" class="input-label">Boarding Point (Departure)</label>
-            <input type="text" name="from_location"  class="entry-box" value='{{route.from_location}}' >
+                <!-- Label and input for Boarding Point (Departure) -->
+                <div class="form-group">
+                    <label for="boarding-point" class="input-label">Boarding Point (Departure)</label>
+                    <input type="text" name="from_location" class="entry-box" value='{{route.from_location}}'>
+                </div>
 
-            <!-- Label and input for Dropping Point (Departure) -->
-            <label for="dropping-point" class="input-label">Dropping Point (Departure)</label>
-            <input type="text" name="to_location"  class="entry-box" value='{{route.to_location}}' >
+                <!-- Label and input for Dropping Point (Departure) -->
+                <div class="form-group">
+                    <label for="dropping-point" class="input-label">Dropping Point (Departure)</label>
+                    <input type="text" name="to_location" class="entry-box" value='{{route.to_location}}'>
+                </div>
 
+                <!-- Button for form submission -->
+                <button class="next-button" type="submit">Next</button>
 
-            <!-- Button for form submission -->
-            <button class="next-button" type="submit">Next</button>
-
-        </form>          
+            </form>
         </div>
     </div>
-    
 </body>
 
 </html>
