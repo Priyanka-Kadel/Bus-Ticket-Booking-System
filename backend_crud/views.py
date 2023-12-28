@@ -135,3 +135,4 @@ def payment_view(request, id, p_id):
         seat_numbers = [seat.seat_number for seat in passenger_details.passengerseat_set.all()]
     total_price= int(passenger_details.schedule.route.price) * len(seat_numbers)
     return render(request, 'payment.html', context={'passenger_details':passenger_details, 'seat_numbers':seat_numbers, 'total_price':total_price})
+
