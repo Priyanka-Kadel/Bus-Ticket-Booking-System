@@ -31,7 +31,9 @@
         <div class="black-panel2">
             <h1 class="panel-heading">Passenger Details</h1>
 
-            {% if error %} {{error}}{% endif %}
+            <p style='color:red'>{{seat_error}} </p>
+            <div style='color:red'>{% if error %} {{error}}{% endif %}</div>
+            
             <form method="post" action="{% url 'create-passenger' route.id%}">
                 {% csrf_token %}
 
