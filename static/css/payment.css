@@ -161,7 +161,21 @@
             height:auto;
             font-size: 16px;
         }
-        
 
 
-        
+        .edit-logo {
+            float: right; /* Align the logo to the right */
+            margin-right: 10px; /* Adjust the right margin for spacing */
+            margin-top: -150px; /* Adjust the top margin to move the logo upward */
+            width: 35px; /* Set the width of the image */
+            height: 35px; /* Set the height of the image */
+        }
+
+        .edit-text {
+            font-size: 14px; /* Adjust the font size of the text */
+            display: block; /* Ensure the text appears on a new line */
+            margin-top: -119px;
+            height: 35px;
+            width: 35px;
+            margin-right: 10px; 
+        }
