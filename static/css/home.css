@@ -113,8 +113,8 @@ img {
     top: 0;
     left: 0;
     z-index: var(--z-fixed);
-    background-color: #fff;
-    box-shadow: 0 1px 4px rgba(146, 161, 176, 0.15);
+    background-color: #ffffffe2;
+    box-shadow: 0 1px 4px rgba(146, 161, 176, 0.19);
 }
 
 /*===== NAV =====*/
@@ -229,14 +229,10 @@ img {
 
 .home__img {
     position: absolute;
-    right: 0;
-    bottom: 0;
+    right: 50px;
+    bottom: 50px;
     width: 800px;
     object-fit: cover;
-}
-
-.home__blob {
-    fill: var(--first-color);
 }
 
 .home__blob-img {
