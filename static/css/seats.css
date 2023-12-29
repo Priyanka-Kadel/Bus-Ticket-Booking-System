@@ -9,7 +9,8 @@ body {
 }
 
 .main {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)), url('/static/images/p.png');
+  /* background-image: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)), url('/static/images/p.png'); */
+  background-color: #ffffff;
   height: 240vh;
   width: 100%;
   background-position: center;
@@ -59,7 +60,7 @@ body {
 
 .navbar ul li a {
   text-decoration: none;
-  color: #f2f2f2;
+  color: black;
   transition: color 0.5s;
 }
 
@@ -80,17 +81,17 @@ body {
 
 .black-panel1 {
   position: absolute;
-  top: 200px;
+  top: 188px;
   left: 108px;
   width: 50%;
-  height: 11%;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 12px;
-  border: 1.3px solid white;
+  height: 14%;
+  background-color: white;
+  border-radius: 16px;
+  border: 2px solid black;
 }
 
 .black-panel1 .panel-text {
-  color: #ffffff;
+  color: black;
   font-size: 18px;
   margin: 10px;
 }
@@ -136,7 +137,7 @@ body {
   position: relative;
   top: -135px;
   font-size: 14.5px;
-  color: #04AA6D;
+  color: #3e6ff4;
 }
 
 .black-panel2 {
@@ -145,9 +146,9 @@ body {
   left: 108px;
   width: 50%;
   height: 168%;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 12px;
-  border: 1.3px solid white;
+  background-color:white;
+  border-radius: 16px;
+  border: 2px solid black;
 }
 
 .book-seats-text {
@@ -158,15 +159,15 @@ body {
 }
 
 .front-text {
-  color: #97d7ff;
+  color: white;
   font-size: 16px;
   text-align: center;
   margin-top: 90px;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: black;
   padding: 10px;
   margin-left: 330px;
   width: 70px;
-  border: 1px solid rgb(255, 255, 255);
+  border: 2px solid black;
   border-radius: 10px;
   display: inline-block;
 }
@@ -203,40 +204,43 @@ body {
   position: absolute;
 }
 .back-text {
-  color: #97d7ff;
+  color: white;
   font-size: 16px;
   text-align: center;
   margin-top: 90px;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: black;
   padding: 10px;
   margin-left: 330px;
   width: 70px;
-  border: 1px solid rgb(255, 255, 255);
+  border: 2px solid black;
   border-radius: 10px;
   display: inline-block;
 }
 
 .seat-text {
-  color: #c9d60e;
-  font-size: 16px;
+  color: #3e6ff4;
+  font-size: 18px;
   text-align: center;
   margin-top: -40px;
   padding: 10px;
   margin-left: 10px;
   width: 70px;
+  border:bold;
+ 
 }
 
 .price-text {
-  color: #c9d60e;
-  font-size: 16px;
+  color: #3e6ff4;
+  font-size: 18px;
   text-align: center;
   margin-top: 40px;
   padding: 10px;
   margin-left: 620px;
   width: 70px;
+  border:bold;
 }
 .next-button {
-  background-color: #04AA6D;
+  background-color: #3e6ff4;
   color: #ffffff;
   border: none;
   padding: 10px 10px;
@@ -246,10 +250,11 @@ body {
   width: 150px;
   height: 40px;
   border: #ffffff;
-  border-radius: 5px;
+  border-radius: 16px;
   position: absolute;
   bottom: 40px;
   right: 320px;
+  border: 2px solid black;
 }
 
 .container {
@@ -328,12 +333,13 @@ body {
   background: rgba(0, 0, 0, 0.1);
   padding: -5px 5px;
   border-radius: 5px;
-  color: #777;
+  color: black;
   list-style-type: none;
   display: flex;
   justify-content: space-between;
   position: relative;
   top: 30px;
+  border: 2px solid black;
 }
 
 .showcase li {
@@ -352,7 +358,7 @@ body {
 }
 
 .next-button:hover {
-  background-color: #00e18f;
+  background-color: #3e6ff4;
 }
 
 .bus-container {
