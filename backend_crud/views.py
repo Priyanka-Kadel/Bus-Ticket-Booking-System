@@ -108,16 +108,20 @@ def save_passenger_info(request, id):
         if passengerform.is_valid():
             passenger_form_data = passengerform.cleaned_data
             reserved_seats = passenger_form_data.pop('reserved_seats', '')
+            if isinstance(reserved_seats, str) and ',' in reserved_seats:
+                reserved_seats = reserved_seats.split(',')               
+            else:
+                reserved_seats= [reserved_seats]
+            if PassengerSeat.objects.filter(seat_number_id__in=reserved_seats, passenger__schedule__departure_time__date=datetime.now()).exists():
+            
+                route = Route.objects.filter(id=id).first()
+                return render(request, 'passenger_details.html', context={'route':route, 'seat_error':'seats already booked '})
+
             passenger_detail = PassengerDetails.objects.create(** passenger_form_data)
 
-            if isinstance(reserved_seats, str) and ',' in reserved_seats:
-                reserved_seats = reserved_seats.split(',')
-
-                for reserved_seat in reserved_seats:
+            for reserved_seat in reserved_seats:
                     PassengerSeat.objects.create(passenger=passenger_detail, seat_number_id = reserved_seat)
 
-            else:
-                PassengerSeat.objects.create(passenger=passenger_detail, seat_number_id = reserved_seats)
             return redirect('payment', id=id, p_id=passenger_detail.id)
         else:
             route = Route.objects.filter(id=id).first()
