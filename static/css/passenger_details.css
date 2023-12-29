@@ -13,7 +13,8 @@ body {
 
 /* Main container styles */
 .main {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)), url('/static/images/p.png');
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)), url('/static/images/p.png'); */
+    background-color: #ffffff;
     height: 240vh;
     width: 100%;
     background-position: center;
@@ -67,7 +68,7 @@ body {
 /* Styling for navigation links */
 .navbar ul li a {
     text-decoration: none;
-    color: #f2f2f2;
+    color: black;
     transition: color 0.5s;
 }
 
@@ -91,66 +92,70 @@ body {
 .black-panel2 {
     position: absolute;
     top: 300px;
-    left: 108px;
-    width: 50%;
+    left: 530px;
+    width: 25%;
     height: 40%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color:white;
     border-radius: 12px;
-    border: 1.3px solid white;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    
 }
 /* Heading styles */
 .panel-heading {
-    color: white;
-    font-size: 23px;
+    color: black;
+    font-size: 30px;
     text-align: center;
     margin-top: -650px;
     position: absolute;
 }
 
 .ul{
-    color: #f2f2f2;
+    color: black;
 }
 .entry-box {
             margin: 20px;
             padding: 15px;
             width: 70%;
-            border: 1px solid #ccc;
+            border: 1px solid black;
             border-radius: 4px;
             box-sizing: border-box;
-            color: #ffff;
+            color: black;
             font: 100px;
-            background-color:  rgba(255, 253, 253, 0.221);
+            background-color: white;
             margin-left: 15%;
+            border-radius: 16px;
         }
     .next-button {
-    background-color: #04AA6D;
+    background-color: #3e6ff4;
     color: #ffffff;
-    border: none;
-    padding: 10px 10px;
+    
+    padding: 5px 5px;
     font-size: 18px;
     cursor: pointer;
     width: 150px;
     height: 40px;
-    border: #ffffff;
-    border-radius: 5px;
+    
+    border-radius: 16px;
     position: absolute;
     bottom: 18px;
-    right: 320px;
+    right: 110px;
     font: bold;
+    text-align: center;
+    
 }
 
 .next-button:hover {
-    background-color: #00e18f;
+    background-color: #3e6ff4;
 }
 .input-label {
-    color: white;
-    font-size: 17px;
+    color: black;
+    font-size: 18px;
     margin-bottom: -10px;
-    margin-right: 20%;
+    margin-left: 20%;
+    font-size: bold;
 }
 
 

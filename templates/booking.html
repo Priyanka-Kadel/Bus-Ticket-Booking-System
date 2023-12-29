@@ -66,7 +66,9 @@
         {% for route in routes %}
             <div class="route-info">
                 <p class="panel-text p1">
-                    <strong style="color: white;">Route Name:</strong> <a href="{% url 'seats' route.id %}" style="color: white;">{{ route.route.route_name }}</a>
+    
+                    <strong style="color:black;">Route Name:</strong> 
+                    <a href="{% url 'seats' route.id %}" style="color:black;">{{ route.route.route_name }}</a>
                 </p>
                 <p class="panel-text p3"><strong>Bus Number:</strong> {{ route.bus.bus_number }}</p>
                 <p class="panel-text p2"><strong>Location:</strong> {{ route.route.from_location }}-{{ route.route.to_location }}</p>
@@ -80,6 +82,7 @@
         <p>No routes found.</p>
     {% endif %}
 </div>
+
 
         <!-- Footer panel -->
         <div class="footer-panel">
