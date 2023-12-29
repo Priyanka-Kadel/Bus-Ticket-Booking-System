@@ -16,7 +16,6 @@
                 url('/static/images/bgs.jpg');
             height: 100vh;
             width: 100%;
-            background-position: center;
             background-size: cover;
             position: relative;
         }
@@ -69,25 +68,15 @@
             color: #04AA6D;
         }
 
-        .navbar ul li::after {
-            content: '';
-            height: 3px;
-            width: 0;
-            background: #14b97c;
-            position: absolute;
-            left: 0;
-            bottom: -10px;
-            transition: 0.5s;
-        }
-
+        
         .navbar ul li:hover::after {
             width: 100%;
         }
 
         .scroll-container {
+            max-height: 800px;
             top: 300px;
-            max-height: 800px; /* Set a fixed height for the container */
-            overflow-y: auto; /* Add a vertical scrollbar when the content exceeds the container height */
+            overflow-y: auto; 
         }
 
         .details-section1 {
@@ -96,18 +85,19 @@
         
         .details-section1 p {
             color: green;
+            font-style: bold;
         }
    
 
         .passenger-details {
             position: relative;
-            top: 450px; /* Adjust the top value */
+            top: 500px; /* Adjust the top value */
         
             border: 1px solid #ccc;
-            padding: 180px;
+            padding: 100px;
             
             text-align: center;
-            background: #fff;
+            background: #ccc;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             font-size: 20px;
@@ -129,7 +119,7 @@
             font-style: italic;
             color:  #0a0909;
             font-weight: bold;
-            background-color: #04aa6d;
+            background-color: #3e6ff4;
             padding: 10px;
             color: white;
             border-radius: 30px;
@@ -143,9 +133,10 @@
         }
 
         .note-section p {
+            
             margin-bottom: 20px;
             line-height: 1.5;
-            color: #f0e9e9;
+            
             text-align: left; /* Align text to the left */
             margin: 0;
             
@@ -155,11 +146,12 @@
         .khaltilogo {
             position: absolute;
             bottom: 10px; /* Adjust the bottom value for the downward movement */
-            left: 80px; /* Adjust the left value for the leftward movement */
+            left: 206px; /* Adjust the left value for the leftward movement */
             z-index: 1000;
-            max-width: 220px;
+            max-width: 160px;
             height:auto;
             font-size: 16px;
+            border-radius: 12px;
         }
 
 
