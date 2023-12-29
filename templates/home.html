@@ -37,7 +37,7 @@
         <section class="home bd-grid" id="home">
             <div class="home__data">
                 <h1 class="home__title">Welcome,<br>To<span class="home__title-color"> SuvaYatra</span><br>Let's book your tickets! </h1>
-                    <div>
+                    <div class="home__data">
                         <a href="{% url 'booking' %}" class="button">Book Ticket</a>
                     </div>
                     <div class="home__image">
@@ -67,6 +67,9 @@
                     <p class="about__text">Where we redefine your journey with a commitment to delivering the ultimate booking experience. At Suvayatra, we understand that the process of securing your travel tickets should be seamless, convenient, and tailored to your preferences. That's why we've dedicated ourselves to modernizing the ticket booking process, ensuring that every step is a breeze.
                         
                     </p>    
+                    <p class="about__text">Our mission is simple: to provide you with the best booking experience possible. We leverage cutting-edge technology to streamline the entire process, making it easier and more efficient for you to plan your travels. Whether you're embarking on a business trip, a family vacation, or a spontaneous adventure, Suvayatra is here to enhance every aspect of your journey. 
+
+                    </p>
                     <p class="about__text">Join us on a modernized journey where booking your tickets is as enjoyable as the trip itself. Suvayatra is more than a booking platform; it's a commitment to making your travel dreams a reality, one effortless reservation at a time. Welcome aboard the future of ticket booking .
                     </p>       
                 </div>                                   
@@ -137,6 +140,7 @@
         </div>
         <p class="footer__copy">&#169; SuvaYatra Travels. All rights reserved</p>
     </footer>
+    <script src="https://unpkg.com/scrollreveal"></script>
 <script>
     /*===== MENU SHOW =====*/ 
 const showMenu = (toggleId, navId) =>{
@@ -187,7 +191,7 @@ const sr = ScrollReveal({
     distance: '60px',
     duration: 2000,
     delay: 200,
-//     reset: true
+    reset: true
 });
 
 sr.reveal('.home__data, .about__img, .skills__subtitle, .skills__text',{}); 
