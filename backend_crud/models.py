@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.exceptions import ValidationError
 
 
 class Route(models.Model):
@@ -15,6 +16,16 @@ class Driver(models.Model):
     lisence_number = models.CharField(max_length=50)
     def __str__(self):
         return f"{self.driver_name}"
+    def clean(self):
+        if not self.driver_number.isdigit():
+            raise ValidationError("Number must contain only digits")
+
+        if len(self.driver_number) != 10:
+            raise ValidationError("Number must be 10 characters long")
+        
+        for char in self.lisence_number:
+            if not (char.isdigit() or char == '-'):
+                raise ValidationError("License number must contain only digits ")
     
 class Bus(models.Model):
     bus_number = models.CharField(max_length=50)
@@ -23,7 +34,11 @@ class Bus(models.Model):
     driver = models.ForeignKey(Driver, on_delete=models.CASCADE)
     def __str__(self):
         return f"{self.bus_number}"
-
+    
+    def clean(self):
+        if self.total_seat > 20:
+            raise ValidationError("Maximum seat of our bus is 20")
+            
 
 class Schedule(models.Model):
     bus = models.ForeignKey(Bus, on_delete=models.CASCADE)
@@ -46,6 +61,20 @@ class BusSeatStatus(models.Model):
     def __str__(self):
         return f"{self.schedule.bus.bus_number} - {self.seat_number}"
     
+    def clean(self):
+        # Check if the seat is being created or updated
+        is_creation = self._state.adding
+        # If it's a new instance, or if it's an update and the seat is available,
+        if is_creation or (not self.available and is_creation):
+        # Ensure that the total number of seats in BusSeatStatus
+            if self.schedule.busseatstatus_set.count() >= self.schedule.bus.total_seat:
+                raise ValidationError("Cannot add more seats than the total seat")
+
+    class Meta:
+        ordering = ['seat_side', 'seat_number']
+
+    
+
 class PassengerDetails(models.Model):
     name = models.CharField(max_length=25)
     contact = models.CharField(max_length=10)
@@ -54,6 +83,14 @@ class PassengerDetails(models.Model):
 
     def __str__(self):
         return self.email
+    
+    def clean(self):
+        if not self.contact.isdigit():
+            raise ValidationError("Contact must contain only digits")
+
+        if len(self.contact) != 10:
+            raise ValidationError("Contact must be 10 characters long")
+        
     
 class PassengerSeat(models.Model):
     passenger = models.ForeignKey(PassengerDetails, on_delete=models.CASCADE)    
