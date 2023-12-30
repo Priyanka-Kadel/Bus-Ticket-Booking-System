@@ -1,23 +1,48 @@
-/* Reset styles */
-* {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+:root {
+    --header-height: 3rem;
+    --font-semi: 600;
+    /*===== Colors =====*/
+    /*Purple 260 - Red 355 - Blue 224 - Pink 340*/
+    /* HSL color mode */
+    --hue-color: 224;
+    --first-color: hsl(var(--hue-color), 89%, 60%);
+    --second-color: hsl(var(--hue-color), 56%, 12%);
+    /*===== Font typography =====*/
+    --body-font: 'Poppins', sans-serif;
+    --big-font-size: 2rem;
+    --h2-font-size: 1.25rem;
+    --normal-font-size: .938rem;
+    --smaller-font-size: .75rem;
+    /*===== Margins =====*/
+    --mb-2: 1rem;
+    --mb-4: 2rem;
+    --mb-5: 2.5rem;
+    --mb-6: 3rem;
+    /*===== z index =====*/
+    --z-back: -10;
+    --z-fixed: 100;
 }
 
 /* Body styles */
 body {
     overflow: hidden;
+    height: 100%;
+    margin: 0;
+    overflow-y: auto; /* Set overflow-y to auto for vertical scrollbar */
+    overflow-x: hidden; /* Set overflow-x to hidden to hide horizontal scrollbar */
 }
 
 /* Main container styles */
 .main {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)), url('/static/images/bgs.jpg');
-    height: 100vh;
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)), url('/static/images/bgs.jpg'); */
+    height: 200vh;
     width: 100%;
     background-position: center;
     background-size: cover;
     position: relative;
+    background-color:#ffffff;
+    min-height: 100vh;
 }
 
 /* Logo container styles */
@@ -30,7 +55,7 @@ body {
 
 /* Logo styles */
 .logo {
-    max-width: 219px;
+    max-width: 225px;
     height: auto;
 }
 
@@ -66,7 +91,7 @@ body {
 /* Styling for navigation links */
 .navbar ul li a {
     text-decoration: none;
-    color: #f2f2f2;
+    color: #0e0e0e;
     transition: color 0.5s;
 }
 
@@ -89,7 +114,7 @@ body {
 
 /* Grey panel styles */
 .grey-panel {
-    background-color: rgba(13, 13, 13, 0.6);
+    background-color: #ffffff;
     position: absolute;
     top: 180px;
     left: 158px;
@@ -104,7 +129,7 @@ body {
     padding: 8px;
     border: none;
     border-radius: 4px;
-    background-color: white;
+    background-color: rgba(0, 0, 0, 0.5);
     color: #0e0e0e;
     font-size: 30px;
     cursor: pointer;
@@ -120,39 +145,48 @@ body {
     text-align: center;
     padding: 7px;
     position: fixed;
-    bottom: -20px;
+    
     left: 0;
     height: 40px;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color:#0e0e0e;
+    /* position: absolute; */
+    /* bottom: -137px; */
+    bottom: 0;
+    width: 100%;
+    padding-bottom: -10px;
 }
 
 /* Footer text styles */
 .footer-panel p {
-    color: #b4b4b4;
+    color:white;
     margin: 5px 0;
 }
 /* Select box styles for 'From' */
 .custom-select[name="from_location"] {
-    background-color:rgba(116, 116, 116, 0.5); /* Transparent black background */
-    color: #ffffff; /* Set the text color to make it visible on the dark background */
+    background-color:#ffffff; /* Transparent black background */
+    color: black; /* Set the text color to make it visible on the dark background */
     font-size: 18px;
-    border-color: #ffffff;
+    border-color: black;
+    border-radius: 16px;
+
 }
 
 /* Select box styles for 'To' */
 .custom-select[name="to_location"] {
-    background-color:rgba(116, 116, 116, 0.5);
-    color: #ffffff; /* Set the text color to make it visible on the dark background */
+    background-color:#ffffff;
+    color: black; /* Set the text color to make it visible on the dark background */
     font-size: 18px;
-    border-color: #ffffff;
+    border-color: black;
+    border-radius: 16px;
 }
 
 /* Date input styles */
 .custom-date {
-    background-color:rgba(116, 116, 116, 0.5);
-    color: #ffffff; /* Set the text color to make it visible on the dark background */
+    background-color:#ffffff;
+    color: black; /* Set the text color to make it visible on the dark background */
     font-size: 18px;
-    border-color: #ffffff;
+    border-color: black;
+    border-radius: 16px;
 }
 /* Select box styles for 'From' */
 .custom-select[name="from_location"]:focus {
@@ -175,17 +209,24 @@ body {
 }
 /* Search button styles */
 .search-button {
-    background-color: #04AA6D;
-    color: #ffffff;
+    display: inline-block;
+    background-color: var(--first-color);
+    color: #fff;
+    padding: .75rem 2.5rem;
+    font-weight: var(--font-semi);
+    border-radius: .5rem;
+    transition: all .3s;
     border: none;
-    padding: 10px 20px;
-    font-size: 18px;
     cursor: pointer;
-    margin-left: 20px;
-    width: 150px;
-    height: 47px;
-    border: #ffffff;
-    border-radius: 5px;
+    width: 180px;
+    height: 50px;
+    border-radius: 20px;
+}
+
+.search-button:hover {
+    box-shadow: rgba(17, 17, 26, 0.3) 0px 8px 24px, rgba(17, 17, 26, 0.3) 0px 16px 56px, rgba(17, 17, 26, 0.3) 0px 24px 80px;
+    background-color: var(--second-color);
+
 }
 /* Black panel styles */
 .black-panel1 {
@@ -193,22 +234,25 @@ body {
     top: 290px;
     left: 158px;
     width: 50%;
-    height: 12%;
-    background-color: rgba(0, 0, 0, 0.5);
+    height: 50%;
+    background-color:#ffffff;
     border-radius: 12px;
-    border: 1.3px solid white;
-    display: none; 
-  }
+    border: 1.3px solid black; /* This line sets the border */
+    display: none;
+}
+
+
+  
   
   .black-panel1 .panel-text {
-    color: #ffffff;
+    color:#0e0e0e;
     font-size: 18px;
     margin: 10px;
   }
   .black-panel1 .p1 {
     margin-top: 14px;
     font-size: 17px;
-    color: #ffffff;
+    color:#0e0e0e;
     position: relative;
   }
   
@@ -250,7 +294,7 @@ body {
     position: relative;
     top: -100px;
     font-size: 14.5px;
-    color: #04AA6D;
+    color: #ffffff;
   }
 
 .black-panel2 {
@@ -259,7 +303,7 @@ body {
     left: 158px;
     width: 50%;
     height: 11%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color:#0e0e0e;
     border-radius: 12px;
 }
 .black-panel3 {
@@ -268,7 +312,7 @@ body {
     left: 158px;
     width: 50%;
     height: 11%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color:#0e0e0e;
     border-radius: 12px;
 }
 .black-panel4 {
@@ -467,5 +511,6 @@ body {
     /* background-color: #04AA6D; */
     color: white;
   }
+
 
   
