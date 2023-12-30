@@ -87,7 +87,9 @@
                                 type: "POST",
                                 data: payload,
                                 dataType: 'json',
-                                sucess: function (response) {alert(response)},
+                                sucess: function (response) {
+                                    alert('Payment successful! Thank you for booking. Please print your Tickets.');
+                                },
                                 error: function (error) {alert(error.responseJSON['message'])}
                             });
                         }
@@ -109,6 +111,8 @@
                             "eventHandler": {
                                 onSuccess (payload) {
                                     // hit merchant api for initiating verfication
+                                    alert('Payment successful! Thank you for your purchase.');
+
                                     console.log(payload);
                                     verifyPayment(payload)
                                 },
@@ -126,8 +130,8 @@
                         btn.onclick = function () {
                             console.log(document.getElementById("total_price").innerText, "Hello")
                             // minimum transaction amount must be 10, i.e 1000 in paisa.
-                            checkout.show({amount: parseInt(document.getElementById("total_price").innerText) })*100;
-                            
+                            const amountInPaisa = parseInt(document.getElementById("total_price").innerText) * 100;
+                            checkout.show({ amount: amountInPaisa });                            
                         }
                     </script>
             
