@@ -7,6 +7,7 @@ from django.db.models import Count, Case, When, IntegerField
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
+import requests
 
 
 
@@ -85,9 +86,8 @@ def details_views(request):
             # Access the values from the JSON data
             scheduled_id = data.get('scheduled_id')
             selected_seats = data.get('selected_seat')
-            BusSeatStatus.objects.filter(schedule_id=scheduled_id,id__in=selected_seats).update(available=False)
             # Return a JsonResponse with any response data
-            response_data = {'data': selected_seats}
+            response_data = {'data': selected_seats, 'scheduled_id':scheduled_id}
             return JsonResponse(response_data)
         except json.JSONDecodeError:
             # Handle JSON decoding error
@@ -99,8 +99,9 @@ def details_views(request):
 
 def passenger_details_view (request, id):
     reserved_seats = request.GET.get('seats', None)
+    scheduled_id = request.GET.get('scheduled_id', None)
     route = Route.objects.filter(id=id).first()
-    return render(request, 'passenger_details.html', context={'route':route, 'reserved_seats':reserved_seats})
+    return render(request, 'passenger_details.html', context={'route':route, 'reserved_seats':reserved_seats, 'scheduled_id': scheduled_id})
 
 def save_passenger_info(request, id):
     if request.method == 'POST':
@@ -108,10 +109,13 @@ def save_passenger_info(request, id):
         if passengerform.is_valid():
             passenger_form_data = passengerform.cleaned_data
             reserved_seats = passenger_form_data.pop('reserved_seats', '')
+            scheduled_id= passenger_form_data.pop('scheduled_id', '')
             if isinstance(reserved_seats, str) and ',' in reserved_seats:
                 reserved_seats = reserved_seats.split(',')               
             else:
                 reserved_seats= [reserved_seats]
+            BusSeatStatus.objects.filter(schedule_id=scheduled_id,id__in=reserved_seats).update(available=False)
+
             if PassengerSeat.objects.filter(seat_number_id__in=reserved_seats, passenger__schedule__departure_time__date=datetime.now()).exists():
             
                 route = Route.objects.filter(id=id).first()
@@ -140,3 +144,43 @@ def payment_view(request, id, p_id):
     total_price= int(passenger_details.schedule.route.price) * len(seat_numbers)
     return render(request, 'payment.html', context={'passenger_details':passenger_details, 'seat_numbers':seat_numbers, 'total_price':total_price})
 
+@csrf_exempt
+def verify_payment(request, p_id ):
+    data = request.POST
+    product_id = data['product_identity']
+    token = data['token']
+    amount = data['amount']
+
+    print(p_id)
+    print("bbebe")
+
+    url = "https://khalti.com/api/v2/payment/verify/"
+    payload = {
+    "token": token,
+    "amount": amount
+    }
+    headers = {
+    "Authorization": "Key test_secret_key_b6f287aab3874adf880ba3ef82f4471c"
+    }
+    
+
+    response = requests.post(url, payload, headers = headers)
+    
+    response_data = json.loads(response.text)
+    status_code = str(response.status_code)
+
+    if status_code == '400':
+        response = JsonResponse({'status':'false','message':response_data['detail']}, status=500)
+        return response
+
+    passenger_details_instance = PassengerDetails.objects.get(pk=p_id)  # Replace p_id with the actual ID or other identifier
+
+    # Fetch the related PassengerSeat instances using prefetch_related
+    passenger_seats = PassengerSeat.objects.filter(passenger=passenger_details_instance).select_related('seat_number__schedule__bus')
+
+    # Update the booked status for each related PassengerSeat instance
+    for seat in passenger_seats:
+        seat.seat_number.booked = True
+        seat.seat_number.save()
+
+    return JsonResponse(f"Payment Done !! With IDX. {response_data['user']['idx']}",safe=False)

@@ -11,6 +11,7 @@ class PassengerForm(forms.Form):
     from_location=forms.CharField(required=True)
     to_location=forms.CharField(required=True)
     reserved_seats=forms.CharField(required=True)
+    scheduled_id=forms.IntegerField()
 
     
     def clean_name(self):

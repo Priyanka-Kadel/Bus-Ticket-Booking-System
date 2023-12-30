@@ -67,8 +67,8 @@
                     <h2> A</h2>
                     <div class="row">
                         {% for seat in side_a %}
-                            <div class="seat{% if seat.available %} available {%else%} not-available{% endif %}{% if seat.selected %} selected{% endif %}{% if seat.sold %} sold{% endif %}" data-seat={{seat.id}}>
-                                {{ seat.seat_number }}
+                        <div class="seat{% if seat.available %} available {% else %}{% if seat.booked %} sold{% else %} not-available{% endif %}{% endif %}" data-seat="{{ seat.id }}">
+                          {{ seat.seat_number }}
                             </div>
                         {% endfor %}
                     </div>
@@ -77,7 +77,7 @@
                     <h2> B</h2>
                     <div class="row">
                         {% for seat in side_b %}
-                            <div class="seat{% if seat.available %} available {%else%} not-available{% endif %}{% if seat.selected %} selected{% endif %}{% if seat.sold %} sold{% endif %}" data-seat={{seat.id}}">
+                            <div class="seat{% if seat.available %} available {% else %} not-available{% endif %}{% if seat.booked %} sold{% endif %}" data-seat={{seat.id}}>
                                 {{ seat.seat_number }}
                             </div>
                         {% endfor %}
@@ -101,7 +101,7 @@
                 seats.forEach(seat => {
                   seat.addEventListener('click', function (e) {
                     if (seat.classList.contains('not-available')){
-                      alert("Seat is reserved or booked.")
+                      alert("Seat is reserved.")
                     }else if(!seat.classList.contains('sold')) {
                       seat.classList.toggle('selected');
                       updateSelectedSeats();
@@ -168,10 +168,12 @@
                       success: function(response) {
 
                         const reserved_seat = response.data
-                        
+                        const scheduled_id = response.scheduled_id
+                      
                         // Redirect to the next page after selecting seats
                       const route_id = parseInt(document.getElementById('route-id').innerText);
-                      window.location.href = `/backend/passenger-details/${route_id}/?seats=${reserved_seat}`;
+                      window.location.href = `/backend/passenger-details/${route_id}/?seats=${reserved_seat}&scheduled_id=${scheduled_id}`;
+
                   
                           // Handle the successful response
                       },
