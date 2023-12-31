@@ -18,6 +18,13 @@
             <img src='/static/images/logo.png' alt="Logo" class="logo">
         </div>
 
+        <div class="image-container">
+            <!--  image -->
+            <img src='/static/images/365 copy.png' alt="image" class="image">
+        </div>
+
+
+
         <!-- Navigation bar -->
         <div class="navbar">
             <!-- Navigation links -->
@@ -29,7 +36,7 @@
             </ul>
         </div>
         <div class="right-panel">
-            <img src="/static/images/bg.jpg" alt="Description of the image" width="100%" height="100%">
+            <!-- <img src="/static/images/bg.jpg" alt="Description of the image" width="100%" height="100%"> -->
         <div class="black-panel2">
             <h1 class="panel-heading">Passenger Details</h1>
 
@@ -39,35 +46,33 @@
             <form method="post" action="{% url 'create-passenger' route.id%}">
                 {% csrf_token %}
 
-                <!-- Label and input for Name -->
+                <!-- Input for Name -->
                 <div class="form-group">
-                    <label for="name" class="input-label">Name</label>
-                    <input type="text" name="name" id="name" class="entry-box" required>
+                    <input type="text" name="name" id="name" class="entry-box" placeholder="Name" required>
                 </div>
 
-                <!-- Label and input for Contact -->
+                <!-- Input for Contact -->
                 <div class="form-group">
-                    <label for="contact" class="input-label">Contact</label>
-                    <input type="text" name="contact" id="contact" class="entry-box" required>
+                    <input type="text" name="contact" id="contact" class="entry-box" placeholder="Contact" required>
                 </div>
 
-                <!-- Label and input for Email -->
+                <!-- Input for Email -->
                 <div class="form-group">
-                    <label for="email" class="input-label">Email</label>
-                    <input type="email" name="email" id="email" class="entry-box" required>
+                    <input type="email" name="email" id="email" class="entry-box" placeholder="Email" required>
                 </div>
 
-                <!-- Label and input for Boarding Point (Departure) -->
+                <!-- Input for Boarding Point (Departure) -->
                 <div class="form-group">
                     <label for="boarding-point" class="input-label">Boarding Point (Departure)</label>
-                    <input type="text" name="from_location" class="entry-box" value='{{route.from_location}}'>
+                    <input type="text" name="from_location" class="entry-box" value='{{route.from_location}}' readonly>
                 </div>
 
-                <!-- Label and input for Dropping Point (Departure) -->
+                <!-- Input for Dropping Point (Departure) -->
                 <div class="form-group">
                     <label for="dropping-point" class="input-label">Dropping Point (Departure)</label>
-                    <input type="text" name="to_location" class="entry-box" value='{{route.to_location}}'>
+                    <input type="text" name="to_location" class="entry-box" value='{{route.to_location}}' readonly>
                 </div>
+
 
             {% comment %} <label for="reserved_seat" class="input-label">Reserved Seats</label> {% endcomment %}
             <input type="text" name="reserved_seats"  class="entry-box" value='{{reserved_seats}}'  hidden>
@@ -78,11 +83,12 @@
 
         </form>          
         </div>
-        
-            
-            
+         
         </div>
     </div>
+    
+
+    
 </body>
 
 </html>
