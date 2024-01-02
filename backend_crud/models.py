@@ -36,6 +36,10 @@ class Bus(models.Model):
         return f"{self.bus_number}"
     
     def clean(self):
+        existing_bus = Bus.objects.filter(bus_number=self.bus_number).exclude(pk=self.pk)
+        if existing_bus.exists():
+            raise ValidationError("Bus with this number already exists.")
+        
         if self.total_seat > 20:
             raise ValidationError("Maximum seat of our bus is 20")
             
@@ -82,7 +86,7 @@ class PassengerDetails(models.Model):
     schedule = models.ForeignKey(Schedule, on_delete=models.CASCADE, blank=True , null= True)
 
     def __str__(self):
-        return self.email
+        return f"{self.name} ({self.email})"
     
     def clean(self):
         if not self.contact.isdigit():
@@ -95,3 +99,6 @@ class PassengerDetails(models.Model):
 class PassengerSeat(models.Model):
     passenger = models.ForeignKey(PassengerDetails, on_delete=models.CASCADE)    
     seat_number = models.ForeignKey(BusSeatStatus, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.passenger.name} ( {self.seat_number})"

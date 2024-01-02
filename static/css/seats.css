@@ -293,6 +293,8 @@ body {
 
 .seat2.sold {
   background-color: white;
+  border: black;
+  border-width: 2px;
 }
 .seat-text1 {
   color: #fefefe;
@@ -330,16 +332,14 @@ body {
 }
 
 .showcase {
-  background: rgba(0, 0, 0, 0.1);
+  background: white;
   padding: -5px 5px;
-  border-radius: 5px;
   color: black;
   list-style-type: none;
   display: flex;
   justify-content: space-between;
   position: relative;
   top: 30px;
-  border: 2px solid black;
 }
 
 .showcase li {
@@ -412,5 +412,5 @@ body {
 
 .column-bus-seat h2 {
   margin-bottom: 10px;
-  color:white
+  color:black
 }

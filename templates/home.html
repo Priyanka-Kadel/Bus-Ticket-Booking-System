@@ -5,6 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Document title -->
         <title>Bus Ticket Booking</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
         <!-- Link to external stylesheet -->
         <link rel="stylesheet" href="{% static 'css/home.css' %}">
     </head>
@@ -13,7 +15,7 @@
     <header class="l-header">
         <nav class="nav bd-grid">
             <div>
-                <a href="#" class="nav__logo">SuvaYatra</a>
+                <span class="nav__logo-first">Suva</span><span class="nav__logo-yatra">Yatra</span>
             </div>
 
             <div class="nav__menu" id="nav-menu">
@@ -23,6 +25,11 @@
                     <li class="nav__item"><a href="#skills" class="nav__link">How to book tickets?</a></li>
                     <li class="nav__item"><a href="#work" class="nav__link">Interior</a></li>
                     <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+
+                    <li class="nav__item nav__social-icon"><a href="#"><i class="fab fa-facebook"></i></a></li>
+                    <li class="nav__item nav__social-icon"><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li class="nav__item nav__social-icon"><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li class="nav__item nav__social-icon"><a href="#"><i class="fab fa-linkedin"></i></a></li>
                 </ul>
             </div>
 
@@ -120,10 +127,11 @@
 
             <div class="contact__container bd-grid">
                 <form action="" class="contact__form">
-                    <input type="text" placeholder="Name" class="contact__input">
-                    <input type="mail" placeholder="Email" class="contact__input">
-                    <textarea name="" id="" cols="0" rows="10" class="contact__input"></textarea>
-                    <input type="button" value="Send" class="contact__button button">
+                    <input type="text" placeholder="Name" class="contact__input" id="name">
+                    <input type="mail" placeholder="Email" class="contact__input" id="email">
+                    <input type="subject" placeholder="subject" class="contact__input" id="subject">
+                    <textarea  id="message" placeholder="Enter your enquery" cols="0" rows="10" class="contact__input"></textarea>
+                    <input type="button" onclick="sendMail()" value="Send" class="contact__button button">
                 </form>
             </div>
         </section>
@@ -132,12 +140,23 @@
     <!--===== FOOTER =====-->
     <footer class="footer">
         <p class="footer__title">SuvaYatra</p>
-        <div class="footer__social">
-            <a href="#" class="footer__icon"><i class='bx bxl-facebook' ></i></a>
-            <a href="#" class="footer__icon"><i class='bx bxl-instagram' ></i></a>
-            <a href="#" class="footer__icon"><i class='bx bxl-twitter' ></i></a>
-        </div>
         <p class="footer__copy">&#169; SuvaYatra Travels. All rights reserved</p>
+        <div class="footer-content">
+            <h3>Contact Us</h3>
+            <p>Email: suvayatra@gmail.com</p>
+            <p>Phone: 9829179443/9702285911</p>
+            <p>Address: Dillibazar,Kathmandu</p>
+        </div>
+        <div class="footer-content2">
+            <h3>Follow Us</h3>
+            <ul class="social-icons">
+             <li><a href=""><i class="fab fa-facebook"></i></a></li>
+             <li><a href=""><i class="fab fa-twitter"></i></a></li>
+             <li><a href=""><i class="fab fa-instagram"></i></a></li>
+             <li><a href=""><i class="fab fa-linkedin"></i></a></li>
+            </ul>
+            </div>
+    </div>
     </footer>
     <script src="https://unpkg.com/scrollreveal"></script>
 <script>
@@ -198,5 +217,57 @@ sr.reveal('.home__img, .about__subtitle, .about__text, .skills__img',{delay: 400
 sr.reveal('.home__social-icon',{ interval: 200}); 
 sr.reveal('.skills__data, .work__img, .contact__input',{interval: 200}); 
 </script>
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("vhLUKJrl1V_R3NBGY");
+   })();
+</script>
+<script>
+   function sendMail() {
+    // Get form values
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let subject = document.getElementById("subject").value;
+    let message = document.getElementById("message").value;
+
+    // Validate form fields
+    if (!name || !email || !subject || !message) {
+        alert("All fields are required. Please fill out all fields.");
+        return;
+    }
+
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert("Invalid email address. Please enter a valid email.");
+        return;
+    }
+
+    // Prepare parameters for EmailJS
+    let parms = {
+        name: name,
+        email: email,
+        subject: subject,
+        message: message,
+    };
+
+    // Send email using EmailJS
+    emailjs.send("service_5wr48mf", "template_ghrb405", parms)
+        .then(() => {
+            alert("Email sent successfully!");
+        })
+        .catch((error) => {
+            console.error("Error sending email:", error);
+            alert("Error sending email. Please try again later.");
+        });
+}
+
+</script>
+
+
+
 </body>
 </html>
