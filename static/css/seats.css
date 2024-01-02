@@ -82,7 +82,7 @@ body {
 .black-panel1 {
   position: absolute;
   top: 188px;
-  left: 108px;
+  left: 350px;
   width: 50%;
   height: 14%;
   background-color: white;
@@ -143,12 +143,13 @@ body {
 .black-panel2 {
   position: absolute;
   top: 300px;
-  left: 108px;
+  left: 355px;
   width: 50%;
   height: 168%;
   background-color:white;
   border-radius: 16px;
   border: 2px solid black;
+  margin-top: 10px;
 }
 
 .book-seats-text {
@@ -293,7 +294,7 @@ body {
 
 .seat2.sold {
   background-color: white;
-  border: black;
+  border: solid black;
   border-width: 2px;
 }
 .seat-text1 {
