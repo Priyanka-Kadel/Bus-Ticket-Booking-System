@@ -235,17 +235,14 @@ body {
     left: 158px;
     width: 50%;
     height: auto; /* Allow height to adjust based on content */
-    
     background-color:#ffffff;
     border-radius: 24px;
     border: 2px solid black; /* This line sets the border */
-    /* box-shadow: 0px -3px 10px 0px black inset, 0px 3px 10px 0px black inset; Top and bottom shadow */
     display: none;
+    /* Add transition for a smooth effect */
+    transition: background-color 0.3s;   
 }
 
-
-  
-  
   .black-panel1 .panel-text {
     color:#0e0e0e;
     font-size: 18px;
@@ -276,7 +273,7 @@ body {
   .black-panel1 .p3 {
     position: relative;
     top: 39px;
-    margin-left: 279px;
+    margin-left: 297px;
     font-size: 21px;
   }
   
@@ -531,9 +528,12 @@ body {
     display: block; /* Make the anchor tag a block element to take the full width */
     padding: 5px; /* Add padding for better aesthetics */
     border-bottom: 2px solid black;
-    border-radius: 24px;
-    
-    
+    border-radius: 24px;   
+}
+
+.route-info:hover {
+    /* Change the background color on hover for route-info elements */
+    background-color:  #3e6ff4; /* Change this to the desired color */
 }
 
   
