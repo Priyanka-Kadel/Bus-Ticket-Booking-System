@@ -61,27 +61,26 @@
             </div>
         </div>
 <!-- Black panel below grey panel -->
-<div class="black-panel1" id="search-results-panel">
-    {% if routes %}
-        {% for route in routes %}
-            <div class="route-info">
-                <p class="panel-text p1">
-    
-                    <strong style="color:black;">Route Name:</strong> 
-                    <a href="{% url 'seats' route.id %}" style="color:black;">{{ route.route.route_name }}</a>
-                </p>
-                <p class="panel-text p3"><strong>Bus Number:</strong> {{ route.bus.bus_number }}</p>
-                <p class="panel-text p2"><strong>Location:</strong> {{ route.route.from_location }}-{{ route.route.to_location }}</p>
-                <p class="panel-text p4"><strong>Time:</strong> {{ route.departure_time }}</p>
-                <p class="panel-text p5"><strong>Total Seats:</strong> {{ route.bus.total_seat }}</p>
-                <p class="panel-text p6"><strong>Available Seats:</strong> {{ route.available_seats }}</p>
-                <p class="panel-text p7"><strong>Fare:</strong> {{ route.route.price }}</p>
-            </div>
-        {% endfor %}
-    {% else %}
-        <p>No routes found.</p>
-    {% endif %}
-</div>
+        <<div class="black-panel1" id="search-results-panel">
+            {% if routes %}
+                {% for route in routes %}
+                    <a href="{% url 'seats' route.id %}" class="route-info">
+                        <p class="panel-text p1">
+                            <strong style="color:black;">Route Name:</strong> 
+                            {{ route.route.route_name }}
+                        </p>
+                        <p class="panel-text p3"><strong>Bus Number:</strong> {{ route.bus.bus_number }}</p>
+                        <p class="panel-text p2"><strong>Location:</strong> {{ route.route.from_location }}-{{ route.route.to_location }}</p>
+                        <p class="panel-text p4"><strong>Time:</strong> {{ route.departure_time }}</p>
+                        <p class="panel-text p5"><strong>Total Seats:</strong> {{ route.bus.total_seat }}</p>
+                        <p class="panel-text p6"><strong>Available Seats:</strong> {{ route.available_seats }}</p>
+                        <p class="panel-text p7"><strong>Fare:</strong> {{ route.route.price }}</p>
+                    </a>
+                {% endfor %}
+            {% else %}
+                <p>No routes found.</p>
+            {% endif %}
+        </div>
 
 
         <!-- Footer panel -->
