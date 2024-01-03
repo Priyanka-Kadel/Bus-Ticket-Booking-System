@@ -65,10 +65,7 @@
             {% if routes %}
                 {% for route in routes %}
                     <a href="{% url 'seats' route.id %}" class="route-info" title="Click to view details">
-                        <p class="panel-text p1">
-                            <strong style="color:black;">Route Name:</strong> 
-                            {{ route.route.route_name }}
-                        </p>
+                        <p class="panel-text p1"><strong>Route Name:</strong> {{ route.route.route_name }}</p>
                         <p class="panel-text p3"><strong>Bus Number:</strong> {{ route.bus.bus_number }}</p>
                         <p class="panel-text p2"><strong>Location:</strong> {{ route.route.from_location }}-{{ route.route.to_location }}</p>
                         <p class="panel-text p4"><strong>Time:</strong> {{ route.departure_time }}</p>
