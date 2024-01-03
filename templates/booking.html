@@ -61,10 +61,10 @@
             </div>
         </div>
 <!-- Black panel below grey panel -->
-        <<div class="black-panel1" id="search-results-panel">
+        <div class="black-panel1" id="search-results-panel">
             {% if routes %}
                 {% for route in routes %}
-                    <a href="{% url 'seats' route.id %}" class="route-info">
+                    <a href="{% url 'seats' route.id %}" class="route-info" title="Click to view details">
                         <p class="panel-text p1">
                             <strong style="color:black;">Route Name:</strong> 
                             {{ route.route.route_name }}
