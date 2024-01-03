@@ -235,7 +235,7 @@ body {
     left: 158px;
     width: 50%;
     height: auto; /* Allow height to adjust based on content */
-    background-color:#ffffff;
+    background-color: #D8D8D8;
     border-radius: 24px;
     border: 2px solid black; /* This line sets the border */
     display: none;
@@ -533,7 +533,23 @@ body {
 
 .route-info:hover {
     /* Change the background color on hover for route-info elements */
-    background-color:  #3e6ff4; /* Change this to the desired color */
+    background-color: var(--first-color);
+    /* Change this to the desired color */
+    color: #ffffff;
 }
 
-  
+.black-panel1:hover .panel-text {
+    color: white;
+}
+
+
+.panel-text.p1:hover strong {
+    color: white/* Your desired text color after hovering */;
+}
+
+.panel-text p1{
+
+    color: black;
+
+}
+
