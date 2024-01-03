@@ -51,6 +51,17 @@ class Schedule(models.Model):
     def __str__(self):
         return f"{self.bus.bus_number} - {self.departure_time}"
     
+    def clean(self):
+        # Check if the same bus is scheduled on the same day for a different route
+        existing_schedule = Schedule.objects.filter(
+            bus=self.bus,
+            departure_time__date=self.departure_time.date(),
+        ).exclude(pk=self.pk)
+
+        if existing_schedule.exists():
+            raise ValidationError("This bus is already scheduled for another route on the same day.")
+        
+        
 class BusSeatStatus(models.Model):
     CHOICES = [
         ('A', 'Side A'),
@@ -99,6 +110,7 @@ class PassengerDetails(models.Model):
 class PassengerSeat(models.Model):
     passenger = models.ForeignKey(PassengerDetails, on_delete=models.CASCADE)    
     seat_number = models.ForeignKey(BusSeatStatus, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.passenger.name} ( {self.seat_number})"
