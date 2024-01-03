@@ -130,7 +130,7 @@
                         btn.onclick = function () {
                             console.log(document.getElementById("total_price").innerText, "Hello")
                             // minimum transaction amount must be 10, i.e 1000 in paisa.
-                            const amountInPaisa = parseInt(document.getElementById("total_price").innerText) * 100;
+                            const amountInPaisa = parseInt(document.getElementById("total_price").innerText);
                             checkout.show({ amount: amountInPaisa });                            
                         }
                     </script>
