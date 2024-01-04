@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Booking</title>
+    <link rel="stylesheet" href="{% static 'css/ticket.css' %}">
+</head>
+
+<body>
+    <!-- Main container -->
+    <div class="main">
+        <!-- Logo container -->
+        <div class="logo-container">
+            <!-- Logo image -->
+            <img src='/static/images/logo.png' alt="Logo" class="logo">
+        </div>
+
+        <!-- Navigation bar -->
+        <div class="navbar">
+            <!-- Navigation links -->
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'home' %}">About</a></li>
+                <li><a href="{% url 'home' %}">How to book ticket?</a></li>
+                <li><a href="{% url 'home' %}">Services</a></li>
+            </ul>
+        </div>
+
+        <!-- Ticket and Payment Details Panel -->
+        <div class="details-panel">
+            <!-- Ticket Details -->
+            <section class="ticket-details">
+                <h2>Ticket </h2>
+                <p><strong>Passenger Name:</strong> __________</p>
+                <p><strong>Date of Booking:</strong> ___________</p>
+                <p><strong>Departure Time:</strong> __________</p>
+                <p><strong>Seat Number:</strong> A1</p>
+            </section>
+
+            <!-- Payment Details -->
+            <section class="payment-details">
+                <!-- <h2>Payment Details</h2> -->
+                <p><strong>Total Amount:</strong> Rs.400</p>
+                <p><strong>Payment Method:</strong> Khalti</p>
+            </section>
+
+            <div class="footer-panel2">
+                <!-- Footer text -->
+                <p>Thank you for choosing our bus service!</p>
+            </div>
+        </div>
+        
+
+        <!-- Footer panel -->
+        <div class="footer-panel">
+            <!-- Footer text -->
+            <p>&copy; 2023 SuvaYatra. All rights reserved.</p>
+        </div>
+    </div>
+
+      
+</body>
+
+</html>
