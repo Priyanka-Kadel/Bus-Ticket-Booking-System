@@ -114,33 +114,127 @@ body {
 
 /* details panel */
 .details-panel {
-    width: 40%;
-    height: 500px; /* Adjust the height as needed */
+    width: 50%;
+    height: 400px; /* Adjust the height as needed */
     margin: 0 auto;
-    padding: 12px;
+    padding: 15px;
     background-color: #f8f8f8;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 50px;
     position: absolute;
-    top: 30%;
+    top: 25%;
     left: 40%;
     transform: translate(-50%, -50%);
     border-radius: 16px;
     background: none;
-    font-family: cursive;
+    font-family: 'memphis';
+    margin-bottom: 20px;
 }
 /* Additional styles for ticket-details and payment-details if needed */
 .ticket-details, .payment-details {
-    margin-bottom: 55px;}  /*Add some space between the sections /*
+    margin-bottom: 55px;
+    left: 0px;}  
+
+    .ticket-details{
+        display: flex;
+        flex-direction: column;
+    }
+
+.ticket-details p {
+        display: inline-block;
+        width: 45%; 
+        margin: 0;
+        padding: 100px;
+    }
+
+   
+.passenger{
+        display: flex;
+        flex-direction: column;
+        margin-top: 55px;
+       
+    }    
+
+    .passenger p1 {
+        margin: 0;
+    }
+
+    .type{
+        display: flex;
+        flex-direction: column;
+        margin-top: -43px;
+        margin-left: 285px; 
+       
+    }
+
+    .type p2 {
+        margin: 0;
+        margin-top: 0px;
+
+    }
+
+    .inline-info {
+        display: flex;
+       
+        margin-bottom: 10px;
+        
+    }
+    
+    .from,
+    .to,
+    .date,
+    .time,
+    .seat {
+        margin-right: 40px;
+        margin-bottom: 10px; /* Adjust the value as needed */
+    }
+    
+    .from p3,
+    .to p4,
+    .date p5,
+    .time p6,
+    .seat p7 {
+        margin: 0;
+    }
 
 
+    
 
-/* Footer text styles */
+.payment-row{
+    display: inline-block;
+    width: 45%; 
+    margin: 0;
+    padding: 30px; 
+    margin-left: -33px;
+
+}
+
+
 .footer-panel2 p {
     color: black;
     margin: 5px 0;
-    font-family: cursive;
+    font-family: memphis;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    top: 400px;
+    text:bold;
+}
+
+/* Busimg panel */
+.panel {
+    padding: 20px;
+    text-align: center;
+    max-width: 20%;
+    height: 80px;
+    position: fixed; /* Position relative to the viewport */
+    right: 150px; /* Distance from the right side */
+    top: 100px; /* Distance from the top */
+}
+
+/* Style the image */
+.panel img {
+    max-width: 100%; /* Use 100% to fill the container */
+    height: 100%;
+    
 }
