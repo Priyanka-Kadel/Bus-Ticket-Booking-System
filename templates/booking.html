@@ -1,33 +1,42 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en">
+
 
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ticket Booking</title>
     <link rel="stylesheet" href="{% static 'css/booking.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 
 <body>
-    <!-- Main container -->
-    <div class="main">
-        <!-- Logo container -->
-        <div class="logo-container">
-            <!-- Logo image -->
-            <img src='/static/images/logo.png' alt="Logo" class="logo">
-        </div>
-
-        <!-- Navigation bar -->
-        <div class="navbar">
-            <!-- Navigation links -->
-            <ul>
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'home' %}">About</a></li>
-                <li><a href="{% url 'home' %}">How to book ticket?</a></li>
-                <li><a href="{% url 'home' %}">Services</a></li>
-            </ul>
-        </div>
+          <!--===== HEADER =====-->
+          <header class="l-header">
+            <nav class="nav bd-grid">
+                <div>
+                    <span class="nav__logo-first">Suva</span><span class="nav__logo-yatra">Yatra</span>
+                </div>
+    
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
+                        <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                        <li class="nav__item"><a href="#skills" class="nav__link">How to book tickets?</a></li>
+                        <li class="nav__item"><a href="#work" class="nav__link">Interior</a></li>
+                        <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+    
+                        <li class="nav__item nav__social-icon"><a href="#"><i class="fab fa-facebook"></i></a></li>
+                        <li class="nav__item nav__social-icon"><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li class="nav__item nav__social-icon"><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        <li class="nav__item nav__social-icon"><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+    
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </nav>
+        </header>
 
         <!-- Grey panel for selection and date -->
         <div class="grey-panel">
@@ -78,14 +87,9 @@
                 <p>No routes found.</p>
             {% endif %}
         </div>
-
-
-        <!-- Footer panel -->
-        <div class="footer-panel">
-            <!-- Footer text -->
-            <p>&copy; 2023 SuvaYatra. All rights reserved.</p>
-        </div>
+        
     </div>
+    
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var searchResultsPanel = document.getElementById('search-results-panel');
