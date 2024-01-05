@@ -33,14 +33,14 @@
         <div class="details-panel">
             <div class="panel">
                 <!-- Add the image with the correct path 'static/media/bus.png' -->
-                <img src="/media/bg.jpg" alt="Bus Image">
+                <img src="{{schedule.bus.bus_picture.url}}" alt="Bus Image">
             </div>
             <!-- Ticket Details -->
             <section class="ticket-details">
                 <h2 style="text-align: center;margin-bottom: 20px;">SuvaYatra Travels</h2>
                 <div class="passenger">
                     <p1><strong>Passenger Name:</strong></p1>
-                    <p1>Sandhya</p1>
+                    <p1>{{passenger_details.name}}</p1>
                 </div>
                 <div class="type">
                     <p2><strong>Ticket type:</strong></p2>
@@ -52,25 +52,28 @@
             <div class="inline-info">
                 <div class="from">
                     <p3><strong>From:</strong></p3>
-                    <p3>Ktm</p3>
+                    <p3>{{schedule.route.from_location }}</p3>
                 </div>
                 
                 <div class="to">
                     <p4><strong>To:</strong></p4>
-                    <p4>chitwan</p4>
+                    <p4>{{schedule.route.to_location }}</p4>
                 </div>
                 <div class="date">
                     <p5><strong>Date of Booking:</strong></p5>
-                    <p5>jan</p5>
+                    <p5>{{payment_detail.created_at.date  }}</p5>
                 </div>
                 <div class="time">
                     <p6><strong>Time:</strong></p6>
-                    <p6>6:00</p6>
+                    <p6>{{payment_detail.created_at.time  }}</p6>
                 </div>
 
                 <div class="seat">
                     <p7><strong>Seat No.:</strong></p7>
-                    <p7>A1</p7>
+                    {% for seat in passenger_seat %}
+                            {{ seat.seat_number.seat_number }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    
                 </div>
                 
             </div>
@@ -79,8 +82,8 @@
             <section class="payment-details">
                 <!-- <h2>Payment Details</h2> -->
                 <div class="payment-row">
-                    <p><strong>Total Amount:</strong> <span style="color: green;">Rs.400</span></p>
-                    <p><strong>Payment Method:</strong> Khalti</p>
+                    <p><strong>Total Amount:</strong> <span style="color: green;">{{payment_detail.paid_amount }}</span></p>
+                    <p><strong>Payment Method:</strong> {{payment_detail.payment_method }}</p>
                 </div>
             </section>
 
