@@ -114,3 +114,13 @@ class PassengerSeat(models.Model):
 
     def __str__(self):
         return f"{self.passenger.name} ( {self.seat_number})"
+    
+
+class PaymentDetail(models.Model):
+    passenger_info = models.ForeignKey(PassengerDetails, on_delete=models.CASCADE)  
+    payment_method = models.CharField(max_length= 25, default = "Khalti")
+    paid_amount = models.CharField(max_length= 25)
+    created_at = models.DateTimeField()
+
+    def __str__(self):
+        return f"{self.passenger_info.name}({self.passenger_info.email}) "

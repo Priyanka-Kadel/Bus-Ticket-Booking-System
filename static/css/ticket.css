@@ -1,3 +1,38 @@
+/* Busimg panel */
+.panel {
+    padding: 20px;
+    text-align: center;
+    max-width: 20%;
+    height: 80px;
+    position: fixed; /* Position relative to the viewport */
+    right: 150px; /* Distance from the right side */
+    top: 100px; /* Distance from the top */
+    position: relative; /* Important for positioning the pseudo-element */
+
+    /* Add the following styles for the colored corner */
+    overflow: hidden;
+}
+
+/* Style the image */
+.panel img {
+    max-width: 100%; /* Use 100% to fill the container */
+    height: 100%;
+}
+
+/* Colored corner styles using ::before pseudo-element */
+.panel::before {
+    content: "";
+    position: absolute;
+    bottom: 0; /* Place the corner at the bottom */
+    left: 0;   /* Place the corner at the left */
+    width: 100px; /* Adjust width and height as needed */
+    height: 40px;
+    background-color: #0037ff; /* Your desired color */
+    clip-path: polygon(0 100%, 0 0, 100% 100%); /* Triangle shape for the bottom-left corner */
+}
+
+
+
 
 /* Body styles */
 body {
@@ -218,7 +253,7 @@ body {
     left: 50%;
     transform: translateX(-50%);
     top: 400px;
-    text:bold;
+    
 }
 
 /* Busimg panel */
