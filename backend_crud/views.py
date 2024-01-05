@@ -184,3 +184,8 @@ def verify_payment(request, p_id ):
         seat.seat_number.save()
 
     return JsonResponse(f"Payment Done !! With IDX. {response_data['user']['idx']}",safe=False)
+
+
+
+def ticket_view (request):
+    return render(request,'ticket.html')

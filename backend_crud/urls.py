@@ -1,5 +1,5 @@
 from django.urls import path
-from backend_crud.views import filter_route,seats_view,details_views,booking_view,save_passenger_info,payment_view,passenger_details_view,verify_payment
+from backend_crud.views import filter_route,seats_view,details_views,booking_view,save_passenger_info,payment_view,passenger_details_view,verify_payment,ticket_view
 
 
 
@@ -12,6 +12,7 @@ urlpatterns = [
     path('create-passenger/<int:id>/', save_passenger_info, name='create-passenger'),
     path('payment/<int:id>/<int:p_id>/', payment_view, name='payment'),
 
-    path('api/verify_payment/<int:p_id>/',verify_payment,name='verify_payment')
+    path('api/verify_payment/<int:p_id>/',verify_payment,name='verify_payment'),
+    path('ticket/', ticket_view, name='ticket'),
 
 ]

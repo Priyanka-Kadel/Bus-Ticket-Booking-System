@@ -1,0 +1,146 @@
+
+/* Body styles */
+body {
+    overflow: hidden;
+    height: 100%;
+    margin: 0;
+    overflow-y: auto; /* Set overflow-y to auto for vertical scrollbar */
+    overflow-x: hidden; /* Set overflow-x to hidden to hide horizontal scrollbar */
+}
+
+/* Main container styles */
+.main {
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)), url('/static/images/bgs.jpg'); */
+    height: 200vh;
+    width: 110%;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    background-color:#ffffff;
+    min-height: 100vh;
+}
+
+/* Logo container styles */
+.logo-container {
+    position: absolute;
+    top: 40px;
+    left: 50px;
+    z-index: 1000;
+}
+
+/* Logo styles */
+.logo {
+    max-width: 225px;
+    height: auto;
+}
+
+/* Navigation bar styles */
+.navbar {
+    width: 85%;
+    margin: auto;
+    padding: 38px 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-left: 140px;
+}
+
+/* Navigation link styles */
+.navbar ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 10px 20px;
+    position: relative;
+    font-size: 20.3px;
+    text-shadow: 0 4px 8px rgb(29, 29, 29);
+}
+
+/* Navigation link hover styles */
+.navbar ul li a:hover {
+    color: #04AA6D;
+}
+/* Styling for navigation links */
+.navbar ul li a {
+    text-decoration: none;
+    color: #0e0e0e;
+    transition: color 0.5s;
+}
+
+/* Navigation link underline styles */
+.navbar ul li::after {
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #14b97c;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+/* Navigation link underline on hover styles */
+.navbar ul li:hover::after {
+    width: 100%;
+}
+
+
+
+/* Footer panel styles */
+.footer-panel {
+    width: 100%;
+    text-align: center;
+    padding: 7px;
+    position: fixed;
+    
+    left: 0;
+    height: 40px;
+    background-color:#0e0e0e;
+    /* position: absolute; */
+    /* bottom: -137px; */
+    bottom: 0;
+    width: 100%;
+    padding-bottom: -10px;
+}
+
+/* Footer text styles */
+.footer-panel p {
+    color:#ffffff;
+    margin: 5px 0;
+}
+
+/* details panel */
+.details-panel {
+    width: 40%;
+    height: 500px; /* Adjust the height as needed */
+    margin: 0 auto;
+    padding: 12px;
+    background-color: #f8f8f8;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    border-radius: 16px;
+    background: none;
+    font-family: cursive;
+}
+/* Additional styles for ticket-details and payment-details if needed */
+.ticket-details, .payment-details {
+    margin-bottom: 55px;}  /*Add some space between the sections /*
+
+
+
+/* Footer text styles */
+.footer-panel2 p {
+    color: black;
+    margin: 5px 0;
+    font-family: cursive;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
