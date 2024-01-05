@@ -1,178 +1,177 @@
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            overflow-y: auto;
-            font-family: Arial, sans-serif;
-            /* overflow: hidden; */
-        }
+body {
+    overflow-y: auto;
+    font-family: Arial, sans-serif;
+    /* overflow: hidden; */
+}
 
-        .main {
-            background-image: 
-                url('/static/images/bgs.jpg');
-            
-            height: 100vh;
-            width: 100%;
-            background-size: cover;
-            position: relative;
-            
-        }
+.main {
+    /* background-image: 
+        url('/static/images/pic.png'); */
+    
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    position: relative;
+    
+}
 
-        .logo-container {
-            position: absolute;
-            top: 40px;
-            left: 50px;
-            z-index: 1000;
-        }
+.logo-container {
+    position: absolute;
+    top: 40px;
+    left: 50px;
+    z-index: 1000;
+}
 
-        .logo {
-            max-width: 219px;
-            height: auto;
-        }
+.logo {
+    max-width: 219px;
+    height: auto;
+}
 
-        .navbar {
-            width: 85%;
-            margin: auto;
-            padding: 38px 0;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            padding-left: 140px;
-        }
+.navbar {
+    width: 85%;
+    margin: auto;
+    padding: 38px 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-left: 140px;
+}
 
-        .navbar ul {
-            list-style: none;
-            display: flex;
-        }
+.navbar ul {
+    list-style: none;
+    display: flex;
+}
 
-        .navbar ul li {
-            margin: 0 20px;
-            position: relative;
-            font-size: 20.3px;
-            text-shadow: 0 4px 8px rgb(29, 29, 29);
-        }
+.navbar ul li {
+    margin: 0 20px;
+    position: relative;
+    font-size: 20.3px;
+    text-shadow: 0 4px 8px rgb(29, 29, 29);
+}
 
-        .navbar ul li a {
-            text-decoration: none;
-            color:#0a0909;
-            transition: color 0.5s;
-        }
+.navbar ul li a {
+    text-decoration: none;
+    color:#0a0909;
+    transition: color 0.5s;
+}
 
-        .navbar ul li a:hover {
-            color: #04AA6D;
-        }
-
-        
-        .navbar ul li:hover::after {
-            width: 100%;
-        }
-
-        .scroll-container {
-            max-height: 800px;
-            top: 300px;
-            overflow-y: auto; 
-        }
-
-        .details-section1 {
-            text-align: center;
-        }
-        
-        .details-section1 p {
-            color: green;
-            font-style: bold;
-        }
-   
-        .khalti {
-            position: absolute;
-            bottom: 10px;
-            left: 206px;
-            z-index: 1000;
-            width: 160px;
-            height:auto;
-            font-size: 16px;
-            border-radius: 12px;
-            cursor: pointer;
-        }
-        .khalti:hover {
-            box-shadow: rgba(17, 17, 26, 0.3) 0px 8px 24px, rgba(17, 17, 26, 0.3) 0px 16px 56px, rgba(17, 17, 26, 0.3) 0px 24px 80px;
-            background-color: var(--second-color);
-        }
-        .passenger-details {
-            position: relative;
-            top: 500px; /* Adjust the top value */
-        
-            border: 1px solid #ccc;
-            padding: 120px;
-            
-            text-align: center;
-            background:#ffffff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            font-size: 20px;
-        }
-        
-        .details-section {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-
-        .divider {
-            border-top: 1px solid #ccc;
-            margin: 20px 0;
-        }
-
-        .note-section {
-            margin-top: 30px;
-            font-style: italic;
-            color:  #0a0909;
-            font-weight: bold;
-            background-color: #04aa6d;
-            padding: 10px;
-            color: white;
-            border-radius: 30px;
-            
-        }
-
-        .passenger-details h2 {
-            margin-bottom: 30px;/* Adjust the value as needed */
-            font-size: 25px;
-            
-        }
-
-        .note-section p {
-            
-            margin-bottom: 20px;
-            line-height: 1.5;
-            
-            text-align: left; /* Align text to the left */
-            margin: 0;
-            
-        }
+.navbar ul li a:hover {
+    color: #04AA6D;
+}
 
 
-        .khaltilogo {
-            position: absolute;
-            bottom: 10px; /* Adjust the bottom value for the downward movement */
-            left: 206px; /* Adjust the left value for the leftward movement */
-            z-index: 1000;
-            max-width: 170px;
-            height:auto;
-            font-size: 20px;
-            border-radius: 12px;
-        }
+.navbar ul li:hover::after {
+    width: 100%;
+}
+
+.scroll-container {
+    max-height: 800px;
+    top: 300px;
+    overflow-y: auto; 
+}
+
+.details-section1 {
+    text-align: center;
+}
+
+.details-section1 p {
+    color: green;
+    font-style: bold;
+}
+
+.khalti {
+    position: absolute;
+    bottom: 10px;
+    left: 206px;
+    z-index: 1000;
+    width: 160px;
+    height:auto;
+    font-size: 16px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+.khalti:hover {
+    box-shadow: rgba(17, 17, 26, 0.3) 0px 8px 24px, rgba(17, 17, 26, 0.3) 0px 16px 56px, rgba(17, 17, 26, 0.3) 0px 24px 80px;
+    background-color: var(--second-color);
+}
+.passenger-details {
+    position: relative;
+    top: 500px; /* Adjust the top value */
+
+    border: 1px solid #ccc;
+    padding: 100px;
+    
+    text-align: center;
+    background:#ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+}
+
+.details-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.divider {
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+}
+
+.note-section {
+    margin-top: 30px;
+    font-style: italic;
+    color:  #0a0909;
+    font-weight: bold;
+    background-color: #3e6ff4;
+    padding: 10px;
+    color: white;
+    border-radius: 30px;
+    
+}
+
+.passenger-details h2 {
+    margin-bottom: 30px;/* Adjust the value as needed */
+    font-size: 25px;
+    
+}
+
+.note-section p {
+    
+    margin-bottom: 20px;
+    line-height: 1.5;
+    
+    text-align: left; /* Align text to the left */
+    margin: 0;
+    
+}
 
 
-        
-        
+.khaltilogo {
+    position: absolute;
+    bottom: 10px; /* Adjust the bottom value for the downward movement */
+    left: 206px; /* Adjust the left value for the leftward movement */
+    z-index: 1000;
+    max-width: 170px;
+    height:auto;
+    font-size: 20px;
+    border-radius: 12px;
+}
 
 
-        
+
+
+
+
