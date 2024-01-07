@@ -172,6 +172,20 @@ body {
         margin-top: -43px;
         margin-left: 0px; 
         font-weight: bold;
+        top: 90px;
+}
+
+.busnumber p01 {
+    top: 29px; /* Adjust the value to move the bus number downward */
+    color: red;
+    font-size: 18px;
+
+
+}
+
+.busnumber p0 {
+    top: 20px; /* Adjust the value to move the bus number downward */
+    font-size: 18px;
 }
 
    

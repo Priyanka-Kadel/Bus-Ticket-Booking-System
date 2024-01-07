@@ -1,7 +1,7 @@
 from datetime import datetime
 from django.shortcuts import render, redirect
 from backend_crud.forms import search_route,passenger_form
-from backend_crud.models import Route, BusSeatStatus, Schedule, PassengerDetails,PassengerSeat, PaymentDetail
+from backend_crud.models import Route, BusSeatStatus, Schedule, PassengerDetails,PassengerSeat, PaymentDetails
 from django.db.models import Q, Prefetch
 from django.db.models import Count, Case, When, IntegerField
 from django.http import JsonResponse
@@ -135,9 +135,9 @@ def save_passenger_info(request, id):
     return render(request, 'passenger_details.html', context={'route':route})
 
 def payment_view(request, id, p_id):
-    passenger_details = PassengerDetails.objects.filter(schedule__route_id=id, id=p_id, schedule__departure_time__date=datetime.now()).prefetch_related('passengerseat_set', 'paymentdetail_set').first()
+    passenger_details = PassengerDetails.objects.filter(schedule__route_id=id, id=p_id, schedule__departure_time__date=datetime.now()).prefetch_related('passengerseat_set', 'paymentdetails_set').first()
     seat_numbers = []
-    payment = passenger_details.paymentdetail_set.first()
+    payment = passenger_details.paymentdetails_set.first()
 
     if passenger_details:
     # Accessing the passengerseat_set and getting seat numbers
@@ -175,7 +175,7 @@ def verify_payment(request, p_id ):
     
     payment_method = 'Khalti ' + response_data.get('type')['name']
     passenger_details_instance = PassengerDetails.objects.get(pk=p_id)  # Replace p_id with the actual ID or other identifier
-    PaymentDetail.objects.create(passenger_info = passenger_details_instance, payment_method = payment_method, paid_amount= response_data.get('amount'), created_at = response_data.get('created_on'))
+    PaymentDetails.objects.create(passenger_info = passenger_details_instance, payment_method = payment_method, paid_amount= response_data.get('amount'), created_at = response_data.get('created_on'))
     # Fetch the related PassengerSeat instances using prefetch_related
     passenger_seats = PassengerSeat.objects.filter(passenger=passenger_details_instance).select_related('seat_number__schedule__bus')
 
@@ -189,8 +189,8 @@ def verify_payment(request, p_id ):
 
 
 def ticket_view (request, passenger_id):
-    passenger_details_instance = PassengerDetails.objects.filter(pk=passenger_id).select_related('schedule').prefetch_related('passengerseat_set', 'paymentdetail_set').first()
+    passenger_details_instance = PassengerDetails.objects.filter(pk=passenger_id).select_related('schedule').prefetch_related('passengerseat_set', 'paymentdetails_set').first()
     passenger_seat = passenger_details_instance.passengerseat_set.all()
     schedule = passenger_details_instance.schedule
-    payment_detail = passenger_details_instance.paymentdetail_set.first()
-    return render(request,'ticket.html', context={'passenger_details': passenger_details_instance, 'passenger_seat':passenger_seat, 'schedule':schedule, 'payment_detail':payment_detail})
+    payment_details = passenger_details_instance.paymentdetails_set.first()
+    return render(request,'ticket.html', context={'passenger_details': passenger_details_instance, 'passenger_seat':passenger_seat, 'schedule':schedule, 'payment_detail':payment_details})
