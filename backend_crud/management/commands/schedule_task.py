@@ -18,8 +18,8 @@ class Command(BaseCommand):
             # Get the current time
             current_time = timezone.now()
             # Calculate the time 5 minutes ago
-            five_minutes_ago = current_time - timedelta(minutes=5)
-            ten_minutes_ago = five_minutes_ago - timedelta(minutes=5)
+            five_minutes_ago = current_time - timedelta(minutes=1)
+            ten_minutes_ago = five_minutes_ago - timedelta(minutes=1)
 
 
             # Query for passenger seats created before 5 minutes
