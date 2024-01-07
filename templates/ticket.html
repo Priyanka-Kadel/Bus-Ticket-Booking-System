@@ -92,16 +92,62 @@
                 <p>Thank you for choosing our bus service!</p>
             </div>
         </div>
-        
+        <!-- Print button and JavaScript code -->
 
-        <!-- Footer panel -->
-        <div class="footer-panel">
-            <!-- Footer text -->
-            <p>&copy; 2023 SuvaYatra. All rights reserved.</p>
+        
+        <div class="button-container">
+            <button onclick="printTicket()">Print</button>
+            <button onclick="sendToMail()">Send to Mail</button>
         </div>
     </div>
+<!-- Add this script inside the <head> or at the end of the <body> -->
+    <script>
+        function printTicket() {
+            // Set the desired width and height for the details panel
+            var printWidth = 800; // Set your desired width in pixels
+            var printHeight = 400; // Set your desired height in pixels
+    
+            // Create a new window for printing
+            var printWindow = window.open('', '_blank');
+    
+            // Clone the details panel
+            var detailsPanel = document.querySelector('.details-panel').cloneNode(true);
+    
+            // Set the width and height of the cloned details panel
+            detailsPanel.style.width = printWidth + 'px';
+            detailsPanel.style.height = printHeight + 'px';
+    
+            // Append the cloned details panel to the new window
+            printWindow.document.body.appendChild(detailsPanel);
+    
+            // Apply the styles from the main stylesheet
+            var stylesheets = document.styleSheets;
+            for (var i = 0; i < stylesheets.length; i++) {
+                var stylesheet = stylesheets[i];
+                if (stylesheet.href && stylesheet.href.endsWith('ticket.css')) { // Adjust the stylesheet name
+                    var printStylesheet = printWindow.document.createElement('link');
+                    printStylesheet.rel = 'stylesheet';
+                    printStylesheet.type = 'text/css';
+                    printStylesheet.href = stylesheet.href;
+                    printWindow.document.head.appendChild(printStylesheet);
+                }
+            }
+    
+            // Apply print-specific styles for landscape mode
+            var customStyle = printWindow.document.createElement('style');
+            customStyle.innerHTML = '@page { size: landscape; }';
+            printWindow.document.head.appendChild(customStyle);
+    
+            // Print the new window
+            printWindow.print();
+    
+            // Close the new window after printing
+            printWindow.close();
+        }
+    </script>
+    
+    
 
-      
 </body>
 
 </html>
