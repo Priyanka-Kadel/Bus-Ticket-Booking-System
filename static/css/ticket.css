@@ -1,6 +1,3 @@
-
-
-
 /* Body styles */
 body {
     overflow: hidden;
@@ -169,6 +166,13 @@ body {
         margin: 0;
         padding: 100px;
     }
+.busnumber{
+    display: flex;
+       
+        margin-top: -43px;
+        margin-left: 0px; 
+        font-weight: bold;
+}
 
    
 .passenger{
