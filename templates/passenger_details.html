@@ -43,7 +43,7 @@
             <p style='color:red'>{{seat_error}} </p>
             <div style='color:red'>{% if error %} {{error}}{% endif %}</div>
             
-            <form method="post" action="{% url 'create-passenger' route.id%}">
+            <form method="post" action="{% url 'create-passenger' route.id %}">
                 {% csrf_token %}
 
                 <!-- Input for Name -->

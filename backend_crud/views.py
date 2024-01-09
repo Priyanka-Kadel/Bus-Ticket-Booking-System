@@ -208,3 +208,5 @@ def ticket_view (request, passenger_id):
     schedule = passenger_details_instance.schedule
     payment_details = passenger_details_instance.paymentdetails_set.first()
     return render(request,'ticket.html', context={'passenger_details': passenger_details_instance, 'passenger_seat':passenger_seat, 'schedule':schedule, 'payment_detail':payment_details})
+
+
