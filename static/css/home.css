@@ -361,7 +361,7 @@ img {
 
 /* ===== CONTACT =====*/
 .contact__input {
-    width: 100%;
+    width: 90%;
     font-size: var(--normal-font-size);
     font-weight: var(--font-semi);
     padding: 1rem;
