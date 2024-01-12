@@ -44,7 +44,13 @@
             100% { opaicty:1; }
         }
         
-        
+        .img-card.iCard-style1:hover {
+            -webkit-box-shadow: 0px 15px 15px 10px rgba(19, 19, 19, 0.3);
+    -moz-box-shadow: 0px 15px 15px 10px rgba(19, 19, 19, 0.3);
+    -o-box-shadow: 0px 15px 15px 10px rgba(19, 19, 19, 0.3);
+    box-shadow: 0px 15px 15px 10px rgba(19, 19, 19, 0.3);
+}
+
 
         
             /* Image Card */
@@ -143,7 +149,7 @@
                     background: #FF9800;
                 }
                 .card_title {
-                    color: #423299;
+                    color: hsl(var(--hue-color), 89%, 60%);
                     font-size: 1.1rem;
                     font-weight: 700;
                     letter-spacing: 1px;
@@ -153,6 +159,7 @@
                 .meta__info{
                     color: #666963;       
                 }
+                
                 .meta__info span{
                     font-size:14px;
                     font-weight:bold;
