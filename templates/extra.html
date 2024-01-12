@@ -1,0 +1,312 @@
+<section class="work section" id="work">
+    <h2 class="section-title">Interior</h2>
+
+    <div class="work__container bd-grid">
+        <a href="" class="work__img">
+            <img src='/static/images/122.jpg' alt="">
+        </a>
+        <a href="" class="work__img">
+            <img src='/static/images/09.jpg' alt="">
+        </a>
+        <a href="" class="work__img">
+            <img src='/static/images/3.jpg' alt="">
+        </a>
+        <a href="" class="work__img">
+            <img src='/static/images/4.jpeg' alt="">
+        </a>
+        <a href="" class="work__img">
+            <img src='/static/images/1212.jpg' alt="">
+        </a>
+        <a href="" class="work__img">
+            <img src='/static/images/1111.jpg' alt="">
+        </a>
+    </div>
+</section>
+
+
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Document title -->
+        <title>Ticket Booking</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+        <!-- Link to external stylesheet -->
+        <link rel="stylesheet" href="{% static 'css/booking.css' %}">
+    </head>
+    <body>
+          <!--===== HEADER =====-->
+    <header class="l-header">
+        <nav class="nav bd-grid">
+            <div>
+                <span class="nav__logo-first">Suva</span><span class="nav__logo-yatra">Yatra</span>
+            </div>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link active">Booking</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="#skills" class="nav__link">How to book tickets?</a></li>
+                    <li class="nav__item"><a href="#work" class="nav__link">Interior</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+
+                    <li class="nav__item nav__social-icon"><a href="#"><i class="fab fa-facebook"></i></a></li>
+                    <li class="nav__item nav__social-icon"><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li class="nav__item nav__social-icon"><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li class="nav__item nav__social-icon"><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </nav>
+    </header>
+    <main class="l-main">
+        <!--===== HOME =====-->
+        <section class="home bd-grid" id="home">
+           
+
+            <div class="grey-panel">
+                <!-- Selection container -->
+                <div class="select-container">
+                    <form action="{% url 'route' %}" method='POST'>
+                        {% csrf_token %}
+    
+                        <!-- Select box for 'From' --> 
+                        <select class="custom-select" style="width: 200px; height: 47px; margin-left: 20px;  margin-top: 10px;" required
+                            name="from_location">
+                            <option value="" disabled selected hidden>From</option>
+                            {% for route in locations %}
+                            <option value="{{route}}">{{route}}</option>
+                            {% endfor %}
+                        </select>
+    
+                        <!-- Select box for 'To' -->
+                        <select class="custom-select" style="width: 200px; height: 47px; margin-left: 100px;" required
+                            name="to_location" >
+                            <option value="" disabled selected hidden>To</option>
+                            {% for route in locations %}
+                            <option value="{{route}}">{{route}}</option>
+                            {% endfor %}
+                        </select>
+    
+                        <!-- Date input -->
+                        <input type="date" id="departure_time" name="departure_time" class="custom-date" style="width: 200px; height: 47px; margin-left: 100px;" required>
+                        <button class="search-button" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+    <!-- Black panel below grey panel -->
+            <div class="black-panel1" id="search-results-panel">
+                {% if routes %}
+                    {% for route in routes %}
+                        <a href="{% url 'seats' route.id %}" class="route-info" title="Click to view details">
+                            <p class="panel-text p1"><strong>Route Name:</strong> {{ route.route.route_name }}</p>
+                            <p class="panel-text p3"><strong>Bus Number:</strong> {{ route.bus.bus_number }}</p>
+                            <p class="panel-text p2"><strong>Location:</strong> {{ route.route.from_location }}-{{ route.route.to_location }}</p>
+                            <p class="panel-text p4"><strong>Time:</strong> {{ route.departure_time }}</p>
+                            <p class="panel-text p5"><strong>Total Seats:</strong> {{ route.bus.total_seat }}</p>
+                            <p class="panel-text p6"><strong>Available Seats:</strong> {{ route.available_seats }}</p>
+                            <p class="panel-text p7"><strong>Fare:</strong> {{ route.route.price }}</p>
+                        </a>
+                    {% endfor %}
+                {% else %}
+                    <p>No routes found.</p>
+                {% endif %}
+            </div>
+            
+        </div>
+            
+        </section>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var searchResultsPanel = document.getElementById('search-results-panel');
+                {% if routes %}
+                    searchResultsPanel.style.display = 'block';
+                {% endif %}
+            });
+        </script>
+
+        <!--===== ABOUT =====-->
+        <section class="about section " id="about">
+            <h2 class="section-title">About</h2>
+
+            <div class="about__container bd-grid">
+                <div class="about__img">
+                    <img src='/static/images/bg.jpg' alt="">
+                </div>
+                    
+                <div>
+                    <h2 class="about__subtitle">SuvaYatra Travels</h2>
+                    <p class="about__text">
+                        Suvayatra redefines your journey with a commitment to the ultimate booking experience. We prioritize seamless, convenient, and personalized travel ticket processes. Dedicated to modernization, we ensure every step is a breeze for a hassle-free booking experience.
+                        
+                    </p>    
+                    <p class="about__text">Suvayatra's mission is clear: to offer you the best booking experience. Through cutting-edge technology, we streamline the process, ensuring efficiency in planning your travels. Whether it's a business trip, family vacation, or spontaneous adventure, Suvayatra is dedicated to enhancing every aspect of your journey.
+                    </p>
+                    <p class="about__text">Welcome aboard the future of ticket booking with Suvayatra. Our platform goes beyond securing travel arrangements; it's a promise to make your experience exceptional, memorable, and hassle-free. Join us in shaping the future of travel booking, where every adventure begins with a simple click.
+                    </p>       
+                </div>                                   
+            </div>
+        </section>
+
+        <!--===== SKILLS =====-->
+        <section class="skills section" id="skills">
+            <h2 class="section-title">How to book tickets?</h2>
+
+            <div class="skills__container bd-grid">          
+                <div>
+                    <h2 class="skills__subtitle">video</h2>
+                    <p class="skills__text">here will be video</p>
+
+                    
+                </div>
+        </section>
+
+        <!--===== WORK =====-->
+        <section class="work section" id="work">
+            <h2 class="section-title">Interior</h2>
+
+            <div class="work__container bd-grid">
+                <a href="" class="work__img">
+                    <img src='/static/images/122.jpg' alt="">
+                </a>
+                <a href="" class="work__img">
+                    <img src='/static/images/09.jpg' alt="">
+                </a>
+                <a href="" class="work__img">
+                    <img src='/static/images/3.jpg' alt="">
+                </a>
+                <a href="" class="work__img">
+                    <img src='/static/images/4.jpeg' alt="">
+                </a>
+                <a href="" class="work__img">
+                    <img src='/static/images/1212.jpg' alt="">
+                </a>
+                <a href="" class="work__img">
+                    <img src='/static/images/1111.jpg' alt="">
+                </a>
+            </div>
+        </section>
+
+        <!--===== CONTACT =====-->
+        <section class="contact section" id="contact">
+            <h2 class="section-title">Contact</h2>
+
+            <div class="contact__container bd-grid">
+                <form action="" class="contact__form">
+                    <input type="text" placeholder="Name" class="contact__input" id="name">
+                    <input type="mail" placeholder="Email" class="contact__input" id="email">
+                    <input type="subject" placeholder="subject" class="contact__input" id="subject">
+                    <textarea  id="message" placeholder="Enter your enquery" cols="0" rows="10" class="contact__input"></textarea>
+                    <input type="button" onclick="sendMail()" value="Send" class="contact__button button">
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!--===== FOOTER =====-->
+    <footer class="footer">
+        <p class="footer__title">SuvaYatra</p>
+        <p class="footer__copy">&#169; SuvaYatra Travels. All rights reserved</p>
+        <div class="footer-content">
+            <h3>Contact Us</h3>
+            <p>Email: suvayatra@gmail.com</p>
+            <p>Phone: 9829179443/9702285911</p>
+            <p>Address: Dillibazar,Kathmandu</p>
+        </div>
+        <div class="footer-content2">
+            <h3>Follow Us</h3>
+            <ul class="social-icons">
+             <li><a href=""><i class="fab fa-facebook"></i></a></li>
+             <li><a href=""><i class="fab fa-twitter"></i></a></li>
+             <li><a href=""><i class="fab fa-instagram"></i></a></li>
+             <li><a href=""><i class="fab fa-linkedin"></i></a></li>
+            </ul>
+            </div>
+    </div>
+    </footer>
+<script>
+    /*===== MENU SHOW =====*/ 
+const showMenu = (toggleId, navId) =>{
+    const toggle = document.getElementById(toggleId),
+    nav = document.getElementById(navId)
+
+    if(toggle && nav){
+        toggle.addEventListener('click', ()=>{
+            nav.classList.toggle('show')
+        })
+    }
+}
+showMenu('nav-toggle','nav-menu')
+
+/*==================== REMOVE MENU MOBILE ====================*/
+const navLink = document.querySelectorAll('.nav__link')
+
+function linkAction(){
+    const navMenu = document.getElementById('nav-menu')
+    // When we click on each nav__link, we remove the show-menu class
+    navMenu.classList.remove('show')
+}
+navLink.forEach(n => n.addEventListener('click', linkAction))
+
+/*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
+const sections = document.querySelectorAll('section[id]')
+</script>
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("vhLUKJrl1V_R3NBGY");
+   })();
+</script>
+<script>
+   function sendMail() {
+    // Get form values
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let subject = document.getElementById("subject").value;
+    let message = document.getElementById("message").value;
+
+    // Validate form fields
+    if (!name || !email || !subject || !message) {
+        alert("All fields are required. Please fill out all fields.");
+        return;
+    }
+
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert("Invalid email address. Please enter a valid email.");
+        return;
+    }
+
+    // Prepare parameters for EmailJS
+    let parms = {
+        name: name,
+        email: email,
+        subject: subject,
+        message: message,
+    };
+
+    // Send email using EmailJS
+    emailjs.send("service_5wr48mf", "template_ghrb405", parms)
+        .then(() => {
+            alert("Email sent successfully!");
+        })
+        .catch((error) => {
+            console.error("Error sending email:", error);
+            alert("Error sending email. Please try again later.");
+        });
+}
+
+</script>
+
+
+
+</body>
+</html>
