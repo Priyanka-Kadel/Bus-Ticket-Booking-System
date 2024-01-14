@@ -1,3 +1,5 @@
+
+
 * {
   margin: 0;
   padding: 0;
@@ -9,20 +11,19 @@ body {
 }
 
 .main {
-  background-image: url('/static/images/seat.jpg');
+  /* background-image: url('/static/images/seatBus.png'); */
   background-color: #ffffff;
   top: 0;
   left: 0;
   background-repeat: no-repeat;
   z-index: -1;
-  filter: blur(5px);
-
-  height: 150vh;
+  height: 200vh;
   width: 100%;
   background-position: absolute;
   background-size: cover;
   position: relative;
   margin: 0;
+
 }
 
 .logo-container {
@@ -61,7 +62,7 @@ body {
 }
 
 .navbar ul li a:hover {
-  color: #04AA6D;
+  color: #79c6f5;
 }
 
 .navbar ul li a {
@@ -74,7 +75,7 @@ body {
   content: '';
   height: 3px;
   width: 0;
-  background: #14b97c;
+  background: #79c6f5;
   position: absolute;
   left: 0;
   bottom: -10px;
@@ -88,12 +89,14 @@ body {
 .black-panel1 {
   position: absolute;
   top: 188px;
-  left: 354px;
+  left: 35px;
   width: 50%;
   height: 14%;
-  background-color: white;
+  background-color: rgb(252, 249, 249);
   border-radius: 16px;
-  border: 2px solid black;
+  border: 2px black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+  /* background-image: url('/static/images/seat.png'); */
 }
 
 .black-panel1 .panel-text {
@@ -144,36 +147,41 @@ body {
   top: -135px;
   font-size: 14.5px;
   color: #3e6ff4;
+
 }
 
 .black-panel2 {
   position: absolute;
   top: 300px;
-  left: 355px;
+  left: 35px;
   width: 50%;
-  height: 168%;
-  background-color:white;
+  height: 155%;
+  background-color:rgb(252, 249, 249);
   border-radius: 16px;
-  border: 2px solid black;
+  border: 2px black;
   margin-top: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+  /* background-image: url('/static/images/seat.png'); */
 }
 
 .book-seats-text {
-  color: #ffffff;
+  color: #000000;
   font-size: 20px;
-  margin: 10px;
+  margin: 20px;
   text-align: center;
 }
 
 .front-text {
   color: white;
+  position: absolute;
+  top: 150px;
   font-size: 16px;
   text-align: center;
   margin-top: 40px;
   margin-bottom: 40px;
   background-color: black;
   padding: 10px;
-  margin-left: 330px;
+  margin-left: 320px;
   width: 70px;
   border: 2px solid black;
   border-radius: 10px;
@@ -213,12 +221,14 @@ body {
 }
 .back-text {
   color: white;
+  position: absolute;
+  bottom: 320px;
   font-size: 16px;
   text-align: center;
   margin-top: 90px;
   background-color: black;
   padding: 10px;
-  margin-left: 330px;
+  margin-left: 320px;
   width: 70px;
   border: 2px solid black;
   border-radius: 10px;
@@ -241,7 +251,7 @@ body {
   color: #3e6ff4;
   font-size: 18px;
   text-align: center;
-  margin-top: 40px;
+  margin-top: 280px;
   padding: 10px;
   margin-left: 620px;
   width: 70px;
@@ -260,9 +270,10 @@ body {
   border: #ffffff;
   border-radius: 16px;
   position: absolute;
-  bottom: 100px;
-  right: 300px;
-  border: 2px solid black;
+  bottom: 60px;
+  right: 290px;
+  border: 2px black;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5); 
 }
 
 .container {
@@ -283,7 +294,7 @@ body {
   border-top-right-radius: 10px;
 }
 .seat2 {
-    background-color: grey;
+    background-color: rgb(2, 157, 2);
     border: solid black;
     border-width: 2px;
     height: 26px;
@@ -294,19 +305,19 @@ body {
     border-top-right-radius: 10px;
   }
 .seat2.selected {
-  background-color: green;
+  background-color: #a17107;
   border: solid #000000;
   border-width: 2px;
 }
 
 .seat2.reserved{
-  background-color: rgb(248, 178, 47);
+  background-color: rgb(217, 213, 1);
   border: solid black;
   border-width: 2px;
 }
 
 .seat2.sold {
-  background-color: red;
+  background-color: rgb(219, 0, 0);
   border: solid black;
   border-width: 2px;
 }
@@ -342,16 +353,17 @@ body {
 }
 
 .showcase {
-  background: white;
+  background:rgb(252, 249, 249);
   padding: -5px 5px;
   color: black;
   list-style-type: none;
   display: flex;
   justify-content: space-between;
   position: relative;
-  top: 30px;
-  margin-bottom: 20px;
-}
+  top: 40px;
+  margin-bottom: 40px;
+}  
+
 
 .showcase li {
   display: flex;
@@ -408,22 +420,33 @@ body {
 }
 
 .column-bus-seat .available {
-  background-color:grey;
+  background-color: rgb(2, 157, 2);
 }
 
 .column-bus-seat .selected {
-  background-color: green;
+  background-color: #a17107;
 }
 
 .column-bus-seat .sold {
-  background-color: red;
+  background-color: rgb(219, 0, 0);
 }
 
 .column-bus-seat .not-available {
-  background-color:rgb(248, 178, 47);
+  background-color: rgb(217, 213, 1);
 }
 
 .column-bus-seat h2 {
-  margin-bottom: 10px;
+  margin-bottom: 25px;
+  margin-top: 160px;
   color:black
+}
+
+.seatBus__image img {
+  width: 700px;
+  height: 500px;
+  margin-left: 550px;
+  margin-top: -440px;
+  position: absolute;
+  left: 230px;
+  bottom: 0px;
 }
