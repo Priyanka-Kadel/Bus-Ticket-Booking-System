@@ -8,6 +8,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 import requests
+from backend_crud.send_mail import send_html_mail
 
 
 
@@ -197,7 +198,7 @@ def verify_payment(request, p_id ):
     for seat in passenger_seats:
         seat.seat_number.booked = True
         seat.seat_number.save()
-
+    send_html_mail([passenger_details_instance.email], passenger_details_instance.id, passenger_details_instance.name)
     return JsonResponse(f"Payment Done !! With IDX. {response_data['user']['idx']}",safe=False)
 
 
