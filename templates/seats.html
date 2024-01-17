@@ -5,31 +5,38 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Document title -->
         <title>Bus Ticket Booking</title>
-        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
         <!-- Link to external stylesheet -->
         <link rel="stylesheet" href="{% static 'css/seats.css' %}"> 
 
     </head>
     <body>
-        <!-- Main container -->
-        <div class="main"></div>
-        <div class="logo-container">
-            <!-- Logo image -->
-            <img src='/static/images/logo.png' alt="Logo" class="logo">
-        </div>
-        <div class="navbar">
-            <!-- Navigation links -->
-            <ul>
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'home' %}">About</a></li>
-                <li><a href="{% url 'home' %}">How to book ticket?</a></li>
-                <li><a href="{% url 'home' %}">Services</a></li>
-            </ul>
-        </div>
+      <header class="l-header">
+        <nav class="nav bd-grid">
+            <div>
+                <span class="nav__logo-first">Suva</span><span class="nav__logo-yatra">Yatra</span>
+            </div>
 
-        <div class="seatBus__image">
-          <img src="/static/images/seatBus.png" alt="seatBus__image">
-      </div>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link active">Seats</a></li>
+                    <li class="nav__item"><a href="/home.html/#about" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="/home.html/#skills" class="nav__link">How to book tickets?</a></li>
+                    <li class="nav__item"><a href="/home.html/#work" class="nav__link">Interior</a></li>
+                    <li class="nav__item"><a href="/home.html/#contact" class="nav__link">Contact</a></li>
+
+                    <li class="nav__item nav__social-icon"><a href="https://www.facebook.com/profile.php?id=61555407062591"><i class="fab fa-facebook"></i></a></li>
+                    <li class="nav__item nav__social-icon"><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li class="nav__item nav__social-icon"><a href="https://www.instagram.com/suva.yatra/"><i class="fab fa-instagram"></i></a></li>
+                    <li class="nav__item nav__social-icon"><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </nav>
+    </header>
         
         <div class="black-panel1">
           <span id='scheduled' hidden> {{ schedule.id }}</span>
@@ -38,7 +45,7 @@
           <p class="panel-text p1">SuvaYatra Travels</p>
           <p class="panel-text p2">{{schedule.route.from_location }}-{{schedule.route.to_location }}</p>
           <p class="panel-text p3">Bus Number : {{ schedule.bus.bus_number }}</p>
-          <p class="panel-text p4">Date / Time : {{ schedule.departure_time }}</p>
+          <p class="panel-text p4">D/T : {{ schedule.departure_time }}</p>
           <p class="panel-text p5">Total Seats : {{ schedule.bus.total_seat }}</p>
           <p class="panel-text p6">Ava. Seats : {{ schedule.available_seats }}</p>
           <p class="panel-text p7">Fare: Rs <span id='seat-price'>{{ schedule.route.price }}</span></p>
@@ -67,27 +74,31 @@
               </ul>
 
               <div class="bus-container">
-                <div class="column-bus-seat" id="columnA">
-                    <h2> A</h2>
-                    <div class="row">
-                        {% for seat in side_a %}
-                        <div class="seat{% if seat.available %} available {% else %}{% if seat.booked %} sold{% else %} not-available{% endif %}{% endif %}" data-seat="{{ seat.id }}">
-                          {{ seat.seat_number }}
-                            </div>
-                        {% endfor %}
-                    </div>
-                </div>
-                <div class="column-bus-seat" id="columnB">
-                    <h2> B</h2>
-                    <div class="row">
-                        {% for seat in side_b %}
-                            <div class="seat{% if seat.available %} available {% else %}{% if seat.booked %} sold{% else %} not-available{% endif %}{% endif %}" data-seat="{{ seat.id }}">
-                                {{ seat.seat_number }}
-                            </div>
-                        {% endfor %}
-                    </div>
-                </div>
+                <!-- Inside the bus-container div -->
+<div class="column-bus-seat" id="columnA">
+  <h2> A</h2>
+  <div class="row">
+      {% for seat in side_a %}
+          <div class="seat{% if seat.available %} available {% else %}{% if seat.booked %} sold{% else %} not-available{% endif %}{% endif %}" data-seat="{{ seat.id }}">
+              <img src="/static/images/seaticon.png" alt="Seat Icon">
+          </div>
+      {% endfor %}
+  </div>
+</div>
+<div class="column-bus-seat" id="columnB">
+  <h2> B</h2>
+  <div class="row">
+      {% for seat in side_b %}
+          <div class="seat{% if seat.available %} available {% else %}{% if seat.booked %} sold{% else %} not-available{% endif %}{% endif %}" data-seat="{{ seat.id }}">
+              <img src="/static/images/seaticon.png" alt="Seat Icon">
+          </div>
+      {% endfor %}
+  </div>
+</div>
+
             </div>
+        
+   
 
             
               </p>
@@ -96,6 +107,8 @@
               <p id="selectedSeat" class="seat-text">Seat: </p>
               <button type="submit" class="next-button" id='save-selected-seat'><span></span>Next</button>
             <!-- Add this script for seat selection -->
+          </div>
+
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
             <script>
               document.addEventListener('DOMContentLoaded', function () {
@@ -189,8 +202,6 @@
                })
               });
             </script>
-            
-            
 
     </body>
 </html>
