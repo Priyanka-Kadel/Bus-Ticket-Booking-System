@@ -24,7 +24,7 @@
                     <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
                     <li class="nav__item"><a href="#skills" class="nav__link">How to book tickets?</a></li>
                     <li class="nav__item"><a href="#work" class="nav__link">Interior</a></li>
-                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Feedback</a></li>
 
                     <li class="nav__item nav__social-icon"><a href="https://www.facebook.com/profile.php?id=61555407062591"><i class="fab fa-facebook"></i></a></li>
                     <li class="nav__item nav__social-icon"><a href="#"><i class="fab fa-twitter"></i></a></li>
@@ -124,14 +124,14 @@
 
         <!--===== CONTACT =====-->
         <section class="contact section" id="contact">
-            <h2 class="section-title">Contact</h2>
+            <h2 class="section-title">Feedback</h2>
 
             <div class="contact__container bd-grid">
                 <form action="" class="contact__form">
                     <input type="text" placeholder="Name" class="contact__input" id="name">
                     <input type="mail" placeholder="Email" class="contact__input" id="email">
-                    <input type="subject" placeholder="subject" class="contact__input" id="subject">
-                    <textarea  id="message" placeholder="Enter your enquery" cols="0" rows="10" class="contact__input"></textarea>
+                    
+                    <textarea  id="message" placeholder="Enter your feedback.." cols="0" rows="10" class="contact__input"></textarea>
                     <input type="button" onclick="sendMail()" value="Send" class="contact__button button">
                 </form>
             </div>
@@ -196,11 +196,10 @@ navLink.forEach(n => n.addEventListener('click', linkAction))
     // Get form values
     let name = document.getElementById("name").value;
     let email = document.getElementById("email").value;
-    let subject = document.getElementById("subject").value;
     let message = document.getElementById("message").value;
 
     // Validate form fields
-    if (!name || !email || !subject || !message) {
+    if (!name || !email || !message) {
         alert("All fields are required. Please fill out all fields.");
         return;
     }
@@ -212,24 +211,24 @@ navLink.forEach(n => n.addEventListener('click', linkAction))
         return;
     }
 
-    // Prepare parameters for EmailJS
+    // Prepare parameters for EmailJS (omit subject)
     let parms = {
         name: name,
         email: email,
-        subject: subject,
         message: message,
     };
 
     // Send email using EmailJS
     emailjs.send("service_5wr48mf", "template_ghrb405", parms)
         .then(() => {
-            alert("Email sent successfully!");
+            alert("Thank you for your feedback!");
         })
         .catch((error) => {
             console.error("Error sending email:", error);
             alert("Error sending email. Please try again later.");
         });
 }
+
 
 </script>
 
