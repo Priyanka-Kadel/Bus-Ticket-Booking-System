@@ -695,6 +695,14 @@ a:hover{
     background-color: var(--second-color);
 
 }
+.logo{
+    font-size: 28px;
+    background: linear-gradient(90deg,red,blue);
+    color: transparent;
+    background-clip: text;
+    margin-right: 90px;
+    text-shadow:  0 1px 7px rgba(146, 161, 176, 0.3);;
+}
 /* Black panel styles */
 .black-panel1 {
     position: absolute;
