@@ -1,158 +1,202 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en">
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Document title -->
+        <title>Passenger Details</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Passenger Details</title>
-    <link rel="stylesheet" href="{% static 'css/payment.css' %}">
-    
-</head>
+        <!-- Link to external stylesheet -->
+        <link rel="stylesheet" href="{% static 'css/home.css' %}">
+        <link rel="stylesheet" href="{% static 'css/payment.css' %}">
 
-<body>
-    <div class="scroll-container">
-        <!-- Main container -->
-        <div class="main">
-            <!-- Logo container -->
-            <div class="logo-container">
-                <!-- Logo image -->
-                <img src='/static/images/logo.png' alt="Logo" class="logo">
+
+    </head>
+    <body>
+          <!--===== HEADER =====-->
+    <header class="l-header">
+        <nav class="nav bd-grid">
+            <div>
+                <span class="nav__logo-first">Suva</span><span class="nav__logo-yatra">Yatra</span>
             </div>
 
-            <!-- Navigation bar -->
-            <div class="navbar">
-                <!-- Navigation links -->
-                <ul>
-                    <li><a href="{% url 'home' %}">Home</a></li>
-                    <li><a href="{% url 'home' %}">About</a></li>
-                    <li><a href="{% url 'home' %}">How to book ticket?</a></li>
-                    <li><a href="{% url 'home' %}">Services</a></li>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="#skills" class="nav__link">How to book tickets?</a></li>
+                    <li class="nav__item"><a href="#work" class="nav__link">Interior</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+
+                    <li class="nav__item nav__social-icon"><a href="https://www.facebook.com/profile.php?id=61555407062591"><i class="fab fa-facebook"></i></a></li>
+                    <li class="nav__item nav__social-icon"><a href="https://www.instagram.com/suva.yatra/"><i class="fab fa-instagram"></i></a></li>
+                    
+
                 </ul>
             </div>
 
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </nav>
+    </header>
+    <main class="l-main">
         
-            <div class="passenger-details">
-                <h2>Passenger Details</h2>
-                <span id="passenger-id" hidden>{{passenger_details.id}} </span>
-                <div class="details-section">
-                    <p>Name: {{ passenger_details.name }}</p>
-                    <p>Contact No: {{ passenger_details.contact }}</p>
-                </div>
-                <div class="details-section">
-                    <p>Seat No (Departure): 
-                        {% for seat in seat_numbers %}
-                            {{ seat.seat_number }}{% if not forloop.last %}, {% endif %}
-                        {% endfor %}
-                    </p>
-                    <p>Departure Date: {{ passenger_details.schedule.departure_time.date }}</p>                  
-                </div>
-                <div class="details-section">
-                    <p>Date/Time: {{ passenger_details.schedule.departure_time.time }}</p>              
-                    <p>Pickup Point: {{ passenger_details.schedule.route.from_location }} ({{ passenger_details.schedule.departure_time.time }})</p>
-                </div>
-                <div class="details-section">
-                    <p>Dropping Point: {{passenger_details.schedule.route.to_location }}</p>
-                </div>
 
-                <div class="details-section1">
-                    <!-- Add the total price per seat with green color -->
-                    <p>Total Price per Seat: {{passenger_details.schedule.route.price }}</p>
-                </div>
+        <section class="about section " id="home">
+            <h2 class="section-title">Passenger Details</h2>
+
+            <div class="bd-grid">
+                <div >
+                    <div class="ticket test">
+                        
+                        <div class="passenger-info">
+                            <span id="passenger-id" hidden>{{passenger_details.id}} </span>
+
+                            <div>
+                                <div class="info-label">Passenger Name</div>
+                                <div class="info-value"> {{ passenger_details.name }}</div>
                 
-                <div class="divider"></div>
-                <div class="details-section">
-                    <p>Total Fare: <span id="total_price">{{total_price }}</span></p>
-                </div>
+                                <div class="info-label">Contact Number</div>
+                                <div class="info-value">{{ passenger_details.contact }}</div>
 
-                <div>        
-                    {% if payment%}
-                        <form action="{% url 'ticket' passenger_details.id %}" method="GET">
-                            <button class="ticket" type="ticket">View Ticket</button>
+                                <div class="info-label">Seat Number</div>
+                                <div class="info-value">
+                                    {% for seat in seat_numbers %}
+                                        {{ seat.seat_number }}{% if not forloop.last %}, {% endif %}
+                                    {% endfor %}
+                                </div>
+
+                                <div class="info-label">Total Fare</div>
+                                <div class="info-value"><span id="total_price">{{total_price }}</span>
+                                </div>
+
+                            </div>
+                
+                            <div>
+                                <div class="info-label">Departure Date</div>
+                                <div class="info-value"> {{ passenger_details.schedule.departure_time.date }}</div>
+
+                                <div class="info-label">Pickup Point</div>
+                                <div class="info-value"> {{ passenger_details.schedule.route.from_location }} ({{ passenger_details.schedule.departure_time.time }})</div>
+
+                                <div class="info-label">Total Price Per Seat</div>
+                                <div class="info-value"> {{passenger_details.schedule.route.price }}</div>
+
+                            </div>
+                            <div>
+                                <div class="info-label">Departure Time</div>
+                                <div class="info-value">{{ passenger_details.schedule.departure_time.time }}</div>
+                
+                                <div class="info-label">Dropping Point</div>
+                                <div class="info-value">{{ passenger_details.schedule.route.to_location }} </div>
+                            </div>
+                        </div>
+                            <div class="barcodes">                       
+                                <p>**** Note if you get a pending message from Bank/Khalti or if your transaction is completed but if you don't get a ticket, then please contact our operator.</p>
+                                <p>**** Please ensure that you will be redirected to our website after the payment is done.</p>
+                                <p>**** Please note your ticket will be confirmed once payment is received at our end. If you are having a problem with payment, please contact our operator.</p>
+                    
+                            </div>
+
+                    </div>
+                    {% if not payment%}
+
+                    <div class="khaltilogo" style="margin-top: 10px">
+                        <img class="khalti" id="payment-button" src='/static/images/khalti.jpg' alt="Pay with Khalti">
+                    </div>
+                    {% else %}
+                        <form action="{% url 'ticket' passenger_details.id %}" method="GET" style="margin-top:10px;">
+                            <button class="button" type="ticket">View Ticket</button>
                         </form>
-                    {%endif%}
-                </div>
-                
-                <div class="note-section">
-                    <p>**** Note if you get a pending message from Bank/Khalti or if your transaction is completed but if you don't get a ticket, then please contact our operator.</p>
-                    <p>**** Please ensure that you will be redirected to our website after the payment is done.</p>
-                    <p>**** Please note your ticket will be confirmed once payment is received at our end. If you are having a problem with payment, please contact our operator.</p>
-                </div>
-                
+                    {% endif %}
+                </div>                            
+            </div>
+        </section>
+    </main>
 
-            {% if not payment%}
-
-                <div class="khaltilogo">
-                    <img class="khalti" id="payment-button" src='/static/images/khalti.jpg' alt="Pay with Khalti">
-                </div>
-            {% endif %}
-
-                    <script src="https://khalti.s3.ap-south-1.amazonaws.com/KPG/dist/2020.12.17.0.0.0/khalti-checkout.iffe.js"></script>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-                    <script>
-                    const passenger_id= parseInt(document.getElementById("passenger-id").innerText)
-
-                        function verifyPayment(payload){
-                            $.ajax({
-                                url: `/backend/api/verify_payment/${passenger_id}/`,
-                                type: "POST",
-                                data: payload,
-                                dataType: 'json',
-                                sucess: function (response) {
-                                    {% comment %} alert('Payment successful! Thank you for booking. Please print your Tickets.'); {% endcomment %}
-                                    {% comment %} locations.href=`/backend/passenger_details/${passenger_id}/` {% endcomment %}
-                                },
-                                error: function (error) {alert(error.responseJSON['message'])}
-                            });
-                        }
-
-
-                        var config = {
-                            // replace the publicKey with yours
-                            "publicKey": "test_public_key_11bc2e57406d437ca08a84a1bc30ddd2",
-                            "productIdentity": "1234567890",
-                            "productName": "Dragon",
-                            "productUrl": "http://gameofthrones.wikia.com/wiki/Dragons",
-                            "paymentPreference": [
-                                "KHALTI",
-                                "EBANKING",
-                                "MOBILE_BANKING",
-                                "CONNECT_IPS",
-                                "SCT",
-                                ],
-                            "eventHandler": {
-                                onSuccess (payload) {
-                                    // hit merchant api for initiating verfication
-                                    {% comment %} alert('Payment successful! Thank you for your purchase.'); {% endcomment %}
-
-                                    console.log(payload);
-                                    verifyPayment(payload)
-                                    location.href=`/backend/ticket/${passenger_id}/`
-                                },
-                                onError (error) {
-                                    console.log(error);
-                                },
-                                onClose () {
-                                    console.log('widget is closing');
-                                }
-                            }
-                        };
-                
-                        var checkout = new KhaltiCheckout(config);
-                        var btn = document.getElementById("payment-button");
-                        btn.onclick = function () {
-                            
-                            console.log(document.getElementById("total_price").innerText, "Hello")
-                            // minimum transaction amount must be 10, i.e 1000 in paisa.
-                            const amountInPaisa = parseInt(document.getElementById("total_price").innerText);
-                            checkout.show({ amount: amountInPaisa });                            
-                        }
-                    </script>
-            
+    <!--===== FOOTER =====-->
+    <footer class="footer">
+        <p class="footer__title">SuvaYatra</p>
+        <p class="footer__copy">&#169; SuvaYatra Travels. All rights reserved</p>
+        <div class="footer-content">
+            <h3>Contact Us</h3>
+            <p>Email: suvayatra@gmail.com</p>
+            <p>Phone: 9829179443/9702285911</p>
+            <p>Address: Dillibazar,Kathmandu</p>
         </div>
+        <div class="footer-content2">
+            <h3>Follow Us</h3>
+            <ul class="social-icons">
+             <li><a href="https://www.facebook.com/profile.php?id=61555407062591"><i class="fab fa-facebook"></i></a></li>
+             <li><a href="https://www.instagram.com/suva.yatra/"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+            </div>
     </div>
-    
-</body>
+    </footer>
 
+<script src="https://khalti.s3.ap-south-1.amazonaws.com/KPG/dist/2020.12.17.0.0.0/khalti-checkout.iffe.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+const passenger_id= parseInt(document.getElementById("passenger-id").innerText)
+
+    function verifyPayment(payload){
+        $.ajax({
+            url: `/backend/api/verify_payment/${passenger_id}/`,
+            type: "POST",
+            data: payload,
+            dataType: 'json',
+            sucess: function (response) {
+                {% comment %} alert('Payment successful! Thank you for booking. Please print your Tickets.'); {% endcomment %}
+                {% comment %} locations.href=`/backend/passenger_details/${passenger_id}/` {% endcomment %}
+            },
+            error: function (error) {alert(error.responseJSON['message'])}
+        });
+    }
+
+
+    var config = {
+        // replace the publicKey with yours
+        "publicKey": "test_public_key_11bc2e57406d437ca08a84a1bc30ddd2",
+        "productIdentity": "1234567890",
+        "productName": "Dragon",
+        "productUrl": "http://gameofthrones.wikia.com/wiki/Dragons",
+        "paymentPreference": [
+            "KHALTI",
+            "EBANKING",
+            "MOBILE_BANKING",
+            "CONNECT_IPS",
+            "SCT",
+            ],
+        "eventHandler": {
+            onSuccess (payload) {
+                // hit merchant api for initiating verfication
+                {% comment %} alert('Payment successful! Thank you for your purchase.'); {% endcomment %}
+
+                console.log(payload);
+                verifyPayment(payload)
+                location.href=`/backend/ticket/${passenger_id}/`
+            },
+            onError (error) {
+                console.log(error);
+            },
+            onClose () {
+                console.log('widget is closing');
+            }
+        }
+    };
+
+    var checkout = new KhaltiCheckout(config);
+    var btn = document.getElementById("payment-button");
+    btn.onclick = function () {
+
+        console.log(document.getElementById("total_price").innerText, "Hello")
+        // minimum transaction amount must be 10, i.e 1000 in paisa.
+        const amountInPaisa = parseInt(document.getElementById("total_price").innerText);
+        checkout.show({ amount: amountInPaisa });
+    }
+</script>
+</body>
 </html>
