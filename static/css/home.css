@@ -599,3 +599,11 @@ a:hover{
 .nav__social-icon i:hover{
    color: var(--first-color);
 }
+.logo{
+    font-size: 28px;
+    background: linear-gradient(90deg,red,blue);
+    color: transparent;
+    background-clip: text;
+    margin-right: 90px;
+    text-shadow:  0 1px 7px rgba(146, 161, 176, 0.3);;
+}
