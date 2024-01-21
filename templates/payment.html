@@ -11,6 +11,24 @@
         <link rel="stylesheet" href="{% static 'css/home.css' %}">
         <link rel="stylesheet" href="{% static 'css/payment.css' %}">
 
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+          .zoom-in-hover {
+            position: relative;
+
+          }
+          .zoom-in-hover button {
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease;
+          }
+          .zoom-in-hover button:hover {
+            transform: scale(1.1);
+
+          }
+        </style>
+
 
     </head>
     <body>
@@ -23,7 +41,7 @@
 
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
-                    <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
+                    <li class="nav__item"><a href="#home" class="nav__link active">Payment</a></li>
                     <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
                     <li class="nav__item"><a href="#skills" class="nav__link">How to book tickets?</a></li>
                     <li class="nav__item"><a href="#work" class="nav__link">Interior</a></li>
@@ -31,7 +49,7 @@
 
                     <li class="nav__item nav__social-icon"><a href="https://www.facebook.com/profile.php?id=61555407062591"><i class="fab fa-facebook"></i></a></li>
                     <li class="nav__item nav__social-icon"><a href="https://www.instagram.com/suva.yatra/"><i class="fab fa-instagram"></i></a></li>
-                    
+
 
                 </ul>
             </div>
@@ -42,22 +60,18 @@
         </nav>
     </header>
     <main class="l-main">
-        
-
-        <section class="about section " id="home">
+        <section class="about section " id="payment">
             <h2 class="section-title">Passenger Details</h2>
 
             <div class="bd-grid">
                 <div >
                     <div class="ticket test">
-                        
                         <div class="passenger-info">
                             <span id="passenger-id" hidden>{{passenger_details.id}} </span>
 
                             <div>
                                 <div class="info-label">Passenger Name</div>
                                 <div class="info-value"> {{ passenger_details.name }}</div>
-                
                                 <div class="info-label">Contact Number</div>
                                 <div class="info-value">{{ passenger_details.contact }}</div>
 
@@ -68,18 +82,17 @@
                                     {% endfor %}
                                 </div>
 
-                                <div class="info-label">Total Fare</div>
+                                <div class="info-label" style="color: #5E338D;">Total Fare</div>
                                 <div class="info-value"><span id="total_price">{{total_price }}</span>
                                 </div>
 
                             </div>
-                
                             <div>
                                 <div class="info-label">Departure Date</div>
                                 <div class="info-value"> {{ passenger_details.schedule.departure_time.date }}</div>
 
                                 <div class="info-label">Pickup Point</div>
-                                <div class="info-value"> {{ passenger_details.schedule.route.from_location }} ({{ passenger_details.schedule.departure_time.time }})</div>
+                                <div class="info-value"> {{ passenger_details.schedule.route.from_location }}</div>
 
                                 <div class="info-label">Total Price Per Seat</div>
                                 <div class="info-value"> {{passenger_details.schedule.route.price }}</div>
@@ -88,30 +101,33 @@
                             <div>
                                 <div class="info-label">Departure Time</div>
                                 <div class="info-value">{{ passenger_details.schedule.departure_time.time }}</div>
-                
+
                                 <div class="info-label">Dropping Point</div>
                                 <div class="info-value">{{ passenger_details.schedule.route.to_location }} </div>
                             </div>
                         </div>
-                            <div class="barcodes">                       
-                                <p>**** Note if you get a pending message from Bank/Khalti or if your transaction is completed but if you don't get a ticket, then please contact our operator.</p>
+                            <div class="barcodes">
+                                <p>**** Note if you get a pending message from Khalti or if your transaction is completed but if you don't get a ticket, then please contact our operator.</p>
                                 <p>**** Please ensure that you will be redirected to our website after the payment is done.</p>
                                 <p>**** Please note your ticket will be confirmed once payment is received at our end. If you are having a problem with payment, please contact our operator.</p>
-                    
+
                             </div>
 
                     </div>
                     {% if not payment%}
 
-                    <div class="khaltilogo" style="margin-top: 10px">
-                        <img class="khalti" id="payment-button" src='/static/images/khalti.jpg' alt="Pay with Khalti">
-                    </div>
+                    <div class="zoom-in-hover">
+                        <button  style="background-color: #5E338D;">
+                          <div class="khaltilogo" style="margin-top: 10px"!important></div>
+                          <img class="khalti" id="payment-button" src='/static/images/khalti.jpg' alt="Pay with Khalti" >
+                        </button>
+
                     {% else %}
                         <form action="{% url 'ticket' passenger_details.id %}" method="GET" style="margin-top:10px;">
                             <button class="button" type="ticket">View Ticket</button>
                         </form>
                     {% endif %}
-                </div>                            
+                </div>
             </div>
         </section>
     </main>

@@ -7,7 +7,7 @@
         <title>Bus Ticket Booking</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
         <!-- Link to external stylesheet -->
-        <link rel="stylesheet" href="{% static 'css/seats.css' %}"> 
+        <link rel="stylesheet" href="{% static 'css/seats.css' %}">
 
     </head>
     <body>
@@ -26,9 +26,9 @@
                     <li class="nav__item"><a href="/home.html/#contact" class="nav__link">Contact</a></li>
 
                     <li class="nav__item nav__social-icon"><a href="https://www.facebook.com/profile.php?id=61555407062591"><i class="fab fa-facebook"></i></a></li>
-                  
+
                     <li class="nav__item nav__social-icon"><a href="https://www.instagram.com/suva.yatra/"><i class="fab fa-instagram"></i></a></li>
-                    
+
                 </ul>
             </div>
 
@@ -37,7 +37,6 @@
             </div>
         </nav>
     </header>
-        
         <div class="black-panel1">
           <span id='scheduled' hidden> {{ schedule.id }}</span>
           <span id='route-id' hidden> {{ schedule.route.id }}</span>
@@ -97,10 +96,10 @@
 </div>
 
             </div>
-        
-   
 
-            
+
+
+
               </p>
               <p class="back-text">Back</p>
               <p id="price" class="price-text">Price: </p>
@@ -121,9 +120,7 @@
                 <h3>Follow Us</h3>
                 <ul class="social-icons">
                 <li><a href="https://www.facebook.com/profile.php?id=61555407062591"><i class="fab fa-facebook"></i></a></li>
-                
                 <li><a href="https://www.instagram.com/suva.yatra/"><i class="fab fa-instagram"></i></a></li>
-             
                 </ul>
                 </div>
         </div>
@@ -133,7 +130,6 @@
               document.addEventListener('DOMContentLoaded', function () {
                 const seats = document.querySelectorAll('.seat');
                 const nextButton = document.querySelector('.next-button');
-            
                 seats.forEach(seat => {
                   seat.addEventListener('click', function (e) {
                     if (seat.classList.contains('not-available')){
@@ -144,32 +140,27 @@
                     }
                   });
                 });
-            
                 nextButton.addEventListener('click', function (event) {
                   const selectedSeats = document.querySelectorAll('.seat.selected');
-            
                   // If no seats are selected, prevent form submission
                   if (selectedSeats.length === 0) {
                     event.preventDefault();
                     alert('Please select at least one seat.');
-                  } 
-                
+                  }
+
                 });
-            
                 function updateSelectedSeats() {
                   const selectedSeats = document.querySelectorAll('.seat.selected');
                   const selectedSeatsCount = selectedSeats.length;
                   const pricePerSeat = parseInt(document.getElementById('seat-price').innerText);
                   const totalPrice = selectedSeatsCount * pricePerSeat;
-            
                   // Create an array to store the selected seat numbers
                   const selectedSeatNumbers = [];
-            
                   // Iterate through selected seats and extract seat numbers
                   selectedSeats.forEach(seat => {
                     const seatNumber = seat.innerText.trim();
                     selectedSeatNumbers.push(seatNumber);
-                  });            
+                  });
                   // Update the display with selected seat numbers
                   document.getElementById('selectedSeat').innerText = `Seat: ${selectedSeatsCount > 0 ? selectedSeatNumbers.join(', ') : 'None'}`;
                   document.getElementById('price').innerText = `Price: Rs ${totalPrice}/`;
@@ -183,7 +174,6 @@
                     scheduled_id:parseInt(document.getElementById('scheduled').innerText),
                     selected_seat:[]
                   };
-            
                   // Iterate through selected seats and extract seat numbers
                   selectedSeats.forEach(seat => {
                     selectedSeatNumbersBackend['selected_seat'].push(
@@ -204,12 +194,10 @@
 
                         const reserved_seat = response.data
                         const scheduled_id = response.scheduled_id
-                      
                         // Redirect to the next page after selecting seats
                       const route_id = parseInt(document.getElementById('route-id').innerText);
                       window.location.href = `/backend/passenger-details/${route_id}/?seats=${reserved_seat}&scheduled_id=${scheduled_id}`;
 
-                  
                           // Handle the successful response
                       },
                       error: function(error) {

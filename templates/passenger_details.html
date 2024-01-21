@@ -40,7 +40,7 @@
             </nav>
         </header>
         <main class="l-main">
-            
+
 
             <!--===== Payment Details =====-->
             <section class="contact section" id="payment">
@@ -49,7 +49,6 @@
                 <div class="contact__container bd-grid" style="width: 80%!important;">
                         <p style='color:red'>{{seat_error}} </p>
                         <div style='color:red'>{% if error %} {{error}}{% endif %}</div>
-                        
                         <form method="post" action="{% url 'create-passenger' route.id %}">
                             {% csrf_token %}
 
@@ -88,11 +87,11 @@
                         <!-- Button for form submission -->
                         <button class="contact__button button" type="submit" style="margin-left: 172px !important;">Next</button>
 
-                    </form>                                  
+                    </form>
                 </div>
             </section>
 
-        
+
         </main>
 
         <!--===== ABOUT =====-->
@@ -103,17 +102,16 @@
                 <div class="about__img">
                     <img src='/static/images/bg.jpg' alt="">
                 </div>
-                    
                 <div>
                     <h2 class="about__subtitle">SuvaYatra Travels</h2>
                     <p class="about__text">
                         Suvayatra redefines your journey with a commitment to the ultimate booking experience. We prioritize seamless, convenient, and personalized travel ticket processes. Dedicated to modernization, we ensure every step is a breeze for a hassle-free booking experience.
-                    </p>    
+                    </p>
                     <p class="about__text">Suvayatra's mission is clear: to offer you the best booking experience. Through cutting-edge technology, we streamline the process, ensuring efficiency in planning your travels. Whether it's a business trip, family vacation, or spontaneous adventure, Suvayatra is dedicated to enhancing every aspect of your journey.
                     </p>
                     <p class="about__text">Welcome aboard the future of ticket booking with Suvayatra. Our platform goes beyond securing travel arrangements; it's a promise to make your experience exceptional, memorable, and hassle-free. Join us in shaping the future of travel booking, where every adventure begins with a simple click.
-                    </p>       
-                </div>                                   
+                    </p>
+                </div>
             </div>
         </section>
 
@@ -121,12 +119,10 @@
         <section class="skills section" id="skills">
             <h2 class="section-title">How to book tickets?</h2>
 
-            <div class="skills__container bd-grid">          
+            <div class="skills__container bd-grid">
                 <div>
                     <h2 class="skills__subtitle">video</h2>
                     <p class="skills__text">here will be video</p>
-
-                    
                 </div>
         </section>
 
@@ -178,7 +174,7 @@
             <p class="footer__copy">&#169; SuvaYatra Travels. All rights reserved</p>
             <div class="footer-content">
                 <h3>Contact Us</h3>
-                <p>Email: suvayatra@gmail.com</p>  
+                <p>Email: suvayatra@gmail.com</p>
                 <p>Phone: 9829179443/9702285911</p>
                 <p>Address: Dillibazar,Kathmandu</p>
             </div>
@@ -194,7 +190,7 @@
         </div>
         </footer>
     <script>
-        /*===== MENU SHOW =====*/ 
+        /*===== MENU SHOW =====*/
     const showMenu = (toggleId, navId) =>{
         const toggle = document.getElementById(toggleId),
         nav = document.getElementById(navId)
