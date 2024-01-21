@@ -54,6 +54,7 @@ button {
     height: 45px;
     border-radius: 20px;
     left: 46px;
+    cursor: pointer;
 }
 
 .khaltilogo {
