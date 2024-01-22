@@ -6,12 +6,65 @@
         <!-- Document title -->
         <title>Bus Ticket Booking</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
         <!-- Link to external stylesheet -->
+        <link rel="stylesheet" href="{% static 'css/home.css' %}">
         <link rel="stylesheet" href="{% static 'css/seats.css' %}">
 
+        <style>
+            .test {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .ticket {
+                background-color: #fff;
+                border: 1px solid #ccc;
+                padding: 20px;
+                border-radius: 24px;
+                box-shadow:-12px -5px 20px 11px rgb(0 0 0 / 10%);
+                text-align: start;
+            }
+            
+            .ticket-header {
+                background-color: #3498db;
+                color: #fff;
+                padding: 10px;
+                font-size: 18px;
+                font-weight: bold;
+            }
+            
+            .passenger-info {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                margin-top: 20px;
+                gap: 178px;
+                text-align: left;
+            
+            }
+            
+            .info-label {
+                color: #7f8c8d;
+                font-size: 14px;
+                margin-bottom: 5px;
+            }
+            
+            .info-value {
+                font-size: 16px;
+                font-weight: bold;
+                margin-bottom: 15px;
+            }
+            
+            .barcode {
+                margin-top: 20px;
+            }
+        </style>
     </head>
     <body>
-      <header class="l-header">
+          <!--===== HEADER =====-->
+    <header class="l-header">
         <nav class="nav bd-grid">
           <div>
             <h1 class="logo">SuvaYatra</h1>
@@ -19,15 +72,17 @@
 
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
-                    <li class="nav__item"><a href="#home" class="nav__link active">Seats</a></li>
-                    <li class="nav__item"><a href="/home.html/#about" class="nav__link">About</a></li>
-                    <li class="nav__item"><a href="/home.html/#skills" class="nav__link">How to book tickets?</a></li>
-                    <li class="nav__item"><a href="/home.html/#work" class="nav__link">Interior</a></li>
-                    <li class="nav__item"><a href="/home.html/#contact" class="nav__link">Contact</a></li>
+                    <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="#skills" class="nav__link">How to book tickets?</a></li>
+                    <li class="nav__item"><a href="#work" class="nav__link">Interior</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Feedback</a></li>
 
                     <li class="nav__item nav__social-icon"><a href="https://www.facebook.com/profile.php?id=61555407062591"><i class="fab fa-facebook"></i></a></li>
-
+                   
                     <li class="nav__item nav__social-icon"><a href="https://www.instagram.com/suva.yatra/"><i class="fab fa-instagram"></i></a></li>
+        
+                    
 
                 </ul>
             </div>
@@ -37,99 +92,172 @@
             </div>
         </nav>
     </header>
-        <div class="black-panel1">
-          <span id='scheduled' hidden> {{ schedule.id }}</span>
-          <span id='route-id' hidden> {{ schedule.route.id }}</span>
+    <main class="l-main">
+        
+        <!--===== ABOUT =====-->
+        <section class="about section " id="about">
+            <h2 class="section-title">Select Seats</h2>
+            
+            <div class="ticket test">
+                        
+                <div class="passenger-info">
+                    <span id='scheduled' hidden> {{ schedule.id }}</span>
+                    <span id='route-id' hidden> {{ schedule.route.id }}</span>
 
-          <p class="panel-text p1">SuvaYatra Travels</p>
-          <p class="panel-text p2">{{schedule.route.from_location }}-{{schedule.route.to_location }}</p>
-          <p class="panel-text p3">Bus Number : {{ schedule.bus.bus_number }}</p>
-          <p class="panel-text p4">D/T : {{ schedule.departure_time }}</p>
-          <p class="panel-text p5">Total Seats : {{ schedule.bus.total_seat }}</p>
-          <p class="panel-text p6">Ava. Seats : {{ schedule.available_seats }}</p>
-          <p class="panel-text p7">Fare: Rs <span id='seat-price'>{{ schedule.route.price }}</span></p>
-      </div>
+                    <div>
+                        <div class="info-value">Suvayatra Travels</div>
 
-        <div class="black-panel2">
-            <p class="book-seats-text">Select Seats</p>
-            <p class="front-text">Front</p>
-              <ul class="showcase">
-                <li>
-                  <div class="seat2"></div>
-                  <small>Available</small>
-                </li>
-                <li>
-                  <div class="seat2 selected"></div>
-                  <small>Selected</small>
-                </li>
-                <li>
-                  <div class="seat2 reserved"></div>
-                  <small>Reserved</small>
-                </li>
-                <li>
-                  <div class="seat2 sold"></div>
-                  <small>Sold</small>
-                </li>
-              </ul>
+                        <div class="info-value">{{schedule.route.from_location }}-{{schedule.route.to_location }}</div>
+        
+                        
 
-              <div class="bus-container">
-                <!-- Inside the bus-container div -->
-<div class="column-bus-seat" id="columnA">
-  <h2> A</h2>
-  <div class="row">
-      {% for seat in side_a %}
-          <div class="seat{% if seat.available %} available {% else %}{% if seat.booked %} sold{% else %} not-available{% endif %}{% endif %}" data-seat="{{ seat.id }}">
-              <img src="/static/images/seaticon.png" alt="Seat Icon">
-          </div>
-      {% endfor %}
-  </div>
-</div>
-<div class="column-bus-seat" id="columnB">
-  <h2> B</h2>
-  <div class="row">
-      {% for seat in side_b %}
-          <div class="seat{% if seat.available %} available {% else %}{% if seat.booked %} sold{% else %} not-available{% endif %}{% endif %}" data-seat="{{ seat.id }}">
-              <img src="/static/images/seaticon.png" alt="Seat Icon">
-          </div>
-      {% endfor %}
-  </div>
-</div>
+                    </div>
+        
+                    <div>
+                        <div class="info-value">Bus Number:{{ schedule.bus.bus_number }}</div>
 
-            </div>
+                    </div>
+                    <div>
+                        <div class="info-value"> Departure Time : {{ schedule.departure_time }}</div>
+                        <div class="info-value">Total Seat : {{ schedule.bus.total_seat }} </div>
+                        <div class="info-value">Ava. Seat : {{ schedule.available_seats }}</div>
+                        <div class="info-value">Total Fare :
+                            <span id='seat-price'>{{ schedule.route.price }}</span>
+                        </div>
 
-
-
-
-              </p>
-              <p class="back-text">Back</p>
-              <p id="price" class="price-text">Price: </p>
-              <p id="selectedSeat" class="seat-text">Seat: </p>
-              <button type="submit" class="next-button" id='save-selected-seat'><span></span>Next</button>
-            <!-- Add this script for seat selection -->
-          </div>
-          <footer class="footer">
-            <p class="footer__title">SuvaYatra</p>
-            <p class="footer__copy">&#169; SuvaYatra Travels. All rights reserved</p>
-            <div class="footer-content">
-                <h3>Contact Us</h3>
-                <p>Email: suvayatra@gmail.com</p>
-                <p>Phone: 9829179443/9702285911</p>
-                <p>Address: Dillibazar,Kathmandu</p>
-            </div>
-            <div class="footer-content2">
-                <h3>Follow Us</h3>
-                <ul class="social-icons">
-                <li><a href="https://www.facebook.com/profile.php?id=61555407062591"><i class="fab fa-facebook"></i></a></li>
-                <li><a href="https://www.instagram.com/suva.yatra/"><i class="fab fa-instagram"></i></a></li>
-                </ul>
+                    </div>
                 </div>
+                
+
+            </div>
+            
+            <div class="ticket test">
+                <div class="column-bus-seat" id="columnA">
+                    <p class="book-seats-text">Select Seats</p>
+                    <ul class="showcase">
+                        <p class="back-text">Back</p>
+
+                        <li>
+                            <div class="seat2"></div>
+                            <small>Available</small>
+                        </li>
+                        <li>
+                            <div class="seat2 selected"></div>
+                            <small>Selected</small>
+                        </li>
+                        <li>
+                            <div class="seat2 reserved"></div>
+                            <small>Reserved</small>
+                        </li>
+                        <li>
+                            <div class="seat2 sold"></div>
+                            <small>Sold</small>
+                        </li>
+                        <p class="front-text">Front</p>
+
+                    </ul>
+                
+                    <div class="bus-container">
+                        <!-- Inside the bus-container div -->
+                        <div class="column-bus-seat" id="columnA">
+                        <h2> A</h2>
+                        <div class="row">
+                            {% for seat in side_a %}
+                                <div class="seat{% if seat.available %} available {% else %}{% if seat.booked %} sold{% else %} not-available{% endif %}{% endif %}" data-seat="{{ seat.id }}">
+                                    {% comment %} <span class="seat-number" style="opacity:0;" >{{seat.seat_number}} </span> {% endcomment %}
+
+                                    <img src="/static/images/seaticon.png" alt="Seat Icon">
+                                </div>
+                            {% endfor %}
+                            </div>
+                        </div>
+                        <div class="column-bus-seat" id="columnB">
+                        <h2> B</h2>
+                        <div class="row">
+                            {% for seat in side_b %}
+                                <div class="seat{% if seat.available %} available {% else %}{% if seat.booked %} sold{% else %} not-available{% endif %}{% endif %}" data-seat="{{ seat.id }}">
+                                    {% comment %} <span class="seat-number" style="opacity:0;">{{seat.seat_number}} </span> {% endcomment %}
+                                    <img src="/static/images/seaticon.png" alt="Seat Icon">
+
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    </div>
+
+
+                <p id="selectedSeat" class="seat-text" >Seat: </p>
+                <p id="price" class="price-text" >Price: </p>
+
+                <button type="submit" class="button" id='save-selected-seat'><span></span>Next</button>
+            </div>
+              
+        </section>
+
+
+    </main>
+
+    <!--===== FOOTER =====-->
+    <footer class="footer">
+        <p class="footer__title">SuvaYatra</p>
+        <p class="footer__copy">&#169; SuvaYatra Travels. All rights reserved</p>
+        <div class="footer-content">
+            <h3>Contact Us</h3>
+            <p>Email: suvayatra@gmail.com</p>
+            <p>Phone: 9829179443/9702285911</p>
+            <p>Address: Dillibazar,Kathmandu</p>
         </div>
-        </footer>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <div class="footer-content2">
+            <h3>Follow Us</h3>
+            <ul class="social-icons">
+             <li><a href="https://www.facebook.com/profile.php?id=61555407062591"><i class="fab fa-facebook"></i></a></li>
+            
+             <li><a href="https://www.instagram.com/suva.yatra/"><i class="fab fa-instagram"></i></a></li>
+            
+            </ul>
+            </div>
+    </div>
+    </footer>
+<script>
+    /*===== MENU SHOW =====*/ 
+const showMenu = (toggleId, navId) =>{
+    const toggle = document.getElementById(toggleId),
+    nav = document.getElementById(navId)
+
+    if(toggle && nav){
+        toggle.addEventListener('click', ()=>{
+            nav.classList.toggle('show')
+        })
+    }
+}
+showMenu('nav-toggle','nav-menu')
+
+/*==================== REMOVE MENU MOBILE ====================*/
+const navLink = document.querySelectorAll('.nav__link')
+
+function linkAction(){
+    const navMenu = document.getElementById('nav-menu')
+    // When we click on each nav__link, we remove the show-menu class
+    navMenu.classList.remove('show')
+}
+navLink.forEach(n => n.addEventListener('click', linkAction))
+</script>
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("vhLUKJrl1V_R3NBGY");
+   })();
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
             <script>
               document.addEventListener('DOMContentLoaded', function () {
                 const seats = document.querySelectorAll('.seat');
-                const nextButton = document.querySelector('.next-button');
+                const nextButton = document.querySelector('.button');
+            
                 seats.forEach(seat => {
                   seat.addEventListener('click', function (e) {
                     if (seat.classList.contains('not-available')){
@@ -158,6 +286,7 @@
                   const selectedSeatNumbers = [];
                   // Iterate through selected seats and extract seat numbers
                   selectedSeats.forEach(seat => {
+                    console.log(seat)
                     const seatNumber = seat.innerText.trim();
                     selectedSeatNumbers.push(seatNumber);
                   });
@@ -210,5 +339,8 @@
               });
             </script>
 
-    </body>
+
+
+
+</body>
 </html>

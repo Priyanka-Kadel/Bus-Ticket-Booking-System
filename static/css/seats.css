@@ -1,161 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*===== GOOGLE FONTS =====*/
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
-
-/*===== VARIABLES CSS =====*/
-:root {
-    --header-height: 3rem;
-    --font-semi: 600;
-    /*===== Colors =====*/
-    /*Purple 260 - Red 355 - Blue 224 - Pink 340*/
-    /* HSL color mode */
-    --hue-color: 224;
-    --first-color: hsl(var(--hue-color), 89%, 60%);
-    --second-color: hsl(var(--hue-color), 56%, 12%);
-    /*===== Font typography =====*/
-    --body-font: 'Poppins', sans-serif;
-    --big-font-size: 2rem;
-    --h2-font-size: 1.25rem;
-    --normal-font-size: .938rem;
-    --smaller-font-size: .75rem;
-    /*===== Margins =====*/
-    --mb-2: 1rem;
-    --mb-4: 2rem;
-    --mb-5: 2.5rem;
-    --mb-6: 3rem;
-    --z-back: -10;
-    --z-fixed: 100;
-}
-
-@media screen and (min-width: 968px) {
-    :root {
-        --big-font-size: 3.5rem;
-        --h2-font-size: 2rem;
-        --normal-font-size: 1rem;
-        --smaller-font-size: .875rem;
-    }
-}
-
 /*===== BASE =====*/
 *, ::before, ::after {
     box-sizing: border-box;
@@ -172,22 +14,13 @@ body {
     color: var(--second-color);
 }
 
-h1, h2, p {
-    margin: 0;
-}
-
-ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
 
 a {
     text-decoration: none;
 }
 
 img {
-    max-width: 100%;
+    max-width: 177%;
     height: auto;
     display: block;
 }
@@ -816,8 +649,8 @@ a:hover{
 }
   .black-panel2 {
     position: relative;
-    top: 270px;
-    left: 35px;
+    top: -14px;
+    left: 309px;
     width: 50%;
     height: 165%;
     background-color:rgb(252, 249, 249);
@@ -846,7 +679,7 @@ a:hover{
     margin-bottom: 40px;
     background-color: black;
     padding: 10px;
-    margin-left: 360px;
+    margin-left: 167px;
     width: 70px;
     border: 2px solid black;
     border-radius: 10px;
@@ -887,13 +720,14 @@ a:hover{
   .back-text {
     color: white;
     position: absolute;
+    top:415px;
     bottom: 30px;
     font-size: 16px;
     text-align: center;
     margin-top: 190px;
     background-color: black;
-    padding: 10px;
-    margin-left: 360px;
+    padding: 20px;
+    margin-left: 167px;
     width: 70px;
     border: 2px solid black;
     border-radius: 10px;
@@ -904,9 +738,11 @@ a:hover{
     text-align: center;
     color: #000000;
     font-size: 18px;
-    margin-top: -40px;
+    top:23px;
+    margin-top: 16px;
     padding: 10px;
-    margin-left: 10px;
+    bottom: -30px;
+    margin-left: -438px;
     width: 70px;
     border:bold;
    font-weight: var(--font-semi);
@@ -916,9 +752,9 @@ a:hover{
     color: black;
     font-size: 18px;
     text-align: center;
-    margin-top: 50px;
+    margin-top: -45px;
     padding: 10px;
-    margin-left: 620px;
+    margin-left: 328px;
     width: 70px;
     border:bold;
     font-weight: var(--font-semi);
@@ -962,7 +798,7 @@ a:hover{
     border-top-right-radius: 10px;
   }
   .seat2 {
-      background-color: rgb(2, 157, 2);
+      background-color: white;
       border: solid black;
       border-width: 2px;
       height: 26px;
@@ -979,7 +815,7 @@ a:hover{
   }
   
   .seat2.reserved{
-    background-color: rgb(217, 213, 1);
+    background-color: rgb(241, 237, 47);
     border: solid black;
     border-width: 2px;
   }
@@ -1084,23 +920,23 @@ a:hover{
     display: flex;
     flex-wrap: wrap;
     max-width: 150px;
-    margin-bottom: 5px;
+    margin-bottom: 80px;
   }
   
   .column-bus-seat .available {
-    background-color: rgb(2, 157, 2);
+    background-color: white;
   }
   
   .column-bus-seat .selected {
-    background-color: #a17107;
+    background-color: #68db2a;
   }
   
   .column-bus-seat .sold {
-    background-color: rgb(219, 0, 0);
+    background-color: rgb(245, 10, 10);
   }
   
   .column-bus-seat .not-available {
-    background-color: rgb(217, 213, 1);
+    background-color: rgb(241, 237, 47);
   }
   
   .column-bus-seat h2 {
