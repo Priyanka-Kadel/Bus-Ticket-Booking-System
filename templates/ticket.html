@@ -74,7 +74,7 @@
                 <div class="seat">
                     <p7><strong>Seat No.:</strong></p7>
                     {% for seat in passenger_seat %}
-                            {{ seat.seat_number.seat_number }}{% if not forloop.last %}, {% endif %}
+                    {{ seat.seat_number.seat_side }}{{ seat.seat_number.seat_number }}{% if not forloop.last %}, {% endif %}
                         {% endfor %}
                     
                 </div>
