@@ -69,7 +69,7 @@ class BusSeatStatus(models.Model):
     ]
     seat_side = models.CharField(max_length=1, choices=CHOICES, default='A')
 
-    seat_number = models.CharField(max_length=50)
+    seat_number = models.IntegerField()
     available = models.BooleanField(default=True)
     booked = models.BooleanField(default=False)
     schedule = models.ForeignKey(Schedule, on_delete=models.CASCADE)
@@ -86,7 +86,7 @@ class BusSeatStatus(models.Model):
                 raise ValidationError("Cannot add more seats than the total seat")
 
     class Meta:
-        ordering = ['seat_side', 'seat_number']
+        ordering = ['seat_number']
 
     
 

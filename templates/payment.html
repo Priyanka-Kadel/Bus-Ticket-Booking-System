@@ -78,7 +78,7 @@
                                 <div class="info-label">Seat Number</div>
                                 <div class="info-value">
                                     {% for seat in seat_numbers %}
-                                        {{ seat.seat_number }}{% if not forloop.last %}, {% endif %}
+                                    {{ seat.seat_side }}{{ seat.seat_number }}{% if not forloop.last %}, {% endif %}
                                     {% endfor %}
                                 </div>
 

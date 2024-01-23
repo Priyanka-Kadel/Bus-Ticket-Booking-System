@@ -166,11 +166,11 @@
 
                     .form-inline button {
                         padding: 10px 20px;
-                        background-color: dodgerblue;
+                        {% comment %} background-color: dodgerblue; {% endcomment %}
                         border: 1px solid #ddd;
                         color: white;
                         cursor: pointer;
-                        margin-top: 30;
+                        margin-top: -30px;
                     }
 
                     .form-inline button:hover {
@@ -188,9 +188,22 @@
                         }
                     }
 
-                    .contact__input.to{
-                        margin-right: 0px;
-                    }
+                    @media (max-width: 800px) {
+                            .form-inline button {
+                                padding: 10px 20px;
+                                background-color: dodgerblue;
+                                border: 1px solid #ddd;
+                                color: white;
+                                cursor: pointer;
+                                margin-top: 32px;
+                                margin-right:200px;
+                            }
+        
+                        }
+                   
+
+                    
+
         </style>
 
         </head>
@@ -230,7 +243,7 @@
                     <div>
                         <form class="form-inline" action="{% url 'route' %}" method='POST'>
                             {% csrf_token %}
-                            <select class="contact__input" style="width: 200px; margin-left: 34px; " required
+                            <select class="contact__input from" style="width: 200px; margin-left: 34px; " required
                                 name="from_location">
                                 <option value="" disabled selected hidden>From</option>
                                 {% for route in locations %}
@@ -239,7 +252,7 @@
                             </select>
 
                             <!-- Select box for 'To' -->
-                            <select class="contact__input to" style="width: 200px; margin-left: 100px;" required
+                            <select class="contact__input " style="width: 200px; margin-left: 100px;" required
                             name="to_location" >
                                 <option value="" disabled selected hidden>To</option>
                                 {% for route in locations %}
