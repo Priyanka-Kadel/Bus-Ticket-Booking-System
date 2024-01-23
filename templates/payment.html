@@ -42,10 +42,10 @@
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li class="nav__item"><a href="#home" class="nav__link active">Payment</a></li>
-                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                    <li class="nav__item"><a href="#skills" class="nav__link">How to book tickets?</a></li>
-                    <li class="nav__item"><a href="#work" class="nav__link">Interior</a></li>
-                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                        <li class="nav__item"><a href="/home.html/#about" class="nav__link">About</a></li>
+                        <li class="nav__item"><a href="/home.html/#skills" class="nav__link">How to book tickets?</a></li>
+                        <li class="nav__item"><a href="/home.html/#work" class="nav__link">Interior</a></li>
+                        <li class="nav__item"><a href="/home.html/#contact" class="nav__link">Feedback</a></li>
 
                     <li class="nav__item nav__social-icon"><a href="https://www.facebook.com/profile.php?id=61555407062591"><i class="fab fa-facebook"></i></a></li>
                     <li class="nav__item nav__social-icon"><a href="https://www.instagram.com/suva.yatra/"><i class="fab fa-instagram"></i></a></li>
@@ -60,7 +60,7 @@
         </nav>
     </header>
     <main class="l-main">
-        <section class="about section " id="payment">
+        <section class="payment section " id="payment">
             <h2 class="section-title">Passenger Details</h2>
 
             <div class="bd-grid">
@@ -106,21 +106,23 @@
                                 <div class="info-value">{{ passenger_details.schedule.route.to_location }} </div>
                             </div>
                         </div>
-                            <div class="barcodes">
-                                <p>**** Note if you get a pending message from Khalti or if your transaction is completed but if you don't get a ticket, then please contact our operator.</p>
-                                <p>**** Please ensure that you will be redirected to our website after the payment is done.</p>
-                                <p>**** Please note your ticket will be confirmed once payment is received at our end. If you are having a problem with payment, please contact our operator.</p>
-
-                            </div>
+                        <div class="note barcodes">
+                            <p>**** Note if you get a pending message from Khalti or if your transaction is completed but if you don't get a ticket, then please contact our operator.</p>
+                            <p>**** Please ensure that you will be redirected to our website after the payment is done.</p>
+                            <p>**** Please note your ticket will be confirmed once payment is received at our end. If you are having a problem with payment, please contact our operator.</p>
+                        </div>
 
                     </div>
                     {% if not payment%}
 
                     <div class="zoom-in-hover">
-                        <button  style="background-color: #5E338D;">
-                          <div class="khaltilogo" style="margin-top: 10px"!important></div>
-                          <img class="khalti" id="payment-button" src='/static/images/khalti.jpg' alt="Pay with Khalti" >
+                        <button style="background-color: #5E338D;" >
+                            <div class="khaltilogo" style="margin-top: 10px"!important></div>
+                            <img class="khalti" id="payment-button" src='/static/images/khalti.jpg' alt="Pay with Khalti" title="Pay with khalti">
                         </button>
+                        <img src='/static/images/click2.png' alt="Your Image" style="display: block; margin: 0 auto; margin-top: -30px; margin-left: 150px; width: 6%; height: 6%;">
+                        <p style="text-align: center; color: #5E338D; margin-top: -1px; margin-left: -570px; font-weight: bold;">Pay with Khalti</p>
+                    </div>
 
                     {% else %}
                         <form action="{% url 'ticket' passenger_details.id %}" method="GET" style="margin-top:10px;">
