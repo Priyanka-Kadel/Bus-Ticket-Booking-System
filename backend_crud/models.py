@@ -86,7 +86,7 @@ class BusSeatStatus(models.Model):
                 raise ValidationError("Cannot add more seats than the total seat")
 
     class Meta:
-        ordering = ['seat_number']
+        ordering = ['seat_side','seat_number']
 
     
 

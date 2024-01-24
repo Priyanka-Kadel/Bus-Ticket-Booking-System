@@ -752,11 +752,14 @@ a:hover{
     color: black;
     font-size: 18px;
     text-align: center;
-    margin-top: -45px;
     padding: 10px;
     margin-left: 328px;
     width: 70px;
     border:bold;
+    position: absolute;
+    margin-top: 791px;
+
+
     font-weight: var(--font-semi);
   }
   .next-button {
