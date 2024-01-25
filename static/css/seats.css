@@ -582,15 +582,12 @@ a:hover{
     border-radius: 16px;
     border: 2px black;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
-    font-weight: var(--font-semi); 
-    
+    font-weight: var(--font-semi);
   }
-  
   .black-panel1 .panel-text {
     color: rgb(104, 85, 85);
     font-size: 18px;
     margin: 10px;
-    
   }
   .info-value1 {
     position: relative;
@@ -598,13 +595,13 @@ a:hover{
     font-size: 17px;
     margin-left: 20px;
   }
- 
+
   .info-value2 {
     position: relative;
     font-size: 17px;
     margin-left: 20px;
   }
-  
+
   .info-value3 {
     position: relative;
     top: 10px;
@@ -612,28 +609,25 @@ a:hover{
     font-size: 16px;
     color: black;
   }
-  
   .info-value4 {
     margin-left: 720px;
     position: relative;
     top: -40px;
     font-size: 14.5px;
   }
-  
   .info-value5 {
     margin-left: 720px;
     position: relative;
     top: -30px;
     font-size: 14.5px;
   }
-  
   .info-value6 {
     margin-left: 720px;
     position: relative;
     top: -20px;
     font-size: 14.5px;
   }
-  
+
   .info-value7 {
     margin-left: 720px;
     position: relative;
