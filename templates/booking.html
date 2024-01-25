@@ -10,6 +10,7 @@
             <!-- Link to external stylesheet -->
             <link rel="stylesheet" href="{% static 'css/home.css' %}">
             {% comment %} <link rel="stylesheet" href="{% static 'css/booking.css' %}"> {% endcomment %}
+            <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
         <style>
             @keyframes down-btn {
@@ -212,20 +213,17 @@
         <header class="l-header">
             <nav class="nav bd-grid">
                 <div>
-                    <h1 class="logo" href="/home.html/#home">SuvaYatra</h1>
+                    <a class="nav_logo" href="/home.html/#home">SuvaYatra</a>
                 </div>
 
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list">
                         <li class="nav__item"><a href="#home" class="nav__link active">Booking</a></li>
                         <li class="nav__item"><a href="/home.html/#about" class="nav__link">About</a></li>
-                        <li class="nav__item"><a href="/home.html/#skills" class="nav__link">How to book tickets?</a></li>
+                        <li class="nav__item"><a href="/home.html/#skills" class="nav__link">Book tickets?</a></li>
                         <li class="nav__item"><a href="/home.html/#work" class="nav__link">Interior</a></li>
                         <li class="nav__item"><a href="/home.html/#contact" class="nav__link">Feedback</a></li>
 
-                        <li class="nav__item nav__social-icon"><a href="https://www.facebook.com/profile.php?id=61555407062591"><i class="fab fa-facebook"></i></a></li>
-
-                        <li class="nav__item nav__social-icon"><a href="https://www.instagram.com/suva.yatra/"><i class="fab fa-instagram"></i></a></li>
 
                     </ul>
                 </div>
@@ -299,25 +297,14 @@
 
         </main>
 
-        <!--===== FOOTER =====-->
         <footer class="footer">
-            <p class="footer__title">SuvaYatra</p>
-            <p class="footer__copy">&#169; SuvaYatra Travels. All rights reserved</p>
-            <div class="footer-content">
-                <h3>Contact Us</h3>
-                <p>Email: suvayatra@gmail.com</p>
-                <p>Phone: 9829179443/9702285911</p>
-                <p>Address: Dillibazar,Kathmandu</p>
+            <p class="footer__title">Suvayatra</p>
+            <div class="footer__social">
+                <a href="#" class="footer__icon"><i class='bx bxl-facebook' ></i></a>
+                <a href="#" class="footer__icon"><i class='bx bxl-instagram' ></i></a>
+                <a href="#" class="footer__icon"><i class='bx bxl-twitter' ></i></a>
             </div>
-            <div class="footer-content2">
-                <h3>Follow Us</h3>
-                <ul class="social-icons">
-                <li><a href="https://www.facebook.com/profile.php?id=61555407062591"><i class="fab fa-facebook"></i></a></li>
-
-                <li><a href="https://www.instagram.com/suva.yatra/"><i class="fab fa-instagram"></i></a></li>
-                </ul>
-                </div>
-        </div>
+            <p class="footer__copy">&#169;Suvaytra Travels. All rights reserved</p>
         </footer>
             <script>
                 document.addEventListener("DOMContentLoaded", function() {
