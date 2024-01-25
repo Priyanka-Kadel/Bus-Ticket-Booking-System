@@ -23,20 +23,16 @@
                 <ul class="nav__list">
                     <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
                     <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                    <li class="nav__item"><a href="#skills" class="nav__link">How to book tickets?</a></li>
+                    <li class="nav__item"><a href="#skills" class="nav__link">Help</a></li>
                     <li class="nav__item"><a href="#work" class="nav__link">Interior</a></li>
-                    <li class="nav__item"><a href="#contact" class="nav__link">Feedback</a></li>
-
-                  
-        
-                    
-
+                    <li class="nav__item"><a href="#contact" class="nav__link">Feedback</a></li>                    
                 </ul>
             </div>
 
             <div class="nav__toggle" id="nav-toggle">
                 <i class='bx bx-menu'></i>
             </div>
+            
         </nav>
     </header>
     <!-- Main container -->
@@ -175,5 +171,153 @@
     </div>
     <p class="footer__copy">&#169;Suvaytra Travels. All rights reserved</p>
 </footer>
+
+<script>
+    const showMenu = (toggleId, navId) =>{
+        const toggle = document.getElementById(toggleId),
+        nav = document.getElementById(navId)
+    
+        if(toggle && nav){
+            toggle.addEventListener('click', ()=>{
+                nav.classList.toggle('show')
+            })
+        }
+    }
+    showMenu('nav-toggle','nav-menu')
+    
+    /*==================== REMOVE MENU MOBILE ====================*/
+    const navLink = document.querySelectorAll('.nav__link')
+    
+    function linkAction(){
+        const navMenu = document.getElementById('nav-menu')
+        // When we click on each nav__link, we remove the show-menu class
+        navMenu.classList.remove('show')
+    }
+    navLink.forEach(n => n.addEventListener('click', linkAction))
+    
+    /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
+    const sections = document.querySelectorAll('section[id]')
+    
+    function scrollActive(){
+        const scrollY = window.pageYOffset
+    
+        sections.forEach(current =>{
+            const sectionHeight = current.offsetHeight
+            const sectionTop = current.offsetTop - 50;
+            sectionId = current.getAttribute('id')
+    
+            if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+                document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active')
+            }else{
+                document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active')
+            }
+        })
+    }
+    window.addEventListener('scroll', scrollActive)
+    
+    /*===== SCROLL REVEAL ANIMATION =====*/
+    const sr = ScrollReveal({
+        origin: 'top',
+        distance: '60px',
+        duration: 2000,
+        delay: 200,
+    //     reset: true
+    });
+    
+    sr.reveal('.home__data, .about__img, .skills__subtitle, .skills__text',{}); 
+    sr.reveal('.home__img, .about__subtitle, .about__text, .skills__img',{delay: 400}); 
+    sr.reveal('.home__social-icon',{ interval: 200}); 
+    sr.reveal('.skills__data, .work__img, .contact__input',{interval: 200}); 
+    </script>
+    <script>
+       function sendMail() {
+        // Get form values
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let message = document.getElementById("message").value;
+    
+        // Validate form fields
+        if (!name || !email || !message) {
+            createToast('error', 'fa-solid fa-circle-exclamation', 'Error', 'All fields are required.');
+                return;
+        }
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                // Display a toast notification for invalid email
+                createToast('error', 'fa-solid fa-circle-exclamation', 'Error', 'Invalid email address.');
+                return;
+            }
+        let parms = {
+            name: name,
+            email: email,
+            message: message,
+        };
+    
+        // Send email using EmailJS
+        emailjs.send("service_5wr48mf", "template_ghrb405", parms)
+            .then(() => {
+                createToast('success', 'fa-solid fa-circle-check', 'Success', 'Thank you for your feedback!');
+            })
+            .catch((error) => {
+                console.error("Error sending email:", error);
+                createToast('error', 'fa-solid fa-circle-exclamation', 'Error', 'Error sending email.');
+                });
+            
+    }
+    
+    
+    </script>
+    <script>
+        let notifications = document.querySelector('.notifications');
+        let success = document.getElementById('success');
+        let error = document.getElementById('error');
+        let warning = document.getElementById('warning');
+        let info = document.getElementById('info');
+        
+        function createToast(type, icon, title, text){
+            let newToast = document.createElement('div');
+            newToast.innerHTML = `
+                <div class="toast ${type}">
+                    <i class="${icon}"></i>
+                    <div class="content">
+                        <div class="title">${title}</div>
+                        <span>${text}</span>
+                    </div>
+                    <i class="fa-solid fa-xmark" onclick="(this.parentElement).remove()"></i>
+                </div>`;
+            notifications.appendChild(newToast);
+            newToast.timeOut = setTimeout(
+                ()=>newToast.remove(), 5000
+            )
+        }
+        success.onclick = function(){
+            let type = 'success';
+            let icon = 'fa-solid fa-circle-check';
+            let title = 'Success';
+            let text = 'This is a success toast.';
+            createToast(type, icon, title, text);
+        }
+        error.onclick = function(){
+            let type = 'error';
+            let icon = 'fa-solid fa-circle-exclamation';
+            let title = 'Error';
+            let text = 'This is a error toast.';
+            createToast(type, icon, title, text);
+        }
+        warning.onclick = function(){
+            let type = 'warning';
+            let icon = 'fa-solid fa-triangle-exclamation';
+            let title = 'Warning';
+            let text = 'This is a warning toast.';
+            createToast(type, icon, title, text);
+        }
+        info.onclick = function(){
+            let type = 'info';
+            let icon = 'fa-solid fa-circle-info';
+            let title = 'Info';
+            let text = 'This is a info toast.';
+            createToast(type, icon, title, text);
+        }
+    </script>
 
 </html>
