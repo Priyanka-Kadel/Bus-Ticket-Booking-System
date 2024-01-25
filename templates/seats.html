@@ -60,6 +60,7 @@
             .barcode {
                 margin-top: 20px;
             }
+            
         </style>
     </head>
     <body>
@@ -164,7 +165,7 @@
                         <div class="row">
                             {% for seat in side_a %}
                                 <div class="seat{% if seat.available %} available {% else %}{% if seat.booked %} sold{% else %} not-available{% endif %}{% endif %}" data-seat="{{ seat.id }}" style="position: relative;">
-                                    <span class="seat-number" style="opacity: 10; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color:#fff; font-size:15px; font-weight:bold; z-index: 1;">{{ seat.seat_side }}{{ seat.seat_number }}</span>
+                                    <span class="seat-number" style="opacity: 10; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color:#fff; font-size:15px; font-weight:bold; z-index: 1;">{{ seat.seat_number }}</span>
                                     
                                     <img src="/static/images/seaticon.png" alt="Seat Icon">
                                 </div>
@@ -176,7 +177,7 @@
                         <div class="row">
                             {% for seat in side_b %}
                                 <div class="seat{% if seat.available %} available {% else %}{% if seat.booked %} sold{% else %} not-available{% endif %}{% endif %}" data-seat="{{ seat.id }}" style="position: relative;">
-                                    <span class="seat-number" style="opacity: 10; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color:#fff; font-size:15px; font-weight:bold; z-index: 1;">{{ seat.seat_side }}{{ seat.seat_number }}</span>
+                                    <span class="seat-number" style="opacity: 10; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color:#fff; font-size:15px; font-weight:bold; z-index: 1;">{{ seat.seat_number }}</span>
                                     <img src="/static/images/seaticon.png" alt="Seat Icon">
                                 </div>
                             {% endfor %}
