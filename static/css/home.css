@@ -629,3 +629,8 @@ img {
         background-color: #dc3545;
         box-shadow: 0px 4px 25px rgba(14, 36, 49, 0.2);
     }
+    .toast.success{
+        --color: #ffffff;
+        background-color: #05a222;
+        box-shadow: 0px 4px 25px rgba(14, 36, 49, 0.2);
+    }

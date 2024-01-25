@@ -15,14 +15,14 @@
     <header class="l-header">
         <nav class="nav bd-grid">
             <div>
-                <a class="nav_logo" href="#">SuvaYatra</a>
+                <a class="nav_logo" href="#home">SuvaYatra</a>
             </div>
 
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
                     <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                    <li class="nav__item"><a href="#skills" class="nav__link">How to book tickets?</a></li>
+                    <li class="nav__item"><a href="#skills" class="nav__link">Manual</a></li>
                     <li class="nav__item"><a href="#work" class="nav__link">Interior</a></li>
                     <li class="nav__item"><a href="#contact" class="nav__link">Feedback</a></li>
 
@@ -142,15 +142,14 @@
       <footer class="footer">
         <p class="footer__title">Suvayatra</p>
         <div class="footer__social">
-            <a href="#" class="footer__icon"><i class='bx bxl-facebook' ></i></a>
-            <a href="#" class="footer__icon"><i class='bx bxl-instagram' ></i></a>
-            <a href="#" class="footer__icon"><i class='bx bxl-twitter' ></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61555407062591" class="footer__icon"><i class='bx bxl-facebook' ></i></a>
+            <a href="https://www.instagram.com/" class="footer__icon"><i class='bx bxl-instagram' ></i></a>
+            <a href="https://twitter.com/i/flow/login" class="footer__icon"><i class='bx bxl-twitter' ></i></a>
         </div>
         <p class="footer__copy">&#169;Suvaytra Travels. All rights reserved</p>
     </footer>
 
 <script>
-/*===== MENU SHOW =====*/ 
 const showMenu = (toggleId, navId) =>{
     const toggle = document.getElementById(toggleId),
     nav = document.getElementById(navId)
@@ -191,14 +190,21 @@ function scrollActive(){
         }
     })
 }
-</script>
-<script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
-</script>
-<script type="text/javascript">
-   (function(){
-      emailjs.init("vhLUKJrl1V_R3NBGY");
-   })();
+window.addEventListener('scroll', scrollActive)
+
+/*===== SCROLL REVEAL ANIMATION =====*/
+const sr = ScrollReveal({
+    origin: 'top',
+    distance: '60px',
+    duration: 2000,
+    delay: 200,
+//     reset: true
+});
+
+sr.reveal('.home__data, .about__img, .skills__subtitle, .skills__text',{}); 
+sr.reveal('.home__img, .about__subtitle, .about__text, .skills__img',{delay: 400}); 
+sr.reveal('.home__social-icon',{ interval: 200}); 
+sr.reveal('.skills__data, .work__img, .contact__input',{interval: 200}); 
 </script>
 <script>
    function sendMail() {
