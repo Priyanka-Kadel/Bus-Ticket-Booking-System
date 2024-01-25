@@ -592,48 +592,52 @@ a:hover{
     margin: 10px;
     
   }
-  .black-panel1 .p1 {
-    margin-top: 14px;
-    font-size: 17px;
-  }
-  
-  .black-panel1 .p2 {
-    font-size: 17px;
-  }
-  
-  .black-panel1 .p3 {
+  .info-value1 {
     position: relative;
-    top: -50px;
-    margin-left: 280px;
+    margin-top: 20px;
+    font-size: 17px;
+    margin-left: 20px;
+  }
+ 
+  .info-value2 {
+    position: relative;
+    font-size: 17px;
+    margin-left: 20px;
+  }
+  
+  .info-value3 {
+    position: relative;
+    top: 10px;
+    margin-left: 380px;
     font-size: 16px;
     color: black;
   }
   
-  .black-panel1 .p4 {
-    margin-left: 551px;
+  .info-value4 {
+    margin-left: 720px;
     position: relative;
-    top: -110px;
+    top: -40px;
     font-size: 14.5px;
   }
   
-  .black-panel1 .p5 {
-    margin-left: 551px;
+  .info-value5 {
+    margin-left: 720px;
     position: relative;
-    top: -120px;
+    top: -30px;
     font-size: 14.5px;
   }
   
-  .black-panel1 .p6 {
-    margin-left: 551px;
+  .info-value6 {
+    margin-left: 720px;
     position: relative;
-    top: -130px;
+    top: -20px;
     font-size: 14.5px;
   }
   
-  .black-panel1 .p7 {
-    margin-left: 551px;
+  .info-value7 {
+    margin-left: 720px;
     position: relative;
-    top: -140px;
+    top: -10px;
     font-size: 14.5px;
     color: #9f3ebf;
   
@@ -645,7 +649,7 @@ a:hover{
     color: transparent;
     background-clip: text;
     margin-right: 90px;
-    text-shadow:  0 1px 7px rgba(146, 161, 176, 0.3);;
+    text-shadow:  0 1px 7px rgba(146, 161, 176, 0.3);
 }
   .black-panel2 {
     position: relative;
@@ -720,10 +724,10 @@ a:hover{
   .back-text {
     color: white;
     position: absolute;
-    top:415px;
+    top:450px;
     bottom: 30px;
     font-size: 16px;
-    text-align: center;
+    text-align: 30px;
     margin-top: 190px;
     background-color: black;
     padding: 20px;
@@ -818,7 +822,7 @@ a:hover{
   }
   
   .seat2.reserved{
-    background-color: rgb(241, 237, 47);
+    background-color: rgb(202, 199, 0);
     border: solid black;
     border-width: 2px;
   }
@@ -931,15 +935,15 @@ a:hover{
   }
   
   .column-bus-seat .selected {
-    background-color: #68db2a;
+    background-color: #389f00;
   }
   
   .column-bus-seat .sold {
-    background-color: rgb(245, 10, 10);
+    background-color: rgb(217, 0, 0);
   }
   
   .column-bus-seat .not-available {
-    background-color: rgb(241, 237, 47);
+    background-color: rgb(220, 217, 9);
   }
   
   .column-bus-seat h2 {

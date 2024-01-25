@@ -131,7 +131,7 @@ img {
         position: fixed;
         top: var(--header-height);
         right: -100%;
-        width: 80%;
+        width: 60%;
         height: 100%;
         padding: 2rem;
         background-color: var(--second-color);
@@ -543,14 +543,14 @@ img {
 
 .nav_logo{
     font-size: 28px;
-    font: bold;
-    background: linear-gradient(90deg,blue,black);
+    background: linear-gradient(90deg,red,blue);
     color: transparent;
     background-clip: text;
     margin-right: 90px;
+    font: bolder;
     text-shadow:  0 1px 7px rgba(146, 161, 176, 0.3);
-    cursor: pointer;
 }
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
   
     .buttons{
