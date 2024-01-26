@@ -319,5 +319,24 @@
             createToast(type, icon, title, text);
         }
     </script>
+    <script>
+        // Check if the page has been refreshed once
+        var refreshCount = sessionStorage.getItem('refreshCount');
+        refreshCount = refreshCount ? parseInt(refreshCount) : 0;
+    
+        // If the page has been refreshed once or less, proceed with the refresh
+        if (refreshCount < 2) {
+            // Increment the refresh count
+            sessionStorage.setItem('refreshCount', refreshCount + 1);
+    
+            // Wait for 1 second (adjust the delay as needed)
+            setTimeout(function() {
+                // Reload the page after the delay
+                window.location.reload();
+            }, 1000);
+        }
+    </script>
+    
+    
 
 </html>

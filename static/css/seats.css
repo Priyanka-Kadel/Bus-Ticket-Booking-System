@@ -584,6 +584,38 @@ a:hover{
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
     font-weight: var(--font-semi);
   }
+  .white-panel {
+    position: absolute;
+    padding: 10px;
+    top: 180px;
+    left: 1005px;
+    width: 32%;
+    height: 130%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 16px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+    font-weight: var(--font-semi); 
+}
+.white-panel img {
+    max-width: 100%;
+    border-radius: 8px; 
+    margin-bottom: 20px; 
+    display: block;
+    
+}
+
+
+.white-panel h2 {
+    color: #333;
+    margin-left: 180px;
+}
+
+.white-panel p {
+    color: #666;
+    text-align: center;
+    margin-top: 20px;
+    line-height: 2;
+}
   .black-panel1 .panel-text {
     color: rgb(104, 85, 85);
     font-size: 18px;
