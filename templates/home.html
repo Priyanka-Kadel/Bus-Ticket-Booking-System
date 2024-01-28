@@ -10,6 +10,8 @@
         <link rel="stylesheet" href="{% static 'css/home.css' %}">
         
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
     </head>
     <body>
     <header class="l-header">
@@ -42,9 +44,18 @@
                     <div class="home__data">
                         <a href="{% url 'booking' %}" class="button">Book Ticket</a>
                     </div>
-                    <!-- <div class="home__image">
-                        <img src='/static/images/365.png' alt="365">
-                    </div> -->
+                    <div class="home__img">
+                        <svg class="home__blob" viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <mask id="mask0" mask-type="alpha">
+                                <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
+                            </mask>
+                            <g mask="url(#mask0)">
+                                <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
+                                <image class="home__blob-img" x="50" y="50"  href="static/images/perfill.png"/>
+
+                            </g>
+                        </svg>
+                    </div>
             </div>
             <div class="notifications"></div>
             <div class="buttons">
@@ -83,13 +94,15 @@
         <section class="skills section" id="skills">
             <h2 class="section-title">How to book tickets?</h2>
 
-            <div class="skills__container bd-grid">          
+            <div class="work__container bd-grid">          
                 <div>
-                    <h2 class="skills__subtitle">video</h2>
-                    <p class="skills__text">here will be video</p>
+                    <a href="https://www.youtube.com/shorts/20PdxW1J7_I?feature=share"  target="_blank" class="video-container">
+                        <div class="panel">
+                            
+                        </div>
 
                     
-                </div>
+                    </a>
         </section>
 
         <!--===== WORK =====-->
@@ -144,6 +157,7 @@
         </div>
         <p class="footer__copy">&#169;Suvaytra Travels. All rights reserved</p>
     </footer>
+
 
 <script>
 const showMenu = (toggleId, navId) =>{
