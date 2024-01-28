@@ -341,22 +341,106 @@ img {
 }
 
 /* ===== FOOTER =====*/
-.footer {
+
+footer .container{
     background-color: var(--second-color);
-    color: #fff;
-    text-align: center;
-    font-weight: var(--font-semi);
-    padding: 12rem 0;
 }
 
-.footer__title {
-    font-size: 2rem;
-    margin-bottom: var(--mb-4);
+.col2 p{
+    color: white;
+    font-size: 35px;
+    margin-top: 14px;
+    margin-right: 92px;
 }
 
+.row{
+    display: flex;
+    justify-content:space-evenly;
+    padding: 4px 50px;
+}
+.footer-col ul{
+    list-style: none;  
+}
 
-.footer__copy {
-    font-size: var(--smaller-font-size);
+.footer-col h4{
+    color: white;
+    margin-bottom: 25px;
+    font-size: 22px;
+    position: relative;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.footer-col h4::before{
+    content:'';
+    width: 75px;
+    height: 2px;
+    position: absolute;
+    background-color: #e91e64;
+    bottom: -10px;
+}
+
+.footer-col ul li{
+    padding: 10px 0;
+}
+
+.footer-col ul li a{
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    opacity: 0.7;
+    transition: 0.5s;
+}
+
+.footer-col ul li a:hover{
+    opacity: 1;
+}
+
+.footer-col .social-icons i{
+    display: inline;
+    color: white;
+    font-size: 20px;
+    margin: 0 15px;
+    transition: 0.5s;
+}
+
+.footer-col .social-icons i :hover{
+    color: #e91e64;
+}
+
+.col1 p{
+    color:white;
+    /* margin-left: 502px; */
+    margin-bottom: 7px;
+    
+}
+
+.footer-col{
+    justify-content: space-between;
+}
+
+@media (max-width: 600px){
+    footer .footer-col ul{
+        margin-left: 20px;
+        margin-bottom: 20px; 
+    }
+
+    footer .col1 p{
+        margin: 0px;
+        margin-left: -44px;
+        margin-bottom: 7px;  
+    }
+
+    footer .col2 p{
+        margin-left: -158px;
+        margin-bottom: 20px;
+        
+    }
+
+    .footer-col {
+        margin-left: -96px;
+        margin-bottom: -25px;
+
+    }
 }
 
 /* ===== MEDIA QUERIES=====*/
@@ -479,53 +563,7 @@ img {
     .home__img {
         width: 450px;
     }
-    .footer-content{
-        width: 28.3%;
-        margin-top: -265px;
-    }
-    .footer-content2{
-        width: 33.3%;
-        margin-top: -280px;
-        margin-left: 1000px;
-    }
 
-
-h3{
-    font-size: 28px;
-    margin-bottom: 15px;
-    text-align: center;
-}
-.footer-content p{
-    width:190px;
-    margin: auto;
-    padding: 7px;
-}
-.footer-content ul{
-    text-align: center;
-}
-
-.social-icons{
-    text-align: center;
-    padding: 0;
-}
-.social-icons li{
-    display: inline-block;
-    text-align: center;
-    padding: 5px;
-}
-.social-icons i{
-    color: white;
-    font-size: 25px;
-}
-a{
-    text-decoration: none;
-}
-a:hover{
-    color: var(--first-color);
-}
-.social-icons i:hover{
-    color: var(--first-color);
-}
 .nav__list {
     display: flex;
     align-items: center;
@@ -589,7 +627,7 @@ a:hover{
     position: absolute;
     padding: 10px;
     top: 180px;
-    left: 1005px;
+    left: 950px;
     width: 32%;
     height: 130%;
     background-color: rgb(255, 255, 255);
@@ -614,8 +652,8 @@ a:hover{
 .white-panel p {
     color: #666;
     text-align: center;
-    margin-top: 20px;
-    line-height: 1.8;
+    margin-top: 8px;
+    line-height: 2;
 }
   .black-panel1 .panel-text {
     color: rgb(104, 85, 85);
@@ -707,7 +745,7 @@ a:hover{
   .front-text {
     color: white;
     position: absolute;
-    top: 100px;
+    top: 33px;
     font-size: 16px;
     text-align: center;
     margin-top: 80px;
@@ -821,7 +859,7 @@ a:hover{
     perspective: 2000px;
     margin-bottom: 60px;
     position: relative;
-    left: 94px;
+    left: 0px;
     top: 124px;
   }
   
@@ -929,7 +967,7 @@ a:hover{
   .bus-container {
     display: flex;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 23px;
   }
   
   .column-bus-seat {
@@ -957,8 +995,8 @@ a:hover{
   .column-bus-seat .row {
     display: flex;
     flex-wrap: wrap;
-    max-width: 150px;
-    margin-bottom: 80px;
+    max-width: 278px;
+    margin-bottom: -22px;
   }
   
   .column-bus-seat .available {
