@@ -188,15 +188,16 @@ img {
     margin-top: -440px;
 }
 
-/*BUTTONS*/
+
 .button {
-    display: inline-block;
+    margin-bottom: 10px;
     background-color: var(--first-color);
     color: #fff;
     padding: .75rem 2.5rem;
     font-weight: var(--font-semi);
     border-radius: .5rem;
     transition: all .3s;
+    cursor: pointer;
 }
 
 .button:hover {
@@ -627,9 +628,8 @@ footer .container{
     position: absolute;
     padding: 10px;
     top: 180px;
-    left: 950px;
+    left: 992px;
     width: 32%;
-    height: 130%;
     background-color: rgb(255, 255, 255);
     border-radius: 16px;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
@@ -654,6 +654,9 @@ footer .container{
     text-align: center;
     margin-top: 8px;
     line-height: 2;
+    font-size: 17px;
+    font-weight: var(--mb-5);
+    
 }
   .black-panel1 .panel-text {
     color: rgb(104, 85, 85);
@@ -793,19 +796,19 @@ footer .container{
   .back-text {
     color: white;
     position: absolute;
-    top:450px;
-    bottom: 30px;
+    top: 450px;
     font-size: 16px;
-    text-align: 30px;
+    text-align: center; /* Add this line to center-align the text */
     margin-top: 190px;
     background-color: black;
-    padding: 20px;
+    padding: 10px;
     margin-left: 167px;
     width: 70px;
     border: 2px solid black;
     border-radius: 10px;
     display: inline-block;
-  }
+}
+
   
   .seat-text {
     text-align: center;
