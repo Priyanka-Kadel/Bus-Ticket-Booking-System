@@ -6,7 +6,6 @@
         <!-- Document title -->
         <title>Bus Ticket Booking</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
         <!-- Link to external stylesheet -->
         <link rel="stylesheet" href="{% static 'css/home.css' %}">
@@ -19,7 +18,6 @@
                 align-items: center;
                 justify-content: center;
             }
-            
             .ticket {
                 background-color: #ffffff;
                 height: 300px;
@@ -31,7 +29,6 @@
                 height: 30%;
                 margin: 20px;
             }
-            
             .ticket-header {
                 background-color: #3498db;
                 color: #fff;
@@ -39,33 +36,26 @@
                 font-size: 18px;
                 font-weight: bold;
             }
-            
             .passenger-info {
-                
                 grid-template-columns: 1fr 1fr 1fr;
                 margin-top: 20px;
                 gap: 178px;
                 text-align: left;
                 font-weight: var(--font-semi);
-            
             }
-            
             .info-label {
                 color: #7f8c8d;
                 font-size: 14px;
                 margin-bottom: 5px;
             }
-            
             .info-value {
                 font-size: 16px;
                 font-weight: bold;
                 margin-bottom: 15px;
             }
-            
             .barcode {
                 margin-top: 20px;
             }
-            
         </style>
     </head>
     <body>
@@ -93,13 +83,10 @@
             </nav>
         </header>
     <main class="l-main">
-        
         <!--===== ABOUT =====-->
         <section class="about section " id="about">
             <h2 class="section-title">Select Seats</h2>
-            
             <div class="ticket test">
-                        
                 <div class="passenger-info">
                     <span id='scheduled' hidden> {{ schedule.id }}</span>
                     <span id='route-id' hidden> {{ schedule.route.id }}</span>
@@ -108,7 +95,6 @@
                         <div style="top: 45px;"!important class="info-value1">Suvayatra Travels</div>
                         <div style="top: 55px;"!important class="info-value2">{{ schedule.route.from_location }}-{{ schedule.route.to_location }}</div>
                     </div>
-        
                     <div>
                         <div class="info-value3">Bus Number:{{ schedule.bus.bus_number }}</div>
 
@@ -123,7 +109,6 @@
 
                     </div>
                 </div>
-                
 
             </div>
             <div class="white-panel">
@@ -139,7 +124,7 @@
                 <div class="column-bus-seat" id="columnA">
                     <p class="book-seats-text">Select Seats</p>
                     <ul class="showcase">
-                        <p class="back-text">Back</p>
+                        <p class="back-text" style="text-align: center;" left="0px">Back</p>
 
                         <li>
                             <div class="seat2"></div>
@@ -160,7 +145,6 @@
                         <p class="front-text">Front</p>
 
                     </ul>
-                
                     <div class="bus-container">
                         <!-- Inside the bus-container div -->
                         <div class="column-bus-seat" id="columnA">
@@ -169,7 +153,6 @@
                             {% for seat in side_a %}
                                 <div class="seat{% if seat.available %} available {% else %}{% if seat.booked %} sold{% else %} not-available{% endif %}{% endif %}" data-seat="{{ seat.id }}" style="position: relative;">
                                     <span class="seat-number" style="opacity: 10; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color:#fff; font-size:15px; font-weight:bold; z-index: 1;">{{ seat.seat_number }}</span>
-                                    
                                     <img src="/static/images/seaticon.png" alt="Seat Icon">
                                 </div>
                             {% endfor %}
@@ -189,12 +172,11 @@
                     </div>
 
 
-                <p id="selectedSeat" class="seat-text" >Seat: </p>
-                <p id="price" class="price-text" >Price: </p>
+                <p id="selectedSeat" class="seat-text" style="margin-top: 63px;" >Seat: </p>
+                <p id="price" class="price-text" style="margin-top: 716px;" >Price: </p>
 
-                <button type="submit" class="button" id='save-selected-seat'><span></span>Next</button>
+                <button type="submit" class="button" id="save-selected-seat" style="margin-top: 123px;"!important><span></span>Next</button>
             </div>
-              
         </section>
     </main>
 
@@ -237,7 +219,7 @@
         </footer>
         
 <script>
-    /*===== MENU SHOW =====*/ 
+    /*===== MENU SHOW =====*/
 const showMenu = (toggleId, navId) =>{
     const toggle = document.getElementById(toggleId),
     nav = document.getElementById(navId)
@@ -274,7 +256,6 @@ navLink.forEach(n => n.addEventListener('click', linkAction))
               document.addEventListener('DOMContentLoaded', function () {
                 const seats = document.querySelectorAll('.seat');
                 const nextButton = document.querySelector('.button');
-            
                 seats.forEach(seat => {
                   seat.addEventListener('click', function (e) {
                     if (seat.classList.contains('not-available')){
@@ -330,8 +311,6 @@ navLink.forEach(n => n.addEventListener('click', linkAction))
                   }else{
                     console.log('ajax requested.')
                     console.log(selectedSeatNumbersBackend)
-
-                    
                     $.ajax({
                       type: 'POST',
                       url: '/backend/details/',  // Replace with your actual URL
