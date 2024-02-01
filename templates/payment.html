@@ -223,7 +223,6 @@ const passenger_id= parseInt(document.getElementById("passenger-id").innerText)
 
     var checkout = new KhaltiCheckout(config);
     var btn = document.getElementById("payment-button");
-    var btn = document.getElementById("payment-button");
 btn.onclick = function () {
     // minimum transaction amount must be 10, i.e 1000 in paisa.
     const amountInPaisa = parseInt(document.getElementById("total_price").innerText);
