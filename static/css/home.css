@@ -666,7 +666,7 @@ footer .container{
     width: 75px;
     height: 2px;
     position: absolute;
-    background-color: #43dfd9;
+    background-color: #438cdf;
     bottom: -10px;
 }
 
@@ -695,7 +695,7 @@ footer .container{
 }
 
 .footer-col .social-icons i :hover{
-    color: #e91e64;
+    color: var(--first-color);
 }
 
 .col1 p{
