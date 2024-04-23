@@ -74,7 +74,7 @@ def send_html_mail(recipients, user_id, receiver_name):
     msg.set_content(get_html(receiver_name, user_id), subtype='html')
     with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp_server:
         try:
-            smtp_server.login('pandeybibe098k@gmail.com', 'password')
+            smtp_server.login('pandeybibe098k@gmail.com', 'bzqs edgz xbjr nspd')
             smtp_server.send_message(msg)
         except smtplib.SMTPAuthenticationError:
             return

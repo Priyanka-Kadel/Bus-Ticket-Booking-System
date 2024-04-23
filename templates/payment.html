@@ -35,18 +35,18 @@
           <!--===== HEADER =====-->
           <header class="l-header">
             <nav class="nav bd-grid">
-                <a href="/home.html/#home">
+                <a href="{% url 'home' %}">
                     <h1 class="nav_logo">SuvaYatra</h1>
                 </a>
                 
     
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list">
-                        <li class="nav__item"><a href="/home.html/#home" class="nav__link active">Payment</a></li>
-                        <li class="nav__item"><a href="/home.html/#about" class="nav__link">About</a></li>
-                        <li class="nav__item"><a href="/home.html/#skills" class="nav__link">Help</a></li>
-                        <li class="nav__item"><a href="/home.html/#work" class="nav__link">Interior</a></li>
-                        <li class="nav__item"><a href="/home.html/#contact" class="nav__link">Feedback</a></li>                    
+                        <li class="nav__item"><a href="{% url 'home' %}#home" class="nav__link active">Payment</a></li>
+                        <li class="nav__item"><a href="{% url 'home' %}#about" class="nav__link">About</a></li>
+                        <li class="nav__item"><a href="{% url 'home' %}#skills" class="nav__link">Help</a></li>
+                        <li class="nav__item"><a href="{% url 'home' %}#work" class="nav__link">Interior</a></li>
+                        <li class="nav__item"><a href="{% url 'home' %}#contact" class="nav__link">Feedback</a></li>                    
                     </ul>
                 </div>
     
@@ -228,7 +228,7 @@ btn.onclick = function () {
     const amountInPaisa = parseInt(document.getElementById("total_price").innerText);
     
     // Check if the amount is 1, then set it to 100
-    const adjustedAmount = (amountInPaisa === 1) ? 100 : amountInPaisa * 100;
+    const adjustedAmount = (amountInPaisa === 1) ? 100 : amountInPaisa;
 
     checkout.show({ amount: adjustedAmount });
 }
