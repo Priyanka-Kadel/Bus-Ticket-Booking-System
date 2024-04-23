@@ -16,16 +16,16 @@
     <header class="l-header">
         <nav class="nav bd-grid">
             <div>
-                <a class="nav_logo" href="#">SuvaYatra</a>
+                <a class="nav_logo" href="{% url 'home' %}">SuvaYatra</a>
             </div>
 
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
-                    <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
-                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                    <li class="nav__item"><a href="#skills" class="nav__link">Help</a></li>
-                    <li class="nav__item"><a href="#work" class="nav__link">Interior</a></li>
-                    <li class="nav__item"><a href="#contact" class="nav__link">Feedback</a></li>                    
+                    <li class="nav__item"><a href="{% url 'home' %}" class="nav__link active">Home</a></li>
+                    <li class="nav__item"><a href="{% url 'home' %}#about" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="{% url 'home' %}#skills" class="nav__link">Help</a></li>
+                    <li class="nav__item"><a href="{% url 'home' %}#work" class="nav__link">Interior</a></li>
+                    <li class="nav__item"><a href="{% url 'home' %}#contact" class="nav__link">Feedback</a></li>                    
                 </ul>
             </div>
 
